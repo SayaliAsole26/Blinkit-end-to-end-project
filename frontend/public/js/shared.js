@@ -230,6 +230,7 @@
     if (!aside || document.getElementById("sidebar-overlay")) return;
 
     aside.id = aside.id || "app-sidebar";
+    aside.classList.add("app-sidebar");
 
     const overlay = document.createElement("div");
     overlay.id = "sidebar-overlay";

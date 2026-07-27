@@ -1,31 +1,35 @@
 /**
- * Mobile & tablet layout — desktop (≥1024px) is unchanged.
- * Sidebar becomes off-canvas; content uses full width with safe padding.
+ * Mobile & tablet — desktop (≥1024px) unchanged.
+ * Works with Tailwind ml-0 lg:ml-72 on main and body.sidebar-open on aside.
  */
 @media (max-width: 1023px) {
   html {
     -webkit-text-size-adjust: 100%;
+    overflow-x: clip;
   }
 
   body {
-    overflow-x: hidden;
+    overflow-x: clip;
     max-width: 100vw;
+    position: relative;
   }
 
-  /* Off-canvas sidebar — hidden by default on mobile */
-  aside {
-    width: min(18rem, 88vw) !important;
-    z-index: 60;
-    transition: transform 0.25s ease;
-    will-change: transform;
+  /* Sidebar fully off-screen when closed */
+  aside.app-sidebar {
     transform: translateX(-100%) !important;
+    visibility: hidden;
+    pointer-events: none;
+    z-index: 60;
+    width: min(18rem, 88vw) !important;
+    transition: transform 0.25s ease, visibility 0.25s ease;
   }
 
-  body.sidebar-open aside {
+  body.sidebar-open aside.app-sidebar {
     transform: translateX(0) !important;
+    visibility: visible;
+    pointer-events: auto;
   }
 
-  /* Backdrop */
   .sidebar-overlay {
     position: fixed;
     inset: 0;
@@ -41,12 +45,11 @@
     pointer-events: auto;
   }
 
-  /* Full-width main + headers */
   main,
-  header[class*="ml-72"] {
-    margin-left: 0 !important;
-    width: 100%;
-    max-width: 100%;
+  header {
+    width: 100% !important;
+    max-width: 100vw !important;
+    min-width: 0;
   }
 
   main {
@@ -89,7 +92,6 @@
     flex: 1;
   }
 
-  /* Mobile top bar for pages without a sticky header */
   .mobile-top-bar {
     display: flex;
     align-items: center;
@@ -121,7 +123,13 @@
     transform: scale(0.96);
   }
 
-  /* Tables: horizontal scroll, no layout blow-out */
+  /* Contain wide content — scroll inside containers only */
+  main > *,
+  main .max-w-container-max {
+    max-width: 100%;
+    min-width: 0;
+  }
+
   main > div:has(table),
   main .overflow-hidden:has(table),
   .overflow-x-auto {
@@ -131,22 +139,29 @@
   }
 
   table {
-    min-width: 36rem;
+    min-width: 0;
+    width: 100%;
   }
 
   table th,
   table td {
-    white-space: nowrap;
+    padding: 0.625rem 0.75rem !important;
+    font-size: 12px;
   }
 
   table td:first-child,
   table th:first-child {
     white-space: normal;
-    min-width: 8rem;
-    max-width: 14rem;
+    word-break: break-word;
+    min-width: 0;
+    max-width: 10rem;
   }
 
-  /* Data collection banner */
+  table th:not(:first-child),
+  table td:not(:first-child) {
+    white-space: nowrap;
+  }
+
   #data-collection-banner {
     flex-direction: column !important;
     align-items: flex-start !important;
@@ -159,14 +174,13 @@
     word-break: break-word;
   }
 
-  /* KPI & chart cards */
   .card-shadow,
   [class*="rounded-lg"],
   [class*="rounded-xl"] {
     max-width: 100%;
+    min-width: 0;
   }
 
-  /* Insight Explorer filters — horizontal scroll chips */
   #rq-chips {
     display: flex;
     flex-wrap: nowrap !important;
@@ -186,6 +200,10 @@
     flex-shrink: 0;
   }
 
+  #insights-grid {
+    grid-template-columns: 1fr !important;
+  }
+
   section .flex.flex-col.gap-4 > .flex.items-center.gap-2 {
     flex-direction: column;
     align-items: stretch !important;
@@ -203,8 +221,6 @@
   section .flex.flex-col.gap-4 .h-6.w-\[1px\] {
     display: none;
   }
-    grid-template-columns: 1fr !important;
-  }
 
   #insights-pagination {
     flex-direction: column;
@@ -217,44 +233,28 @@
     flex-wrap: wrap;
   }
 
-  section .flex-wrap select,
-  section .flex-wrap .flex.items-center {
-    width: 100%;
-    max-width: 100%;
-  }
-
-  section .flex-wrap .ml-auto {
-    margin-left: 0 !important;
-    width: 100%;
-  }
-
-  /* Barrier charts */
   .chart-scroll {
-    max-height: 18rem;
+    max-height: 16rem;
   }
 
   .chart-panel {
     min-width: 0;
   }
 
-  /* Evidence drill-down */
   body.overflow-hidden {
-    overflow-x: hidden !important;
+    overflow-x: clip !important;
     overflow-y: auto !important;
   }
 
   main[class*="h-[calc"] {
     height: auto !important;
-    min-height: calc(100vh - 4rem);
     min-height: calc(100dvh - 4rem);
   }
 
-  /* Validation metric grid */
   #validation-metrics {
     grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
   }
 
-  /* Competitor / page titles */
   main > h2.font-headline-lg {
     font-size: 1.375rem !important;
     line-height: 1.75rem !important;
@@ -265,26 +265,20 @@
     margin-bottom: 1.25rem !important;
   }
 
-  /* Top 5 insights table header row */
   .px-6.py-4.border-b.flex {
     flex-wrap: wrap;
     gap: 0.5rem;
+  }
+
+  /* Funnel dots shrink on mobile */
+  .w-8.h-2.rounded-full {
+    width: 1.25rem !important;
   }
 }
 
 @media (max-width: 639px) {
   #validation-metrics {
     grid-template-columns: 1fr !important;
-  }
-
-  table {
-    min-width: 32rem;
-  }
-
-  table th,
-  table td {
-    padding-left: 0.75rem !important;
-    padding-right: 0.75rem !important;
   }
 }
 
@@ -293,5 +287,11 @@
   .mobile-top-bar,
   .sidebar-overlay {
     display: none !important;
+  }
+
+  aside.app-sidebar {
+    transform: none !important;
+    visibility: visible !important;
+    pointer-events: auto !important;
   }
 }

@@ -4,7 +4,7 @@
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <link href="/css/responsive.css" rel="stylesheet"/>
-<style>@media(max-width:1023px){aside{transform:translateX(-100%)!important}body.sidebar-open aside{transform:translateX(0)!important}main,header[class*="ml-72"]{margin-left:0!important;width:100%!important;max-width:100vw!important}body{overflow-x:hidden}}</style>
+<style>@media(max-width:1023px){aside.app-sidebar{transform:translateX(-100%)!important;visibility:hidden;pointer-events:none}body.sidebar-open aside.app-sidebar{transform:translateX(0)!important;visibility:visible;pointer-events:auto}body,html{overflow-x:clip;max-width:100vw}}</style>
 <title>Insight Explorer | Blinkit Review Analyzer</title>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
@@ -73,7 +73,7 @@
 </head>
 <body class="bg-background text-on-surface font-body-md overflow-hidden">
 <!-- Sidebar Navigation (Shared Component) -->
-<aside class="fixed left-0 top-0 h-screen w-72 bg-surface border-r border-outline-variant flex flex-col py-6 px-4 z-50">
+<aside class="app-sidebar fixed left-0 top-0 h-screen w-72 bg-surface border-r border-outline-variant flex flex-col py-6 px-4 z-50">
 <div class="flex items-center gap-3 mb-10 px-2">
 <div class="w-10 h-10 bg-primary-container rounded-lg flex items-center justify-center">
 <span class="material-symbols-outlined text-on-primary-container">analytics</span>
@@ -120,7 +120,7 @@
 </nav>
 </aside>
 <!-- Main Content Wrapper -->
-<main class="ml-72 flex flex-col h-screen">
+<main class="ml-0 lg:ml-72 flex flex-col h-screen">
 <!-- Top Bar (Shared Component Style) -->
 <header class="sticky top-0 z-40 w-full h-16 bg-surface-container-lowest border-b border-outline-variant px-gutter flex items-center">
 <h2 class="font-headline-sm text-headline-sm font-bold text-on-surface">Insight Explorer</h2>

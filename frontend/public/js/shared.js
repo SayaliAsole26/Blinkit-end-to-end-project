@@ -211,6 +211,105 @@
     });
   }
 
+  function initResponsiveLayout() {
+    if (!document.getElementById("blinkit-responsive-css")) {
+      const link = document.createElement("link");
+      link.id = "blinkit-responsive-css";
+      link.rel = "stylesheet";
+      link.href = "/css/responsive.css";
+      document.head.appendChild(link);
+    }
+
+    const aside = document.querySelector("aside");
+    if (!aside || document.getElementById("sidebar-overlay")) return;
+
+    aside.id = aside.id || "app-sidebar";
+
+    const overlay = document.createElement("div");
+    overlay.id = "sidebar-overlay";
+    overlay.className = "sidebar-overlay";
+    overlay.setAttribute("aria-hidden", "true");
+    document.body.appendChild(overlay);
+
+    const mq = window.matchMedia("(max-width: 1023px)");
+
+    function closeSidebar() {
+      document.body.classList.remove("sidebar-open");
+      document.body.style.overflow = "";
+      overlay.setAttribute("aria-hidden", "true");
+    }
+
+    function openSidebar() {
+      if (!mq.matches) return;
+      document.body.classList.add("sidebar-open");
+      document.body.style.overflow = "hidden";
+      overlay.setAttribute("aria-hidden", "false");
+    }
+
+    function toggleSidebar() {
+      if (document.body.classList.contains("sidebar-open")) closeSidebar();
+      else openSidebar();
+    }
+
+    overlay.addEventListener("click", closeSidebar);
+
+    function attachToggle(btn) {
+      if (!btn || btn.dataset.navBound) return;
+      btn.dataset.navBound = "1";
+      btn.addEventListener("click", toggleSidebar);
+    }
+
+    document.querySelectorAll("header").forEach((header) => {
+      if (header.querySelector(".mobile-nav-toggle")) return;
+      const btn = document.createElement("button");
+      btn.type = "button";
+      btn.className = "mobile-nav-toggle";
+      btn.setAttribute("aria-label", "Open navigation menu");
+      btn.innerHTML = '<span class="material-symbols-outlined">menu</span>';
+      header.classList.add("flex", "items-center");
+      header.insertBefore(btn, header.firstChild);
+      attachToggle(btn);
+    });
+
+    if (!document.querySelector(".mobile-nav-toggle")) {
+      const main = document.querySelector("main");
+      const titleEl = document.querySelector("main h2, header h2");
+      if (main) {
+        const bar = document.createElement("div");
+        bar.className = "mobile-top-bar";
+        bar.innerHTML =
+          '<button type="button" class="mobile-nav-toggle" aria-label="Open navigation menu"><span class="material-symbols-outlined">menu</span></button>' +
+          `<span class="mobile-page-title font-headline-sm font-bold text-on-surface">${titleEl ? titleEl.textContent.trim() : "Menu"}</span>`;
+        main.insertBefore(bar, main.firstChild);
+        attachToggle(bar.querySelector(".mobile-nav-toggle"));
+      }
+    }
+
+    aside.querySelectorAll("nav a").forEach((link) => {
+      link.addEventListener("click", () => {
+        if (mq.matches) closeSidebar();
+      });
+    });
+
+    mq.addEventListener("change", (e) => {
+      if (!e.matches) closeSidebar();
+    });
+
+    window.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") closeSidebar();
+    });
+
+    window.addEventListener("resize", () => {
+      if (!mq.matches) closeSidebar();
+    });
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", initResponsiveLayout);
+  } else {
+    initResponsiveLayout();
+  }
+
   window.BlinkitUI = {
     BARRIER_LABELS,
     FUNNEL_LABELS,

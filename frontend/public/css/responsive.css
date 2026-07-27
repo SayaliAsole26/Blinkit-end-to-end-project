@@ -1,0 +1,265 @@
+/**
+ * Mobile & tablet layout — desktop (≥1024px) is unchanged.
+ * Sidebar becomes off-canvas; content uses full width with safe padding.
+ */
+@media (max-width: 1023px) {
+  html {
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    overflow-x: hidden;
+    max-width: 100vw;
+  }
+
+  /* Off-canvas sidebar */
+  aside {
+    width: min(18rem, 88vw);
+    z-index: 60;
+    transition: transform 0.25s ease;
+    will-change: transform;
+  }
+
+  body:not(.sidebar-open) aside {
+    transform: translateX(-100%);
+  }
+
+  body.sidebar-open aside {
+    transform: translateX(0);
+  }
+
+  /* Backdrop */
+  .sidebar-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(26, 28, 28, 0.45);
+    z-index: 55;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.25s ease;
+  }
+
+  body.sidebar-open .sidebar-overlay {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  /* Full-width main + headers */
+  main,
+  header[class*="ml-72"] {
+    margin-left: 0 !important;
+    width: 100%;
+    max-width: 100%;
+  }
+
+  main {
+    min-height: 100vh;
+    min-height: 100dvh;
+  }
+
+  main.h-screen,
+  main[class*="h-screen"] {
+    height: auto;
+    min-height: 100vh;
+    min-height: 100dvh;
+  }
+
+  main.p-8,
+  main[class*="p-8"],
+  main .p-8,
+  main .p-gutter,
+  main [class*="p-gutter"] {
+    padding: 1rem !important;
+  }
+
+  header {
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+    min-height: 3.5rem;
+    height: auto;
+    flex-wrap: nowrap;
+    gap: 0.5rem;
+  }
+
+  header h2,
+  .mobile-page-title {
+    font-size: 1rem !important;
+    line-height: 1.4 !important;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    min-width: 0;
+    flex: 1;
+  }
+
+  /* Mobile top bar for pages without a sticky header */
+  .mobile-top-bar {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    position: sticky;
+    top: 0;
+    z-index: 40;
+    margin: -1rem -1rem 1rem;
+    padding: 0.75rem 1rem;
+    background: #ffffff;
+    border-bottom: 1px solid #cec6ad;
+  }
+
+  .mobile-nav-toggle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 0.5rem;
+    flex-shrink: 0;
+    background: #f3f3f3;
+    border: 1px solid #cec6ad;
+    color: #1a1c1c;
+    cursor: pointer;
+  }
+
+  .mobile-nav-toggle:active {
+    transform: scale(0.96);
+  }
+
+  /* Tables: horizontal scroll, no layout blow-out */
+  main > div:has(table),
+  main .overflow-hidden:has(table),
+  .overflow-x-auto {
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch;
+    max-width: 100%;
+  }
+
+  table {
+    min-width: 36rem;
+  }
+
+  table th,
+  table td {
+    white-space: nowrap;
+  }
+
+  table td:first-child,
+  table th:first-child {
+    white-space: normal;
+    min-width: 8rem;
+    max-width: 14rem;
+  }
+
+  /* Data collection banner */
+  #data-collection-banner {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 0.5rem;
+  }
+
+  #data-collection-banner p {
+    font-size: 13px;
+    line-height: 1.45;
+    word-break: break-word;
+  }
+
+  /* KPI & chart cards */
+  .card-shadow,
+  [class*="rounded-lg"],
+  [class*="rounded-xl"] {
+    max-width: 100%;
+  }
+
+  /* Insight Explorer filters */
+  #insights-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  #insights-pagination {
+    flex-direction: column;
+    align-items: stretch !important;
+    gap: 0.75rem;
+  }
+
+  #insights-pagination [data-page-controls] {
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  section .flex-wrap select,
+  section .flex-wrap .flex.items-center {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  section .flex-wrap .ml-auto {
+    margin-left: 0 !important;
+    width: 100%;
+  }
+
+  /* Barrier charts */
+  .chart-scroll {
+    max-height: 18rem;
+  }
+
+  .chart-panel {
+    min-width: 0;
+  }
+
+  /* Evidence drill-down */
+  body.overflow-hidden {
+    overflow-x: hidden !important;
+    overflow-y: auto !important;
+  }
+
+  main[class*="h-[calc"] {
+    height: auto !important;
+    min-height: calc(100vh - 4rem);
+    min-height: calc(100dvh - 4rem);
+  }
+
+  /* Validation metric grid */
+  #validation-metrics {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+
+  /* Competitor / page titles */
+  main > h2.font-headline-lg {
+    font-size: 1.375rem !important;
+    line-height: 1.75rem !important;
+  }
+
+  main > p.text-secondary {
+    font-size: 13px;
+    margin-bottom: 1.25rem !important;
+  }
+
+  /* Top 5 insights table header row */
+  .px-6.py-4.border-b.flex {
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+}
+
+@media (max-width: 639px) {
+  #validation-metrics {
+    grid-template-columns: 1fr !important;
+  }
+
+  table {
+    min-width: 32rem;
+  }
+
+  table th,
+  table td {
+    padding-left: 0.75rem !important;
+    padding-right: 0.75rem !important;
+  }
+}
+
+@media (min-width: 1024px) {
+  .mobile-nav-toggle,
+  .mobile-top-bar,
+  .sidebar-overlay {
+    display: none !important;
+  }
+}

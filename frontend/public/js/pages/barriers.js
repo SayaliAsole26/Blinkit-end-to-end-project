@@ -1,6 +1,7 @@
 /** Cognitive Barrier Chart — GET /api/charts/barriers */
 (function () {
   const UI = window.BlinkitUI;
+  const MAX_ROWS = 5;
 
   const BARRIER_COLORS = {
     AWARENESS_DEFICIT: "#FFE141",
@@ -24,7 +25,7 @@
     household: "Household",
     general: "General",
     all_categories: "Overall Corpus",
-    other: "Other Categories",
+    other: "Other",
   };
 
   const CATEGORY_KEYWORDS = [
@@ -43,12 +44,10 @@
     ["household", "household"],
   ];
 
-  let chartData = null;
-
   function formatCategory(id) {
     if (CATEGORY_LABELS[id]) return CATEGORY_LABELS[id];
     const pretty = id.replace(/_/g, " ").replace(/\b\w/g, (c) => c.toUpperCase());
-    return pretty.length > 28 ? `${pretty.slice(0, 26)}…` : pretty;
+    return pretty.length > 22 ? `${pretty.slice(0, 20)}…` : pretty;
   }
 
   function inferCategories(card) {
@@ -63,7 +62,14 @@
     return found.length ? found : ["general"];
   }
 
-  function normalizeEntries(byCategory, categoryCounts) {
+  function normalizeCompetitorEntity(entity) {
+    return String(entity || "Unknown")
+      .split(/,\s*/)
+      .map((part) => part.trim())
+      .filter(Boolean);
+  }
+
+  function normalizeCategoryEntries(byCategory, categoryCounts) {
     const entries = Object.entries(byCategory || {}).map(([category, split]) => ({
       category,
       split,
@@ -76,11 +82,10 @@
     }
 
     entries.sort((a, b) => b.insightCount - a.insightCount || b.weight - a.weight);
-
-    const top = entries.filter((e) => e.category !== "general" && e.category !== "all_categories").slice(0, 7);
+    const top = entries.filter((e) => e.category !== "general" && e.category !== "all_categories").slice(0, MAX_ROWS);
     const rest = entries.filter((e) => !top.includes(e));
 
-    if (!rest.length) return top.length ? top : entries.slice(0, 8);
+    if (!rest.length) return top.length ? top : entries.slice(0, MAX_ROWS);
 
     const otherSplit = {};
     let otherCount = 0;
@@ -94,35 +99,23 @@
     const normalizedOther = Object.fromEntries(
       Object.entries(otherSplit).map(([k, v]) => [k, Math.round((v / otherTotal) * 10000) / 10000])
     );
-
     if (otherCount > 0) {
       top.push({ category: "other", split: normalizedOther, insightCount: otherCount, weight: 1 });
     }
-    return top;
+    return top.slice(0, MAX_ROWS);
   }
 
-  function normalizeCompetitorEntity(entity) {
-    return String(entity || "Unknown")
-      .split(/,\s*/)
-      .map((part) => part.trim())
-      .filter(Boolean);
-  }
-
-  function renderLegendInto(elId, barriers) {
-    const el = document.getElementById(elId);
+  function renderSharedLegend(barrierIds) {
+    const el = document.getElementById("barrier-legend");
     if (!el) return;
-    el.innerHTML = barriers
+    el.innerHTML = barrierIds
       .map(
-        (b) => `<div class="flex items-center gap-2 px-3 py-1.5 rounded-full bg-surface-container-low border border-outline-variant/30">
-          <span class="w-2.5 h-2.5 rounded-full shrink-0" style="background:${BARRIER_COLORS[b] || "#ccc"}"></span>
-          <span class="text-label-md text-on-surface-variant">${UI.barrierLabel(b)}</span>
+        (b) => `<div class="flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-white border border-outline-variant/40">
+          <span class="w-2 h-2 rounded-full shrink-0" style="background:${BARRIER_COLORS[b] || "#ccc"}"></span>
+          <span class="text-label-md text-secondary">${UI.barrierLabel(b)}</span>
         </div>`
       )
       .join("");
-  }
-
-  function renderLegend(barriers) {
-    renderLegendInto("barrier-legend", barriers);
   }
 
   function renderBarSegments(sorted, total) {
@@ -130,154 +123,85 @@
       .map(([barrier, weight]) => {
         const pct = Math.round((weight / total) * 100);
         if (pct <= 0) return "";
-        return `<div class="barrier-segment h-full shrink-0" style="width:${pct}%;min-width:${
-          pct > 0 ? "3px" : "0"
-        };background:${BARRIER_COLORS[barrier] || "#ccc"}" title="${UI.barrierLabel(barrier)}: ${pct}%"></div>`;
+        return `<div class="barrier-segment h-full shrink-0" style="width:${pct}%;min-width:${pct > 0 ? "2px" : "0"};background:${
+          BARRIER_COLORS[barrier] || "#ccc"
+        }" title="${UI.barrierLabel(barrier)}: ${pct}%"></div>`;
       })
       .join("");
   }
 
-  function renderSegmentChips(sorted, total) {
-    return sorted
-      .map(([barrier, weight]) => {
-        const pct = Math.round((weight / total) * 100);
-        if (pct <= 0) return "";
-        const color = BARRIER_COLORS[barrier] || "#ccc";
-        return `<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[11px] font-semibold border border-outline-variant/20"
-          style="background:${color}22;color:#1a1c1c">
-          <span class="w-2 h-2 rounded-full" style="background:${color}"></span>
-          ${UI.barrierLabel(barrier)} ${pct}%
-        </span>`;
-      })
-      .join("");
-  }
-
-  function renderSummary(entries, raw) {
-    const el = document.getElementById("barrier-summary");
-    if (!el) return;
-
-    const totalInsights = entries.reduce((s, e) => s + e.insightCount, 0);
-    const corpus = raw || {};
-    const corpusTotal = Object.values(corpus).reduce((s, v) => s + v, 0) || 1;
-    const topBarrier = Object.entries(corpus).sort((a, b) => b[1] - a[1])[0];
-    const topLabel = topBarrier ? UI.barrierLabel(topBarrier[0]) : "—";
-    const topPct = topBarrier ? Math.round((topBarrier[1] / corpusTotal) * 100) : 0;
-
-    el.innerHTML = `
-      <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-6">
-        <div class="rounded-xl border border-outline-variant/40 bg-surface-container-low p-4">
-          <p class="text-label-md text-secondary uppercase tracking-wide mb-1">Categories</p>
-          <p class="font-headline-sm font-bold">${entries.length}</p>
-        </div>
-        <div class="rounded-xl border border-outline-variant/40 bg-surface-container-low p-4">
-          <p class="text-label-md text-secondary uppercase tracking-wide mb-1">Insights mapped</p>
-          <p class="font-headline-sm font-bold">${UI.formatNumber(totalInsights)}</p>
-        </div>
-        <div class="rounded-xl border border-outline-variant/40 bg-surface-container-low p-4">
-          <p class="text-label-md text-secondary uppercase tracking-wide mb-1">Top barrier</p>
-          <p class="font-headline-sm font-bold">${topLabel} <span class="text-secondary font-normal text-body-md">(${topPct}%)</span></p>
-        </div>
-      </div>`;
-  }
-
-  function renderOverallBar(raw) {
-    const el = document.getElementById("barrier-overall");
-    if (!el || !raw || !Object.keys(raw).length) {
-      if (el) el.innerHTML = "";
-      return;
-    }
-
-    const sorted = Object.entries(raw).sort((a, b) => b[1] - a[1]);
-    const total = sorted.reduce((s, [, v]) => s + v, 0) || 1;
-
-    el.innerHTML = `
-      <div class="mb-6 p-4 rounded-xl bg-surface-container-low border border-outline-variant/30">
-        <div class="flex justify-between items-center mb-3">
-          <span class="font-bold text-on-surface">Overall Corpus</span>
-          <span class="text-label-md text-secondary">${UI.formatNumber(total)} weighted insights</span>
-        </div>
-        <div class="h-10 w-full flex rounded-full overflow-hidden bg-white border border-outline-variant/30 shadow-inner">${renderBarSegments(
-          sorted,
-          total
-        )}</div>
-        <div class="flex flex-wrap gap-2 mt-3">${renderSegmentChips(sorted, total)}</div>
-      </div>`;
-  }
-
-  function renderSplitRows(containerId, entries, options = {}) {
+  function renderCompactRows(containerId, entries, emptyMessage) {
     const container = document.getElementById(containerId);
     if (!container) return;
 
-    const { emptyMessage = "No data available.", legendId = null } = options;
-
     if (!entries.length) {
-      container.innerHTML = `<p class="text-secondary text-body-md py-6 text-center">${emptyMessage}</p>`;
-      if (legendId) renderLegendInto(legendId, []);
+      container.innerHTML = `<p class="text-secondary text-body-md py-8 text-center">${emptyMessage}</p>`;
       return;
     }
 
-    const allBarriers = [...new Set(entries.flatMap((e) => Object.keys(e.split)))];
-    if (legendId) renderLegendInto(legendId, allBarriers);
-
     container.innerHTML = entries
-      .map(({ label, subtitle, split }) => {
+      .map(({ label, meta, split }) => {
         const sorted = Object.entries(split).sort((a, b) => b[1] - a[1]);
         const total = sorted.reduce((s, [, v]) => s + v, 0) || 1;
         const dominant = sorted[0];
         const dominantPct = dominant ? Math.round((dominant[1] / total) * 100) : 0;
 
-        return `<article class="barrier-row p-4 rounded-xl border border-outline-variant/30 bg-white hover:shadow-sm transition-shadow">
-          <div class="flex flex-wrap justify-between items-start gap-2 mb-3">
-            <div>
-              <h4 class="font-bold text-on-surface">${label}</h4>
-              ${subtitle ? `<p class="text-label-md text-secondary mt-0.5">${subtitle}</p>` : ""}
-            </div>
-            <span class="px-2.5 py-1 rounded-full text-label-md font-semibold bg-primary-container/40 text-on-primary-container">
-              ${UI.barrierLabel(dominant?.[0])} · ${dominantPct}%
-            </span>
+        return `<div class="py-2.5 px-3 rounded-lg bg-surface-container-low/60 border border-outline-variant/20">
+          <div class="flex justify-between items-center gap-2 mb-2">
+            <span class="font-semibold text-body-md truncate">${label}</span>
+            <span class="text-label-md text-secondary whitespace-nowrap shrink-0">${meta || `${dominantPct}%`}</span>
           </div>
-          <div class="h-10 w-full flex rounded-full overflow-hidden bg-surface-container-low border border-outline-variant/30">${renderBarSegments(
+          <div class="h-7 w-full flex rounded-full overflow-hidden bg-white border border-outline-variant/20">${renderBarSegments(
             sorted,
             total
           )}</div>
-          <div class="flex flex-wrap gap-2 mt-3">${renderSegmentChips(sorted, total)}</div>
-        </article>`;
+        </div>`;
       })
       .join("");
   }
 
-  function renderCategoryRows(byCategory, categoryCounts, raw) {
-    const container = document.getElementById("barrier-chart-rows");
-    if (!container) return;
+  function renderSummary(categoryEntries, competitorEntries, raw) {
+    const el = document.getElementById("barrier-summary");
+    if (!el) return;
 
-    const entries = normalizeEntries(byCategory, categoryCounts);
+    const corpus = raw || {};
+    const corpusTotal = Object.values(corpus).reduce((s, v) => s + v, 0) || 1;
+    const topBarrier = Object.entries(corpus).sort((a, b) => b[1] - a[1])[0];
+    const topLabel = topBarrier ? UI.barrierLabel(topBarrier[0]) : "—";
+    const topPct = topBarrier ? Math.round((topBarrier[1] / corpusTotal) * 100) : 0;
+    const catInsights = categoryEntries.reduce((s, e) => s + e.insightCount, 0);
 
-    if (!entries.length) {
-      container.innerHTML = `<p class="text-secondary text-body-md py-8 text-center">No barrier data available.</p>`;
-      renderSummary([], raw);
-      renderOverallBar(raw);
-      renderLegend([]);
-      return;
+    el.innerHTML = `<div class="flex flex-wrap gap-x-6 gap-y-1 text-body-md text-secondary">
+      <span><strong class="text-on-surface">${categoryEntries.length}</strong> categories</span>
+      <span><strong class="text-on-surface">${competitorEntries.length}</strong> competitors</span>
+      <span><strong class="text-on-surface">${UI.formatNumber(catInsights)}</strong> insights</span>
+      <span>Top barrier: <strong class="text-on-surface">${topLabel}</strong> (${topPct}%)</span>
+    </div>`;
+  }
+
+  function buildByCategoryFromInsights(items) {
+    const byCategory = {};
+    const categoryCounts = {};
+
+    for (const card of items || []) {
+      const split = card.cognitive_barrier_split || {};
+      if (!Object.keys(split).length) continue;
+      for (const cat of inferCategories(card)) {
+        categoryCounts[cat] = (categoryCounts[cat] || 0) + 1;
+        const bucket = byCategory[cat] || (byCategory[cat] = {});
+        for (const [barrier, weight] of Object.entries(split)) {
+          bucket[barrier] = (bucket[barrier] || 0) + Number(weight);
+        }
+      }
     }
 
-    renderLegend([...new Set(entries.flatMap((e) => Object.keys(e.split)))]);
-    renderSummary(entries, raw);
-    if (entries.length !== 1 || entries[0].category !== "all_categories") {
-      renderOverallBar(raw);
-    } else {
-      const overallEl = document.getElementById("barrier-overall");
-      if (overallEl) overallEl.innerHTML = "";
+    for (const cat of Object.keys(byCategory)) {
+      const total = Object.values(byCategory[cat]).reduce((s, v) => s + v, 0) || 1;
+      byCategory[cat] = Object.fromEntries(
+        Object.entries(byCategory[cat]).map(([k, v]) => [k, Math.round((v / total) * 10000) / 10000])
+      );
     }
-
-    renderSplitRows(
-      "barrier-chart-rows",
-      entries.map(({ category, split, insightCount }) => ({
-        label: formatCategory(category),
-        subtitle: `${UI.formatNumber(insightCount)} insight${insightCount === 1 ? "" : "s"}`,
-        split,
-      })),
-      { emptyMessage: "No barrier data available." }
-    );
+    return { byCategory, categoryCounts };
   }
 
   function buildCompetitorBarrierFromInsights(items) {
@@ -303,60 +227,12 @@
     }
 
     for (const entity of Object.keys(byCompetitor)) {
-      const barriers = byCompetitor[entity];
-      const total = Object.values(barriers).reduce((s, v) => s + v, 0) || 1;
+      const total = Object.values(byCompetitor[entity]).reduce((s, v) => s + v, 0) || 1;
       byCompetitor[entity] = Object.fromEntries(
-        Object.entries(barriers).map(([k, v]) => [k, Math.round((v / total) * 10000) / 10000])
+        Object.entries(byCompetitor[entity]).map(([k, v]) => [k, Math.round((v / total) * 10000) / 10000])
       );
     }
-
     return { byCompetitor, mentionCounts };
-  }
-
-  function renderCompetitorBarrierChart(items) {
-    const { byCompetitor, mentionCounts } = buildCompetitorBarrierFromInsights(items);
-    const entries = Object.entries(byCompetitor)
-      .map(([entity, split]) => ({
-        label: entity,
-        subtitle: `${UI.formatNumber(Math.round(mentionCounts[entity] || 0))} comparison mention${Math.round(mentionCounts[entity] || 0) === 1 ? "" : "s"}`,
-        split,
-        mentions: mentionCounts[entity] || 0,
-      }))
-      .sort((a, b) => b.mentions - a.mentions)
-      .slice(0, 8);
-
-    renderSplitRows("competitor-barrier-rows", entries, {
-      emptyMessage: "No competitor comparison insights in corpus.",
-      legendId: "competitor-barrier-legend",
-    });
-  }
-
-  function buildByCategoryFromInsights(items) {
-    const byCategory = {};
-    const categoryCounts = {};
-
-    for (const card of items || []) {
-      const split = card.cognitive_barrier_split || {};
-      if (!Object.keys(split).length) continue;
-      const cats = inferCategories(card);
-      for (const cat of cats) {
-        categoryCounts[cat] = (categoryCounts[cat] || 0) + 1;
-        const bucket = byCategory[cat] || (byCategory[cat] = {});
-        for (const [barrier, weight] of Object.entries(split)) {
-          bucket[barrier] = (bucket[barrier] || 0) + Number(weight);
-        }
-      }
-    }
-
-    for (const cat of Object.keys(byCategory)) {
-      const barriers = byCategory[cat];
-      const total = Object.values(barriers).reduce((s, v) => s + v, 0) || 1;
-      byCategory[cat] = Object.fromEntries(
-        Object.entries(barriers).map(([k, v]) => [k, Math.round((v / total) * 10000) / 10000])
-      );
-    }
-
-    return { byCategory, categoryCounts };
   }
 
   function buildByCategoryFromRaw(raw) {
@@ -365,10 +241,7 @@
     const split = Object.fromEntries(
       Object.entries(raw).map(([barrier, count]) => [barrier, Math.round((count / total) * 10000) / 10000])
     );
-    return {
-      byCategory: { all_categories: split },
-      categoryCounts: { all_categories: total },
-    };
+    return { byCategory: { all_categories: split }, categoryCounts: { all_categories: total } };
   }
 
   async function fetchAllInsights() {
@@ -403,22 +276,56 @@
           categoryCounts = fromRaw.categoryCounts;
         }
       }
-    } else {
-      categoryCounts = Object.fromEntries(
-        Object.keys(byCategory).map((cat) => [cat, Math.round((byCategory[cat] ? Object.values(byCategory[cat]).reduce((a, b) => a + b, 0) : 0) * 10)])
-      );
     }
 
     if (!topInsight) {
       try {
-        const overview = await BlinkitAPI.overview();
-        topInsight = overview.top_insights?.[0] || null;
+        topInsight = (await BlinkitAPI.overview()).top_insights?.[0] || null;
       } catch (_) {
         topInsight = null;
       }
     }
 
     return { ...initial, by_category: byCategory, category_counts: categoryCounts, top_insight: topInsight };
+  }
+
+  function renderCharts(byCategory, categoryCounts, items, raw) {
+    const categoryEntries = normalizeCategoryEntries(byCategory, categoryCounts);
+    const { byCompetitor, mentionCounts } = buildCompetitorBarrierFromInsights(items);
+    const competitorEntries = Object.entries(byCompetitor)
+      .map(([entity, split]) => ({ entity, split, mentions: mentionCounts[entity] || 0 }))
+      .sort((a, b) => b.mentions - a.mentions)
+      .slice(0, MAX_ROWS);
+
+    const allBarriers = [
+      ...new Set([
+        ...categoryEntries.flatMap((e) => Object.keys(e.split)),
+        ...competitorEntries.flatMap((e) => Object.keys(e.split)),
+        ...Object.keys(raw || {}),
+      ]),
+    ];
+    renderSharedLegend(allBarriers);
+    renderSummary(categoryEntries, competitorEntries, raw);
+
+    renderCompactRows(
+      "barrier-chart-rows",
+      categoryEntries.map(({ category, split, insightCount }) => ({
+        label: formatCategory(category),
+        meta: `${insightCount} insights`,
+        split,
+      })),
+      "No category barrier data."
+    );
+
+    renderCompactRows(
+      "competitor-barrier-rows",
+      competitorEntries.map(({ entity, split, mentions }) => ({
+        label: entity,
+        meta: `${UI.formatNumber(Math.round(mentions))} mentions`,
+        split,
+      })),
+      "No competitor comparison data."
+    );
   }
 
   function renderTopInsight(insight) {
@@ -430,16 +337,16 @@
     }
     const barrier = UI.dominantBarrier(insight.cognitive_barrier_split);
     el.innerHTML = `
-      <div class="flex items-center justify-between mb-4">
+      <div class="flex flex-wrap items-center justify-between gap-2 mb-3">
         <span class="bg-primary-container text-on-primary-container px-3 py-1 rounded-full text-label-md font-bold uppercase">Top Insight</span>
         ${UI.confidenceCardBadge(insight.confidence_tier)}
       </div>
-      <p class="font-headline-sm mb-3 leading-snug">${insight.statement}</p>
-      <p class="text-on-surface-variant font-body-md mb-4">
-        Dominant barrier: <strong>${barrier.label}</strong> · ${UI.formatNumber(insight.evidence_count)} evidence mentions
+      <p class="font-headline-sm mb-2 leading-snug line-clamp-3">${insight.statement}</p>
+      <p class="text-on-surface-variant text-body-md mb-3">
+        <strong>${barrier.label}</strong> · ${UI.formatNumber(insight.evidence_count)} evidence mentions
       </p>
-      <a href="/evidence.html?id=${insight.insight_id}" class="w-full py-3 bg-primary text-white rounded-lg font-bold hover:brightness-110 transition-all flex items-center justify-center gap-2">
-        View Evidence <span class="material-symbols-outlined text-[18px]">open_in_new</span>
+      <a href="/evidence.html?id=${insight.insight_id}" class="inline-flex items-center gap-1 text-primary font-bold text-label-md hover:underline">
+        View Evidence <span class="material-symbols-outlined text-[16px]">open_in_new</span>
       </a>`;
   }
 
@@ -449,14 +356,14 @@
     el.innerHTML = Object.entries(UI.BARRIER_LABELS)
       .map(
         ([id, label], i) => `<div class="group" ${i === 0 ? 'data-open="true"' : ""}>
-          <button type="button" class="w-full p-4 flex items-center justify-between text-left hover:bg-surface-container-low definition-toggle">
-            <div class="flex items-center gap-3">
-              <div class="w-2 h-2 rounded-full" style="background:${BARRIER_COLORS[id] || "#ccc"}"></div>
-              <span class="font-bold">${label}</span>
+          <button type="button" class="w-full px-3 py-2.5 flex items-center justify-between text-left hover:bg-surface-container-low definition-toggle">
+            <div class="flex items-center gap-2 min-w-0">
+              <div class="w-2 h-2 rounded-full shrink-0" style="background:${BARRIER_COLORS[id] || "#ccc"}"></div>
+              <span class="font-semibold text-body-md truncate">${label}</span>
             </div>
-            <span class="material-symbols-outlined definition-chevron transition-transform">expand_more</span>
+            <span class="material-symbols-outlined definition-chevron text-[18px] shrink-0">expand_more</span>
           </button>
-          <div class="px-4 pb-4 text-secondary text-body-md definition-content">${label} — cognitive friction identified in cross-category shopping feedback (not sentiment).</div>
+          <div class="px-3 pb-2 text-secondary text-label-md definition-content">${label} — cognitive friction in cross-category feedback.</div>
         </div>`
       )
       .join("");
@@ -477,27 +384,20 @@
     });
   }
 
-  async function loadChart() {
-    const initial = await BlinkitAPI.barriers("");
-    let items = [];
-    try {
-      items = await fetchAllInsights();
-    } catch (_) {
-      items = [];
-    }
-    chartData = await resolveChartData(initial, items);
-    renderCategoryRows(chartData.by_category, chartData.category_counts || {}, chartData.raw);
-    renderCompetitorBarrierChart(items);
-    renderTopInsight(chartData.top_insight);
-  }
-
   document.addEventListener("DOMContentLoaded", async () => {
     UI.wireSidebar("barriers");
     renderDefinitions();
 
     const main = document.querySelector("main");
     try {
-      await loadChart();
+      const initial = await BlinkitAPI.barriers("");
+      let items = [];
+      try {
+        items = await fetchAllInsights();
+      } catch (_) {}
+      const chartData = await resolveChartData(initial, items);
+      renderCharts(chartData.by_category, chartData.category_counts || {}, items, chartData.raw);
+      renderTopInsight(chartData.top_insight);
     } catch (err) {
       UI.showError(main, err.message);
     }

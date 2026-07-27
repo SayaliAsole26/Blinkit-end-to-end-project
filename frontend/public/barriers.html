@@ -12,8 +12,12 @@ body{font-family:Inter,sans-serif}
 .group[data-open=true] .definition-content{display:block}
 .group[data-open=true] .definition-chevron{transform:rotate(180deg)}
 .definition-content{display:none}
-.barrier-segment{transition:filter .15s ease, transform .15s ease}
-.barrier-segment:hover{filter:brightness(.92);transform:scaleY(1.05)}
+.barrier-segment{transition:filter .15s ease}
+.barrier-segment:hover{filter:brightness(.92)}
+.chart-panel{display:flex;flex-direction:column;min-height:0}
+.chart-scroll{max-height:420px;overflow-y:auto}
+.chart-scroll::-webkit-scrollbar{width:4px}
+.chart-scroll::-webkit-scrollbar-thumb{background:#ddd;border-radius:4px}
 </style>
 </head>
 <body class="bg-background text-on-surface min-h-screen">
@@ -30,37 +34,39 @@ body{font-family:Inter,sans-serif}
 <a class="flex items-center gap-3 px-3 py-2 text-on-surface-variant hover:bg-surface-container-high" href="#"><span class="material-symbols-outlined">verified_user</span><span>Validation</span></a>
 </nav>
 </aside>
-<main class="ml-72 p-8 min-h-screen">
-<div class="flex flex-col md:flex-row md:items-end justify-between mb-8 gap-4">
+<main class="ml-72 p-8 min-h-screen max-w-[1400px]">
+<div class="flex flex-col sm:flex-row sm:items-end justify-between gap-3 mb-6">
 <div>
 <h2 class="font-headline-lg mb-1">Cognitive Barrier Chart</h2>
-<p class="text-secondary text-body-md">Cognitive barriers by category and competitor — not sentiment scores</p>
+<p class="text-secondary text-body-md">Category and competitor barrier splits — hover bars for details</p>
 </div>
-<a href="/competitors.html" class="text-primary text-label-md font-semibold hover:underline shrink-0">Competitor mention table →</a>
+<a href="/competitors.html" class="text-primary text-label-md font-semibold hover:underline shrink-0">Competitor table →</a>
 </div>
-<div class="grid grid-cols-12 gap-6">
-<div class="col-span-12 lg:col-span-8 bg-white rounded-xl border border-outline-variant shadow-sm p-6">
-<div class="mb-2">
-<h3 class="font-headline-sm mb-1">Category × Barrier Split</h3>
-<p class="text-body-md text-secondary mb-4">Barrier mix within each shopping category — percentages sum to 100% per row.</p>
-<div class="flex gap-2 flex-wrap pb-4 border-b border-outline-variant/40" id="barrier-legend"></div>
+<div id="barrier-summary" class="mb-4"></div>
+<div class="flex flex-wrap gap-2 mb-6 pb-4 border-b border-outline-variant/40" id="barrier-legend"></div>
+<div class="grid grid-cols-1 xl:grid-cols-2 gap-6 items-start">
+<!-- Chart 1: Category -->
+<div class="chart-panel bg-white rounded-xl border border-outline-variant shadow-sm p-5">
+<div class="mb-4">
+<h3 class="font-headline-sm">Category × Barrier</h3>
+<p class="text-label-md text-secondary mt-0.5">Barrier mix per shopping category</p>
 </div>
-<div id="barrier-summary"></div>
-<div id="barrier-overall"></div>
-<div id="barrier-chart-rows" class="space-y-4">Loading…</div>
-<div class="mt-10 pt-8 border-t border-outline-variant/40">
-<h3 class="font-headline-sm mb-1">Competitor × Barrier Split</h3>
-<p class="text-body-md text-secondary mb-4">When users compare Blinkit to a rival, which cognitive barriers drive the switch?</p>
-<div class="flex gap-2 flex-wrap pb-4 border-b border-outline-variant/40" id="competitor-barrier-legend"></div>
-<div id="competitor-barrier-rows" class="space-y-4">Loading…</div>
+<div id="barrier-chart-rows" class="chart-scroll space-y-3">Loading…</div>
+</div>
+<!-- Chart 2: Competitor -->
+<div class="chart-panel bg-white rounded-xl border border-outline-variant shadow-sm p-5">
+<div class="mb-4">
+<h3 class="font-headline-sm">Competitor × Barrier</h3>
+<p class="text-label-md text-secondary mt-0.5">Barriers when users compare Blinkit to rivals</p>
+</div>
+<div id="competitor-barrier-rows" class="chart-scroll space-y-3">Loading…</div>
 </div>
 </div>
-<div class="col-span-12 lg:col-span-4 flex flex-col gap-6">
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-6 mt-6">
+<div id="barrier-top-insight" class="lg:col-span-2 bg-primary/5 rounded-xl border border-primary/20 p-5">Loading top insight…</div>
 <div class="bg-white rounded-xl border border-outline-variant overflow-hidden">
-<div class="p-4 border-b border-outline-variant font-headline-sm">Barrier Definitions</div>
-<div id="barrier-definitions" class="divide-y divide-outline-variant"></div>
-</div>
-<div id="barrier-top-insight" class="bg-primary/5 rounded-xl border border-primary/20 p-6">Loading top insight…</div>
+<div class="p-3 border-b border-outline-variant font-headline-sm text-body-md">Barrier Definitions</div>
+<div id="barrier-definitions" class="divide-y divide-outline-variant max-h-48 overflow-y-auto"></div>
 </div>
 </div>
 </main>

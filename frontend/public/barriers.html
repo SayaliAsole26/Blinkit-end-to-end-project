@@ -6,7 +6,14 @@
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
 <script>tailwind.config={theme:{extend:{colors:{background:"#f9f9f9",surface:"#f9f9f9","surface-container-lowest":"#ffffff","surface-container-low":"#f3f3f3","surface-container-high":"#e8e8e8","surface-container":"#eeeeee","primary-container":"#ffe141","on-primary-container":"#736300","on-surface":"#1a1c1c","on-surface-variant":"#4c4733",secondary:"#5f5e5e",primary:"#6d5e00",outline:"#7d7761","outline-variant":"#cec6ad"},spacing:{gutter:"1.5rem"},fontSize:{"headline-sm":["20px",{lineHeight:"28px",fontWeight:"600"}],"headline-lg":["30px",{lineHeight:"38px",fontWeight:"700"}],"body-md":["14px",{lineHeight:"20px"}],"label-md":["12px",{lineHeight:"16px",fontWeight:"600"}]}}}};</script>
-<style>body{font-family:Inter,sans-serif}.material-symbols-outlined{font-variation-settings:'FILL' 0,'wght' 400,'GRAD' 0,'opsz' 24}.group[data-open=true] .definition-content{display:block}.definition-content{display:none}</style>
+<style>
+body{font-family:Inter,sans-serif}
+.material-symbols-outlined{font-variation-settings:'FILL' 0,'wght' 400,'GRAD' 0,'opsz' 24}
+.group[data-open=true] .definition-content{display:block}
+.definition-content{display:none}
+.barrier-segment{transition:filter .15s ease}
+.barrier-segment:hover{filter:brightness(.95)}
+</style>
 </head>
 <body class="bg-background text-on-surface min-h-screen">
 <aside class="fixed left-0 top-0 h-screen w-72 bg-surface border-r border-outline-variant flex flex-col py-6 px-4 z-50">
@@ -31,11 +38,12 @@
 </div>
 <div class="grid grid-cols-12 gap-6">
 <div class="col-span-12 lg:col-span-8 bg-white rounded-xl border border-outline-variant p-6">
-<div class="flex items-center justify-between mb-6">
-<h3 class="font-headline-sm">Category × Barrier Split</h3>
-<div class="flex gap-4 flex-wrap" id="barrier-legend"></div>
+<div class="mb-4">
+<h3 class="font-headline-sm mb-3">Category × Barrier Split</h3>
+<div class="flex gap-3 flex-wrap pb-4 border-b border-outline-variant/40" id="barrier-legend"></div>
 </div>
-<div id="barrier-chart-rows" class="space-y-8">Loading…</div>
+<div id="barrier-chart-rows" class="space-y-5">Loading…</div>
+<p class="mt-4 pt-4 border-t border-outline-variant/40 text-label-md text-secondary">Percentages show barrier mix within each category. Hover segments for details.</p>
 </div>
 <div class="col-span-12 lg:col-span-4 flex flex-col gap-6">
 <div class="bg-white rounded-xl border border-outline-variant overflow-hidden">

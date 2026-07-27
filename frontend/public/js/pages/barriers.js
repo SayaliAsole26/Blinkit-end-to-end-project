@@ -11,10 +11,48 @@
     NONE_GROCERY_LOYAL: "#D1C4E9",
   };
 
+  const CATEGORY_KEYWORDS = [
+    ["personal care", "personal_care"],
+    ["grocer", "groceries"],
+    ["grocery", "groceries"],
+    ["vitamin", "health_pharmacy"],
+    ["pharmacy", "health_pharmacy"],
+    ["health", "health_pharmacy"],
+    ["baby", "baby_care"],
+    ["pet", "pet_supplies"],
+    ["stationery", "stationery"],
+    ["electronic", "electronics"],
+    ["snack", "snacks"],
+    ["beverage", "beverages"],
+    ["household", "household"],
+  ];
+
   let chartData = null;
 
   function formatCategory(id) {
+    if (id === "all_categories") return "Overall Corpus";
     return id.replace(/_/g, " ").replace(/\b\w/g, (c) => c.toUpperCase());
+  }
+
+  function inferCategories(card) {
+    if (Array.isArray(card.category_tags) && card.category_tags.length) {
+      return card.category_tags;
+    }
+    const haystack = `${(card.theme_tags || []).join(" ")} ${card.statement || ""}`.toLowerCase();
+    const found = [];
+    for (const [keyword, slug] of CATEGORY_KEYWORDS) {
+      if (haystack.includes(keyword) && !found.includes(slug)) found.push(slug);
+    }
+    if (found.length) return found;
+    if (card.theme_tags?.[0]) {
+      const slug = card.theme_tags[0]
+        .toLowerCase()
+        .replace(/[^a-z0-9]+/g, "_")
+        .replace(/^_|_$/g, "")
+        .slice(0, 32);
+      return slug ? [slug] : ["general"];
+    }
+    return ["general"];
   }
 
   function renderLegend(barriers) {
@@ -22,11 +60,27 @@
     if (!el) return;
     el.innerHTML = barriers
       .map(
-        (b) => `<div class="flex items-center gap-2">
-          <span class="w-3 h-3 rounded-full" style="background:${BARRIER_COLORS[b] || "#ccc"}"></span>
+        (b) => `<div class="flex items-center gap-2 px-2 py-1 rounded-full bg-surface-container-low">
+          <span class="w-2.5 h-2.5 rounded-full shrink-0" style="background:${BARRIER_COLORS[b] || "#ccc"}"></span>
           <span class="text-label-md text-secondary">${UI.barrierLabel(b)}</span>
         </div>`
       )
+      .join("");
+  }
+
+  function renderBarSegments(sorted, total) {
+    return sorted
+      .map(([barrier, weight]) => {
+        const pct = Math.round((weight / total) * 100);
+        if (pct <= 0) return "";
+        const showLabel = pct >= 10;
+        const label = showLabel ? `${pct}%` : "";
+        return `<div class="barrier-segment h-full flex items-center justify-center shrink-0 overflow-hidden ${
+          showLabel ? "text-[11px] font-bold text-on-surface" : ""
+        }" style="width:${pct}%;min-width:${pct > 0 ? "4px" : "0"};background:${
+          BARRIER_COLORS[barrier] || "#ccc"
+        }" title="${UI.barrierLabel(barrier)}: ${pct}%">${label}</div>`;
+      })
       .join("");
   }
 
@@ -34,41 +88,39 @@
     const container = document.getElementById("barrier-chart-rows");
     if (!container) return;
 
-    const entries = Object.entries(byCategory || {}).sort((a, b) => {
-      const totalA = Object.values(a[1]).reduce((s, v) => s + v, 0);
-      const totalB = Object.values(b[1]).reduce((s, v) => s + v, 0);
-      return totalB - totalA;
-    });
+    const entries = Object.entries(byCategory || {})
+      .map(([category, split]) => ({
+        category,
+        split,
+        total: Object.values(split).reduce((s, v) => s + v, 0),
+      }))
+      .sort((a, b) => b.total - a.total)
+      .slice(0, 8);
 
     if (!entries.length) {
-      container.innerHTML = `<p class="text-secondary text-body-md">No barrier data for this filter.</p>`;
+      container.innerHTML = `<p class="text-secondary text-body-md">No barrier data available.</p>`;
       return;
     }
 
-    const allBarriers = [...new Set(entries.flatMap(([, split]) => Object.keys(split)))];
+    const allBarriers = [...new Set(entries.flatMap((e) => Object.keys(e.split)))];
     renderLegend(allBarriers);
 
     container.innerHTML = entries
-      .map(([category, split]) => {
+      .map(({ category, split }) => {
         const sorted = Object.entries(split).sort((a, b) => b[1] - a[1]);
         const total = sorted.reduce((s, [, v]) => s + v, 0) || 1;
-        const countLabel = sorted.map(([, v]) => `${Math.round(v * 100)}%`).join(" · ");
-
-        const bar = sorted
-          .map(([barrier, weight]) => {
-            const pct = Math.round((weight / total) * 100);
-            if (pct === 0) return "";
-            return `<div class="h-full flex items-center justify-center text-[11px] font-bold text-on-surface border-r border-white/20"
-              style="width:${pct}%;background:${BARRIER_COLORS[barrier] || "#ccc"}" title="${UI.barrierLabel(barrier)}">${pct}%</div>`;
-          })
-          .join("");
+        const dominant = sorted[0];
+        const dominantPct = dominant ? Math.round((dominant[1] / total) * 100) : 0;
 
         return `<div class="space-y-2">
-          <div class="flex justify-between items-end">
+          <div class="flex justify-between items-center gap-4">
             <span class="font-bold text-on-surface">${formatCategory(category)}</span>
-            <span class="text-label-md text-secondary uppercase tracking-wider">${countLabel}</span>
+            <span class="text-label-md text-secondary whitespace-nowrap">${UI.barrierLabel(dominant?.[0])} · ${dominantPct}%</span>
           </div>
-          <div class="h-10 w-full flex rounded-full overflow-hidden bg-surface-container-low border border-outline-variant/30">${bar}</div>
+          <div class="h-9 w-full flex rounded-full overflow-hidden bg-surface-container-low border border-outline-variant/30">${renderBarSegments(
+            sorted,
+            total
+          )}</div>
         </div>`;
       })
       .join("");
@@ -79,7 +131,7 @@
     for (const card of items || []) {
       const split = card.cognitive_barrier_split || {};
       if (!Object.keys(split).length) continue;
-      const cats = card.category_tags?.length ? card.category_tags : ["general"];
+      const cats = inferCategories(card);
       for (const cat of cats) {
         const bucket = byCategory[cat] || (byCategory[cat] = {});
         for (const [barrier, weight] of Object.entries(split)) {
@@ -126,10 +178,11 @@
         const items = await fetchAllInsights();
         byCategory = buildByCategoryFromInsights(items);
       } catch (_) {
-        byCategory = buildByCategoryFromRaw(initial?.raw);
+        byCategory = {};
       }
-      if (!Object.keys(byCategory).length) {
-        byCategory = buildByCategoryFromRaw(initial?.raw);
+      if (!Object.keys(byCategory).length || (Object.keys(byCategory).length === 1 && byCategory.general)) {
+        const fromRaw = buildByCategoryFromRaw(initial?.raw);
+        if (Object.keys(fromRaw).length) byCategory = fromRaw;
       }
     }
 

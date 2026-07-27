@@ -74,9 +74,84 @@
       .join("");
   }
 
+  function buildByCategoryFromInsights(items) {
+    const byCategory = {};
+    for (const card of items || []) {
+      const split = card.cognitive_barrier_split || {};
+      if (!Object.keys(split).length) continue;
+      const cats = card.category_tags?.length ? card.category_tags : ["general"];
+      for (const cat of cats) {
+        const bucket = byCategory[cat] || (byCategory[cat] = {});
+        for (const [barrier, weight] of Object.entries(split)) {
+          bucket[barrier] = (bucket[barrier] || 0) + Number(weight);
+        }
+      }
+    }
+    for (const cat of Object.keys(byCategory)) {
+      const barriers = byCategory[cat];
+      const total = Object.values(barriers).reduce((s, v) => s + v, 0) || 1;
+      byCategory[cat] = Object.fromEntries(
+        Object.entries(barriers).map(([k, v]) => [k, Math.round((v / total) * 10000) / 10000])
+      );
+    }
+    return byCategory;
+  }
+
+  function buildByCategoryFromRaw(raw) {
+    if (!raw || !Object.keys(raw).length) return {};
+    const total = Object.values(raw).reduce((s, v) => s + v, 0) || 1;
+    const split = Object.fromEntries(
+      Object.entries(raw).map(([barrier, count]) => [barrier, Math.round((count / total) * 10000) / 10000])
+    );
+    return { all_categories: split };
+  }
+
+  async function fetchAllInsights() {
+    const first = await BlinkitAPI.insights({ page: 1, page_size: 100 });
+    const items = [...(first.items || [])];
+    const totalPages = Math.ceil((first.total || 0) / 100);
+    for (let page = 2; page <= totalPages; page++) {
+      const next = await BlinkitAPI.insights({ page, page_size: 100 });
+      items.push(...(next.items || []));
+    }
+    return items;
+  }
+
+  async function resolveChartData(initial) {
+    let byCategory = initial?.by_category;
+    let topInsight = initial?.top_insight;
+
+    if (!byCategory || !Object.keys(byCategory).length) {
+      try {
+        const items = await fetchAllInsights();
+        byCategory = buildByCategoryFromInsights(items);
+      } catch (_) {
+        byCategory = buildByCategoryFromRaw(initial?.raw);
+      }
+      if (!Object.keys(byCategory).length) {
+        byCategory = buildByCategoryFromRaw(initial?.raw);
+      }
+    }
+
+    if (!topInsight) {
+      try {
+        const overview = await BlinkitAPI.overview();
+        topInsight = overview.top_insights?.[0] || null;
+      } catch (_) {
+        topInsight = null;
+      }
+    }
+
+    return { ...initial, by_category: byCategory, top_insight: topInsight };
+  }
+
   function renderTopInsight(insight) {
     const el = document.getElementById("barrier-top-insight");
-    if (!el || !insight) return;
+    if (!el) return;
+    if (!insight) {
+      el.innerHTML = `<p class="text-secondary text-body-md">No top insight available.</p>`;
+      return;
+    }
     const barrier = UI.dominantBarrier(insight.cognitive_barrier_split);
     el.innerHTML = `
       <div class="flex items-center justify-between mb-4">
@@ -121,7 +196,8 @@
   }
 
   async function loadChart() {
-    chartData = await BlinkitAPI.barriers("");
+    const initial = await BlinkitAPI.barriers("");
+    chartData = await resolveChartData(initial);
     renderCategoryRows(chartData.by_category);
     renderTopInsight(chartData.top_insight);
   }

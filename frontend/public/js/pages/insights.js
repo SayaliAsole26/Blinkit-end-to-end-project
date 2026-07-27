@@ -11,10 +11,6 @@
     funnel_stage: "",
     confidence: "",
     segment: "",
-    platform: "",
-    category: "",
-    date_from: "",
-    date_to: "",
   };
 
   function readUrlParams() {
@@ -32,10 +28,6 @@
     if (state.funnel_stage) p.funnel_stage = state.funnel_stage;
     if (state.confidence) p.confidence = state.confidence;
     if (state.segment) p.segment = state.segment;
-    if (state.platform) p.platform = state.platform;
-    if (state.category) p.category = state.category;
-    if (state.date_from) p.date_from = state.date_from;
-    if (state.date_to) p.date_to = state.date_to;
     return p;
   }
 
@@ -200,10 +192,6 @@
       ["filter-funnel", "funnel_stage"],
       ["filter-confidence", "confidence"],
       ["filter-segment", "segment"],
-      ["filter-platform", "platform"],
-      ["filter-category", "category"],
-      ["filter-date-from", "date_from"],
-      ["filter-date-to", "date_to"],
     ];
     filterMap.forEach(([id, key]) => {
       const el = document.getElementById(id);
@@ -216,30 +204,9 @@
     });
   }
 
-  async function populateMetaFilters() {
-    try {
-      const meta = await BlinkitAPI.filterMeta();
-      const platformEl = document.getElementById("filter-platform");
-      const categoryEl = document.getElementById("filter-category");
-      if (platformEl) {
-        platformEl.innerHTML = `<option value="">Platform</option>${(meta.platforms || [])
-          .map((p) => `<option value="${p}">${p.replace(/_/g, " ")}</option>`)
-          .join("")}`;
-      }
-      if (categoryEl) {
-        categoryEl.innerHTML = `<option value="">Category</option>${(meta.categories || [])
-          .map((c) => `<option value="${c}">${c.replace(/_/g, " ")}</option>`)
-          .join("")}`;
-      }
-    } catch (_) {
-      /* optional — filters still work without meta */
-    }
-  }
-
   document.addEventListener("DOMContentLoaded", () => {
     UI.wireSidebar("insights");
     readUrlParams();
-    populateMetaFilters();
     wireFilters();
     loadInsights();
   });

@@ -5,7 +5,9 @@
 > **Data:** `data/insights/insights_run_phase4_final.json` (117 insights)  
 > **Frontend:** [deployment-plan-frontend-vercel.md](./deployment-plan-frontend-vercel.md)  
 > **Stitch UI:** `stitch/` (from `stitch_blinkit_review_analyzer_dashboard.zip`)  
-> **Last updated:** 2026-07-27 · **Status:** API implemented, ready to deploy
+> **Last updated:** 2026-07-27 · **Status:** API implemented, ready to deploy  
+> **Playbook:** [deployment-playbook.md](./deployment-playbook.md)  
+> **Production API:** `https://blinkit-production-877e.up.railway.app`
 
 ---
 
@@ -15,15 +17,16 @@
 2. [API Endpoints](#2-api-endpoints)
 3. [Prerequisites](#3-prerequisites)
 4. [Deploy blinkit-api](#4-deploy-blinkit-api)
-5. [Seed Data on Volume](#5-seed-data-on-volume)
-6. [Environment Variables](#6-environment-variables)
-7. [Verify Deployment](#7-verify-deployment)
-8. [Pipeline Worker (Optional)](#8-pipeline-worker-optional)
-9. [Frontend Integration Map](#9-frontend-integration-map)
-10. [Local Development](#10-local-development)
-11. [Security](#11-security)
-12. [Troubleshooting](#12-troubleshooting)
-13. [Rollback & Cost](#13-rollback--cost)
+5. [CLI deploy script](#5-cli-deploy-script)
+6. [Seed Data on Volume](#6-seed-data-on-volume)
+7. [Environment Variables](#7-environment-variables)
+8. [Verify Deployment](#8-verify-deployment)
+9. [Pipeline Worker (Optional)](#9-pipeline-worker-optional)
+10. [Frontend Integration Map](#10-frontend-integration-map)
+11. [Local Development](#11-local-development)
+12. [Security](#12-security)
+13. [Troubleshooting](#13-troubleshooting)
+14. [Rollback & Cost](#14-rollback--cost)
 
 ---
 
@@ -119,7 +122,7 @@ Railway auto-reads `railway.toml` at repo root:
 
 ```toml
 [build]
-builder = "DOCKERFILE"
+builder = "dockerfile"
 dockerfilePath = "Dockerfile"
 dockerBuildTarget = "api"
 
@@ -134,7 +137,11 @@ Dockerfile `api` target:
 - Installs FastAPI + Uvicorn only (no ML stack)
 - Binds `uvicorn api.main:app --host 0.0.0.0 --port $PORT`
 
-### Step 3 — Attach volume
+### Step 3 — Attach volume (optional)
+
+Seed data is **already baked into the Docker image** from `deploy/seed/` (see `Dockerfile` api stage). Skip this step for first deploy.
+
+For pipeline updates without rebuild:
 
 1. Service → **Volumes** → **Add Volume**
 2. Mount path: **`/app/data`**
@@ -142,22 +149,24 @@ Dockerfile `api` target:
 
 ### Step 4 — Set environment variables
 
-See [§6](#6-environment-variables). Minimum:
+See [§7](#7-environment-variables). Minimum:
 
 ```
 BLINKIT_DATA_DIR=/app/data
 INSIGHTS_RUN_ID=run_phase4_final
-CORS_ORIGINS=https://your-app.vercel.app
+CORS_ORIGINS=https://blinkit-end-to-end-project.vercel.app,http://localhost:3000
 ```
 
 ### Step 5 — Seed data
 
-See [§5](#5-seed-data-on-volume).
+**Default:** seed files are copied at build time from `deploy/seed/` — no manual upload needed.
+
+For volume-based updates, see [§6](#6-seed-data-on-volume).
 
 ### Step 6 — Generate domain
 
 Settings → Networking → **Generate Domain**  
-Example: `https://blinkit-api-production.up.railway.app`
+Production: `https://blinkit-production-877e.up.railway.app`
 
 Copy this URL into:
 - Vercel `vercel.json` → `/api/:path*` proxy destination
@@ -165,11 +174,26 @@ Copy this URL into:
 
 ### Step 7 — Verify
 
-See [§7](#7-verify-deployment).
+See [§8](#8-verify-deployment).
 
 ---
 
-## 5. Seed Data on Volume
+## 5. CLI deploy script
+
+From repo root (PowerShell):
+
+```powershell
+# Prerequisites: .tools/railway.exe OR npm i -g @railway/cli
+# Auth: railway login  OR  $env:RAILWAY_TOKEN="<token>"
+
+.\scripts\deploy_railway.ps1
+```
+
+The script validates `deploy/seed/` files, sets Railway variables, and runs `railway up --detach`.
+
+---
+
+## 6. Seed Data on Volume
 
 ### Option A — Railway CLI upload (recommended)
 
@@ -191,19 +215,18 @@ railway shell
 #   Use railway's file upload or paste JSON via heredoc for MVP
 ```
 
-**Practical MVP:** use Option B for first deploy, migrate to volume later.
+**Practical MVP:** seed is baked in Docker image (default). Use volume when pipeline writes new runs.
 
-### Option B — Bake into Docker image (first deploy only)
+### Option B — Bake into Docker image (default)
 
-Add to `Dockerfile` `api` stage temporarily:
+Add to `Dockerfile` `api` stage (already present):
 
 ```dockerfile
-COPY data/insights/insights_run_phase4_final.json /app/data/insights/
-COPY data/processed/validation_run_phase4_final.json /app/data/processed/
-COPY data/processed/synthesize_validate_summary_run_phase4_final.json /app/data/processed/
+COPY deploy/seed/insights/ /app/data/insights/
+COPY deploy/seed/processed/ /app/data/processed/
 ```
 
-> Remove before production scale — prefer volume so pipeline can update data without rebuild.
+> For production scale with frequent pipeline runs, prefer a shared volume so the API can read new files without rebuild.
 
 ### Option C — Shared volume with pipeline worker
 
@@ -211,7 +234,7 @@ Run pipeline on `blinkit-pipeline` service; output writes to same `/app/data` vo
 
 ---
 
-## 6. Environment Variables
+## 7. Environment Variables
 
 | Variable | Example | Required | Notes |
 |----------|---------|----------|-------|
@@ -226,10 +249,10 @@ Run pipeline on `blinkit-pipeline` service; output writes to same `/app/data` vo
 
 ---
 
-## 7. Verify Deployment
+## 8. Verify Deployment
 
 ```bash
-export API=https://blinkit-api-production.up.railway.app
+export API=https://blinkit-production-877e.up.railway.app
 
 curl -s $API/health
 # {"status":"ok"}
@@ -254,13 +277,13 @@ curl -s $API/api/charts/barriers | jq '.raw'
 **From Vercel (proxy path):**
 
 ```bash
-curl -s https://your-app.vercel.app/api/overview | jq '.insight_count'
+curl -s https://blinkit-end-to-end-project.vercel.app/api/overview | jq '.insight_count'
 # 117
 ```
 
 ---
 
-## 8. Pipeline Worker (Optional)
+## 9. Pipeline Worker (Optional)
 
 Second Railway service for batch re-runs. Config: `deploy/railway.pipeline.toml`.
 
@@ -284,7 +307,7 @@ After completion:
 
 ---
 
-## 9. Frontend Integration Map
+## 10. Frontend Integration Map
 
 | Vercel route | JS module | API endpoint | Status |
 |--------------|-----------|--------------|--------|
@@ -297,7 +320,7 @@ Vercel proxies `/api/*` → Railway (see `frontend/vercel.json`). When using pro
 
 ---
 
-## 10. Local Development
+## 11. Local Development
 
 **PowerShell (Windows):**
 
@@ -328,7 +351,7 @@ Pair with frontend: `cd frontend && npm run dev` → http://localhost:3000
 
 ---
 
-## 11. Security
+## 12. Security
 
 - [ ] `CORS_ORIGINS` — explicit Vercel domains only (no `*`)
 - [ ] GET-only public routes
@@ -339,7 +362,7 @@ Pair with frontend: `cd frontend && npm run dev` → http://localhost:3000
 
 ---
 
-## 12. Troubleshooting
+## 13. Troubleshooting
 
 | Symptom | Cause | Fix |
 |---------|-------|-----|
@@ -348,11 +371,12 @@ Pair with frontend: `cd frontend && npm run dev` → http://localhost:3000
 | CORS error from browser | Missing Vercel origin | Add URL to `CORS_ORIGINS`; or use Vercel proxy |
 | 502 Bad Gateway | Port mismatch | Dockerfile must use `${PORT}` |
 | Import error on deploy | Missing `config/` | Dockerfile copies `config/` — verify build logs |
-| Frontend shows "API Error" | Railway down or proxy URL wrong | Check `vercel.json` destination URL |
+| `railpack process exited with an error` | Railway used Railpack instead of Docker; no root `main.py` | Push `railway.json` + `railway.toml` (`builder = "dockerfile"`); in Railway → Settings → Build, set **Builder** to **Dockerfile** |
+| **Healthcheck failure** (build OK, deploy OK) | Wrong Docker stage (`pipeline` runs `--help` and exits) or empty volume at `/app/data` | Ensure `dockerBuildTarget = "api"`; Dockerfile must end with `api` stage; remove empty volume or seed it |
 
 ---
 
-## 13. Rollback & Cost
+## 14. Rollback & Cost
 
 **Rollback:**
 1. Railway → Deployments → previous image → Rollback

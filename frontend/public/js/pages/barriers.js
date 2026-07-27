@@ -101,8 +101,15 @@
     return top;
   }
 
-  function renderLegend(barriers) {
-    const el = document.getElementById("barrier-legend");
+  function normalizeCompetitorEntity(entity) {
+    return String(entity || "Unknown")
+      .split(/,\s*/)
+      .map((part) => part.trim())
+      .filter(Boolean);
+  }
+
+  function renderLegendInto(elId, barriers) {
+    const el = document.getElementById(elId);
     if (!el) return;
     el.innerHTML = barriers
       .map(
@@ -112,6 +119,10 @@
         </div>`
       )
       .join("");
+  }
+
+  function renderLegend(barriers) {
+    renderLegendInto("barrier-legend", barriers);
   }
 
   function renderBarSegments(sorted, total) {
@@ -193,31 +204,23 @@
       </div>`;
   }
 
-  function renderCategoryRows(byCategory, categoryCounts, raw) {
-    const container = document.getElementById("barrier-chart-rows");
+  function renderSplitRows(containerId, entries, options = {}) {
+    const container = document.getElementById(containerId);
     if (!container) return;
 
-    const entries = normalizeEntries(byCategory, categoryCounts);
+    const { emptyMessage = "No data available.", legendId = null } = options;
 
     if (!entries.length) {
-      container.innerHTML = `<p class="text-secondary text-body-md py-8 text-center">No barrier data available.</p>`;
-      renderSummary([], raw);
-      renderOverallBar(raw);
+      container.innerHTML = `<p class="text-secondary text-body-md py-6 text-center">${emptyMessage}</p>`;
+      if (legendId) renderLegendInto(legendId, []);
       return;
     }
 
     const allBarriers = [...new Set(entries.flatMap((e) => Object.keys(e.split)))];
-    renderLegend(allBarriers);
-    renderSummary(entries, raw);
-    if (entries.length !== 1 || entries[0].category !== "all_categories") {
-      renderOverallBar(raw);
-    } else {
-      const overallEl = document.getElementById("barrier-overall");
-      if (overallEl) overallEl.innerHTML = "";
-    }
+    if (legendId) renderLegendInto(legendId, allBarriers);
 
     container.innerHTML = entries
-      .map(({ category, split, insightCount }) => {
+      .map(({ label, subtitle, split }) => {
         const sorted = Object.entries(split).sort((a, b) => b[1] - a[1]);
         const total = sorted.reduce((s, [, v]) => s + v, 0) || 1;
         const dominant = sorted[0];
@@ -226,8 +229,8 @@
         return `<article class="barrier-row p-4 rounded-xl border border-outline-variant/30 bg-white hover:shadow-sm transition-shadow">
           <div class="flex flex-wrap justify-between items-start gap-2 mb-3">
             <div>
-              <h4 class="font-bold text-on-surface">${formatCategory(category)}</h4>
-              <p class="text-label-md text-secondary mt-0.5">${UI.formatNumber(insightCount)} insight${insightCount === 1 ? "" : "s"}</p>
+              <h4 class="font-bold text-on-surface">${label}</h4>
+              ${subtitle ? `<p class="text-label-md text-secondary mt-0.5">${subtitle}</p>` : ""}
             </div>
             <span class="px-2.5 py-1 rounded-full text-label-md font-semibold bg-primary-container/40 text-on-primary-container">
               ${UI.barrierLabel(dominant?.[0])} · ${dominantPct}%
@@ -241,6 +244,91 @@
         </article>`;
       })
       .join("");
+  }
+
+  function renderCategoryRows(byCategory, categoryCounts, raw) {
+    const container = document.getElementById("barrier-chart-rows");
+    if (!container) return;
+
+    const entries = normalizeEntries(byCategory, categoryCounts);
+
+    if (!entries.length) {
+      container.innerHTML = `<p class="text-secondary text-body-md py-8 text-center">No barrier data available.</p>`;
+      renderSummary([], raw);
+      renderOverallBar(raw);
+      renderLegend([]);
+      return;
+    }
+
+    renderLegend([...new Set(entries.flatMap((e) => Object.keys(e.split)))]);
+    renderSummary(entries, raw);
+    if (entries.length !== 1 || entries[0].category !== "all_categories") {
+      renderOverallBar(raw);
+    } else {
+      const overallEl = document.getElementById("barrier-overall");
+      if (overallEl) overallEl.innerHTML = "";
+    }
+
+    renderSplitRows(
+      "barrier-chart-rows",
+      entries.map(({ category, split, insightCount }) => ({
+        label: formatCategory(category),
+        subtitle: `${UI.formatNumber(insightCount)} insight${insightCount === 1 ? "" : "s"}`,
+        split,
+      })),
+      { emptyMessage: "No barrier data available." }
+    );
+  }
+
+  function buildCompetitorBarrierFromInsights(items) {
+    const byCompetitor = {};
+    const mentionCounts = {};
+
+    for (const card of items || []) {
+      const mentions = card.competitor_mentions || [];
+      const split = card.cognitive_barrier_split || {};
+      if (!mentions.length || !Object.keys(split).length) continue;
+
+      for (const mention of mentions) {
+        const entities = normalizeCompetitorEntity(mention.entity);
+        const share = (Number(mention.count) || 1) / entities.length;
+        for (const entity of entities) {
+          mentionCounts[entity] = (mentionCounts[entity] || 0) + share;
+          const bucket = byCompetitor[entity] || (byCompetitor[entity] = {});
+          for (const [barrier, weight] of Object.entries(split)) {
+            bucket[barrier] = (bucket[barrier] || 0) + Number(weight) * share;
+          }
+        }
+      }
+    }
+
+    for (const entity of Object.keys(byCompetitor)) {
+      const barriers = byCompetitor[entity];
+      const total = Object.values(barriers).reduce((s, v) => s + v, 0) || 1;
+      byCompetitor[entity] = Object.fromEntries(
+        Object.entries(barriers).map(([k, v]) => [k, Math.round((v / total) * 10000) / 10000])
+      );
+    }
+
+    return { byCompetitor, mentionCounts };
+  }
+
+  function renderCompetitorBarrierChart(items) {
+    const { byCompetitor, mentionCounts } = buildCompetitorBarrierFromInsights(items);
+    const entries = Object.entries(byCompetitor)
+      .map(([entity, split]) => ({
+        label: entity,
+        subtitle: `${UI.formatNumber(Math.round(mentionCounts[entity] || 0))} comparison mention${Math.round(mentionCounts[entity] || 0) === 1 ? "" : "s"}`,
+        split,
+        mentions: mentionCounts[entity] || 0,
+      }))
+      .sort((a, b) => b.mentions - a.mentions)
+      .slice(0, 8);
+
+    renderSplitRows("competitor-barrier-rows", entries, {
+      emptyMessage: "No competitor comparison insights in corpus.",
+      legendId: "competitor-barrier-legend",
+    });
   }
 
   function buildByCategoryFromInsights(items) {
@@ -294,14 +382,15 @@
     return items;
   }
 
-  async function resolveChartData(initial) {
+  async function resolveChartData(initial, items) {
     let byCategory = initial?.by_category;
     let categoryCounts = {};
     let topInsight = initial?.top_insight;
 
     if (!byCategory || !Object.keys(byCategory).length) {
       try {
-        const built = buildByCategoryFromInsights(await fetchAllInsights());
+        const insightItems = items?.length ? items : await fetchAllInsights();
+        const built = buildByCategoryFromInsights(insightItems);
         byCategory = built.byCategory;
         categoryCounts = built.categoryCounts;
       } catch (_) {
@@ -390,8 +479,15 @@
 
   async function loadChart() {
     const initial = await BlinkitAPI.barriers("");
-    chartData = await resolveChartData(initial);
+    let items = [];
+    try {
+      items = await fetchAllInsights();
+    } catch (_) {
+      items = [];
+    }
+    chartData = await resolveChartData(initial, items);
     renderCategoryRows(chartData.by_category, chartData.category_counts || {}, chartData.raw);
+    renderCompetitorBarrierChart(items);
     renderTopInsight(chartData.top_insight);
   }
 

@@ -104,46 +104,6 @@
       .join("");
   }
 
-  function renderCompetitorChart(matrix) {
-    const container = document.getElementById("competitor-chart");
-    if (!container) return;
-
-    const entities = Object.entries(matrix || {})
-      .map(([entity, advantages]) => ({
-        entity,
-        total: Object.values(advantages).reduce((a, b) => a + b, 0),
-        topAdvantage: Object.entries(advantages).sort((a, b) => b[1] - a[1])[0],
-      }))
-      .sort((a, b) => b.total - a.total)
-      .slice(0, 8);
-
-    if (!entities.length) {
-      container.innerHTML = `<p class="text-secondary text-body-md">No competitor mentions in corpus.</p>`;
-      return;
-    }
-
-    const max = entities[0].total || 1;
-    container.innerHTML = entities
-      .map((entry) => {
-        const pct = Math.round((entry.total / max) * 100);
-        const advantage = entry.topAdvantage
-          ? entry.topAdvantage[0].replace(/_/g, " ")
-          : "—";
-        return `<div class="space-y-2">
-          <div class="flex justify-between text-body-md">
-            <span class="font-medium">${entry.entity}</span>
-            <span class="text-secondary">${UI.formatNumber(entry.total)} mentions · ${advantage}</span>
-          </div>
-          <div class="h-8 w-full bg-surface-container rounded-full overflow-hidden flex items-center">
-            <div class="h-full bg-tertiary/30 flex items-center px-4 transition-all duration-700" style="width:${pct}%">
-              <span class="text-label-md text-on-surface">${pct}%</span>
-            </div>
-          </div>
-        </div>`;
-      })
-      .join("");
-  }
-
   function renderTopInsights(data) {
     const tbody = document.getElementById("top-insights-body");
     if (!tbody) return;
@@ -193,13 +153,6 @@
       renderConfidenceChart(data);
       renderBarrierChart(data);
       renderTopInsights(data);
-
-      try {
-        const competitors = await BlinkitAPI.competitors();
-        renderCompetitorChart(competitors.matrix);
-      } catch (_) {
-        renderCompetitorChart({});
-      }
 
       const runLabel = document.getElementById("pipeline-run-id");
       if (runLabel && data.run_id) runLabel.textContent = data.run_id;

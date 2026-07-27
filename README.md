@@ -4,6 +4,8 @@ AI-powered review analyzer dashboard for Blinkit. Ingests public feedback from a
 
 ## Documentation
 
+- **[Final Discovery Engine Report](Docs/final-discovery-engine-report.md)** — presentation draft (RQ1–RQ8 answers + methodology)
+- **[Executive Deck](Docs/executive-deck.md)** — 10-slide summary for stakeholders
 - [Problem Statement](Docs/Problemstatement.md)
 - [Architecture](Docs/architecture.md)
 - [Implementation Plan](Docs/implementation-plan.md)
@@ -78,11 +80,26 @@ tests/
 | `make lint` | Run ruff |
 | `make ingest` | Pipeline ingest help (Phase 1) |
 | `make pipeline` | Full pipeline help (Phase 4) |
-| `make dashboard` | Start Streamlit dashboard |
+| `make dashboard` | Dashboard help (API + frontend + Streamlit targets) |
+| `make dashboard-api` | Start FastAPI on :8000 |
+| `make dashboard-frontend` | Start Vercel-style static frontend on :3000 |
+| `make dashboard-streamlit` | Start local Streamlit prototype |
 
 ## Current Status
 
-**Product:** Review analyzer dashboard (Streamlit + FastAPI) — not a prototype or case-study MVP.
+**Project complete** — all phases (0–6) implemented per [implementation-plan.md](Docs/implementation-plan.md).
+
+| Phase | Status |
+|-------|--------|
+| 0 Setup | Config, logging, Makefile, data dirs |
+| 1 Ingestion | 5 connectors, 1,200-record sample corpus, raw store |
+| 2 Clean & Embed | Filter → preprocess → clean → BGE-small + ChromaDB |
+| 3 Cluster & Label | Dual-track HDBSCAN, Groq (1×/cluster), search-gap TF-IDF |
+| 4 Synthesis & Validate | 117 insight cards, 10% Groq agreement, human audit export |
+| 5 Dashboard | FastAPI + 9 Stitch views (all API-wired), Streamlit local |
+| 6 Deployment | Docker, Railway, Vercel, GitHub Actions CI |
+
+**Tests:** 106 pytest · `ruff check src tests` clean
 
 **Phase 1 complete** — ingestion across 5 platforms (Play Store, App Store, Reddit, Twitter, Forum).
 
@@ -117,7 +134,9 @@ Outputs:
 
 **Phase 4 complete** — synthesis, validation, and insight cards in `data/insights/`.
 
-**Phase 5 in progress** — FastAPI backend implemented; Stitch frontend with Overview, Insights, and Evidence wired to live API.
+**Phase 5 complete** — FastAPI backend + 9 dashboard views (Overview, Insight Explorer, Barrier Chart, Funnel, Competitors, RQ Map, Segments, Evidence, Validation). All views wired to live API; no sentiment % in UI.
+
+**Phase 6 complete** — Railway API + Vercel frontend deploy scripts; GitHub Actions CI (`pytest` + `ruff`).
 
 ## Deployment (Stitch UI + Railway API)
 
@@ -131,7 +150,7 @@ Outputs:
 **Production:** [Dashboard](https://blinkit-end-to-end-project.vercel.app) · [API](https://blinkit-end-to-end-project-production.up.railway.app)
 
 **Stitch source:** `stitch_blinkit_review_analyzer_dashboard.zip` → `stitch/`  
-**Deployable frontend:** `frontend/public/` · **API wired:** `/`, `/insights`, `/evidence`
+**Deployable frontend:** `frontend/public/` · **All 9 views API-wired**
 
 **Deploy order:** Railway API → update `frontend/vercel.json` proxy URL → Vercel deploy.
 

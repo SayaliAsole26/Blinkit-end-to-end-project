@@ -58,3 +58,23 @@ def test_no_sentiment_in_insight(client):
     item = res.json()["items"][0]
     assert "cognitive_barrier_split" in item
     assert "sentiment_split" not in item
+
+
+def test_rq_map(client):
+    res = client.get("/api/rq")
+    assert res.status_code == 200
+    body = res.json()
+    assert body["counts"]["RQ1"] > 0
+    assert body["counts"]["RQ8"] > 0
+    assert "top_by_rq" in body
+
+
+def test_analytics_endpoints(client):
+    for path in (
+        "/api/charts/funnel",
+        "/api/charts/competitors",
+        "/api/segments",
+        "/api/validation",
+    ):
+        res = client.get(path)
+        assert res.status_code == 200, path

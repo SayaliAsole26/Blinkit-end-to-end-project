@@ -195,6 +195,27 @@ def chart_competitors() -> dict[str, Any]:
     return {"matrix": matrix}
 
 
+@router.get("/rq")
+def rq_map() -> dict[str, Any]:
+    insights = _load_insights()
+    counts = {f"RQ{i}": 0 for i in range(1, 9)}
+    top_by_rq: dict[str, dict[str, Any]] = {}
+    for card in insights:
+        for rq in card.get("related_RQs", []):
+            if rq not in counts:
+                continue
+            counts[rq] += 1
+            current = top_by_rq.get(rq)
+            if not current or card.get("evidence_count", 0) > current.get("evidence_count", 0):
+                top_by_rq[rq] = {
+                    "insight_id": card.get("insight_id"),
+                    "statement": card.get("statement"),
+                    "evidence_count": card.get("evidence_count"),
+                    "confidence_tier": card.get("confidence_tier"),
+                }
+    return {"counts": counts, "top_by_rq": top_by_rq}
+
+
 @router.get("/rq/{rq_id}")
 def insights_by_rq(rq_id: str) -> dict[str, Any]:
     items = _filter_insights(_load_insights(), rq=rq_id.upper())

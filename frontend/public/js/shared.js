@@ -27,6 +27,28 @@
     RQ8: "Unmet needs",
   };
 
+  const NAV_ROUTES = {
+    overview: "/",
+    insights: "/insights.html",
+    barriers: "/barriers.html",
+    funnel: "/funnel.html",
+    competitors: "/competitors.html",
+    rqmap: "/rq-map.html",
+    segments: "/segments.html",
+    validation: "/validation.html",
+  };
+
+  const NAV_MATCHERS = [
+    { key: "overview", texts: ["overview"] },
+    { key: "insights", texts: ["insight explorer"] },
+    { key: "barriers", texts: ["barrier chart"] },
+    { key: "funnel", texts: ["funnel breakdown"] },
+    { key: "competitors", texts: ["competitor benchmark"] },
+    { key: "rqmap", texts: ["rq map"] },
+    { key: "segments", texts: ["segments"] },
+    { key: "validation", texts: ["validation"] },
+  ];
+
   function barrierLabel(id) {
     return BARRIER_LABELS[id] || id.replace(/_/g, " ");
   }
@@ -129,31 +151,49 @@
   }
 
   function fixNavigation(activePage) {
-    const routes = {
-      overview: "/",
-      insights: "/insights.html",
-      barriers: "/barriers.html",
-      evidence: "/evidence.html",
-    };
+    wireSidebar(activePage);
+  }
+
+  function wireSidebar(activePage) {
     document.querySelectorAll("aside nav a, aside a[href]").forEach((link) => {
       const text = link.textContent.trim().toLowerCase();
-      if (text.includes("overview")) link.href = routes.overview;
-      else if (text.includes("insight explorer")) link.href = routes.insights;
-      else if (text.includes("barrier chart")) link.href = routes.barriers;
+      for (const item of NAV_MATCHERS) {
+        if (item.texts.some((t) => text.includes(t))) {
+          link.href = NAV_ROUTES[item.key];
+          const isActive = item.key === activePage;
+          link.classList.toggle("bg-primary-container", isActive);
+          link.classList.toggle("text-on-primary-container", isActive);
+          link.classList.toggle("font-bold", isActive);
+          link.classList.toggle("rounded-lg", isActive);
+          break;
+        }
+      }
     });
-    const activeMap = {
-      overview: "overview",
-      insights: "insight explorer",
-      barriers: "barrier chart",
-    };
-    const activeText = activeMap[activePage];
-    if (!activeText) return;
-    document.querySelectorAll("aside nav a").forEach((link) => {
-      const isActive = link.textContent.trim().toLowerCase().includes(activeText);
-      link.classList.toggle("bg-primary-container", isActive);
-      link.classList.toggle("text-on-primary-container", isActive);
-      link.classList.toggle("font-bold", isActive);
-      link.classList.toggle("rounded-lg", isActive);
+  }
+
+  function renderRqFilterChips(containerId, onSelect) {
+    const row = document.getElementById(containerId);
+    if (!row) return;
+    row.innerHTML = "";
+    const all = document.createElement("button");
+    all.type = "button";
+    all.dataset.rqChip = "";
+    all.className =
+      "px-3 py-1 rounded-full border border-outline text-label-md hover:bg-surface-container-high transition-colors active-filter-chip";
+    all.textContent = "All Research";
+    all.addEventListener("click", () => onSelect(all));
+    row.appendChild(all);
+
+    Object.keys(RQ_LABELS).forEach((rq) => {
+      const btn = document.createElement("button");
+      btn.type = "button";
+      btn.dataset.rqChip = rq;
+      btn.title = RQ_LABELS[rq];
+      btn.className =
+        "px-3 py-1 rounded-full border border-outline text-label-md hover:bg-surface-container-high transition-colors";
+      btn.textContent = rq;
+      btn.addEventListener("click", () => onSelect(btn));
+      row.appendChild(btn);
     });
   }
 
@@ -175,5 +215,9 @@
     funnelDots,
     showError,
     fixNavigation,
+    wireSidebar,
+    renderRqFilterChips,
+    NAV_ROUTES,
+    RQ_LABELS,
   };
 })();

@@ -34,7 +34,12 @@ Live pages: `/` (Overview), `/insights.html` (Insight Explorer).
 
 ## Deploy
 
-See [Docs/deployment-plan-frontend-vercel.md](../Docs/deployment-plan-frontend-vercel.md).
+See [Docs/deployment-playbook.md](../Docs/deployment-playbook.md) and [Docs/deployment-plan-frontend-vercel.md](../Docs/deployment-plan-frontend-vercel.md).
+
+```powershell
+# From repo root
+.\scripts\deploy_vercel.ps1
+```
 
 Vercel settings:
 - **Root Directory:** `frontend`

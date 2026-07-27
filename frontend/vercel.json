@@ -3,6 +3,11 @@
     { "source": "/", "destination": "/index.html" },
     { "source": "/insights", "destination": "/insights.html" },
     { "source": "/barriers", "destination": "/barriers.html" },
+    { "source": "/funnel", "destination": "/funnel.html" },
+    { "source": "/competitors", "destination": "/competitors.html" },
+    { "source": "/rq-map", "destination": "/rq-map.html" },
+    { "source": "/segments", "destination": "/segments.html" },
+    { "source": "/validation", "destination": "/validation.html" },
     { "source": "/evidence", "destination": "/evidence.html" },
     { "source": "/shell", "destination": "/shell.html" },
     {

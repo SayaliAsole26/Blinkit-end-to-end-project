@@ -155,7 +155,7 @@
   }
 
   document.addEventListener("DOMContentLoaded", async () => {
-    UI.fixNavigation("overview");
+    UI.wireSidebar("overview");
     wireSearch();
     wireViewAll();
 

@@ -22,6 +22,7 @@
     competitors: () => apiGet("/api/charts/competitors"),
     validation: () => apiGet("/api/validation"),
     segments: () => apiGet("/api/segments"),
+    rqMap: () => apiGet("/api/rq"),
     rq: (rqId) => apiGet(`/api/rq/${rqId}`),
   };
 })();

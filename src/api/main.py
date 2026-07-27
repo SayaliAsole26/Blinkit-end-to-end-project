@@ -45,6 +45,8 @@ def root() -> dict[str, str | list[str]]:
             "/api/overview",
             "/api/insights",
             "/api/charts/barriers",
+            "/api/charts/funnel",
+            "/api/rq",
         ],
     }
 

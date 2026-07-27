@@ -176,16 +176,20 @@
   }
 
   function wireFilters() {
-    // RQ chips
-    document.querySelectorAll("[data-rq-chip]").forEach((chip) => {
-      chip.addEventListener("click", () => {
-        document.querySelectorAll("[data-rq-chip]").forEach((c) => c.classList.remove("active-filter-chip"));
-        chip.classList.add("active-filter-chip");
-        state.rq = chip.dataset.rqChip || "";
-        state.page = 1;
-        loadInsights();
-      });
+    UI.renderRqFilterChips("rq-chips", (chip) => {
+      document.querySelectorAll("[data-rq-chip]").forEach((c) => c.classList.remove("active-filter-chip"));
+      chip.classList.add("active-filter-chip");
+      state.rq = chip.dataset.rqChip || "";
+      state.page = 1;
+      loadInsights();
     });
+    if (state.rq) {
+      const active = document.querySelector(`[data-rq-chip="${state.rq}"]`);
+      if (active) {
+        document.querySelectorAll("[data-rq-chip]").forEach((c) => c.classList.remove("active-filter-chip"));
+        active.classList.add("active-filter-chip");
+      }
+    }
 
     const filterMap = [
       ["filter-barrier", "barrier"],
@@ -218,7 +222,7 @@
   }
 
   document.addEventListener("DOMContentLoaded", () => {
-    UI.fixNavigation("insights");
+    UI.wireSidebar("insights");
     readUrlParams();
     wireFilters();
     loadInsights();

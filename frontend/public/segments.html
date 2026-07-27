@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Segments | Blinkit Review Analyzer</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<script>tailwind.config={theme:{extend:{colors:{background:"#f9f9f9",surface:"#f9f9f9","surface-container-lowest":"#ffffff","surface-container-low":"#f3f3f3","on-surface":"#1a1c1c","on-surface-variant":"#4c4733",secondary:"#5f5e5e",primary:"#6d5e00","outline-variant":"#cec6ad","primary-container":"#ffe141","on-primary-container":"#736300"},fontSize:{"headline-sm":["20px",{lineHeight:"28px",fontWeight:"600"}],"headline-lg":["30px",{lineHeight:"38px",fontWeight:"700"}],"body-md":["14px",{lineHeight:"20px"}],"label-md":["12px",{lineHeight:"16px",fontWeight:"600"}]}}}};</script>
+<style>body{font-family:Inter,sans-serif}.material-symbols-outlined{font-variation-settings:'FILL' 0,'wght' 400,'GRAD' 0,'opsz' 24}</style>
+</head>
+<body class="bg-background text-on-surface min-h-screen">
+<aside class="fixed left-0 top-0 h-screen w-72 bg-surface border-r border-outline-variant flex flex-col py-6 px-4 z-50">
+<div class="flex items-center gap-3 mb-10 px-2"><div class="w-10 h-10 bg-primary-container rounded-lg flex items-center justify-center"><span class="material-symbols-outlined text-on-primary-container">analytics</span></div><div><h1 class="font-headline-md font-bold">Blinkit Review</h1><p class="text-label-md text-secondary">Analyzer</p></div></div>
+<nav class="flex-1 space-y-1">
+<a class="flex items-center gap-3 px-3 py-2 text-on-surface-variant hover:bg-surface-container-high" href="#"><span class="material-symbols-outlined">dashboard</span><span>Overview</span></a>
+<a class="flex items-center gap-3 px-3 py-2 text-on-surface-variant hover:bg-surface-container-high" href="#"><span class="material-symbols-outlined">explore</span><span>Insight Explorer</span></a>
+<a class="flex items-center gap-3 px-3 py-2 text-on-surface-variant hover:bg-surface-container-high" href="#"><span class="material-symbols-outlined">bar_chart</span><span>Barrier Chart</span></a>
+<a class="flex items-center gap-3 px-3 py-2 text-on-surface-variant hover:bg-surface-container-high" href="#"><span class="material-symbols-outlined">filter_alt</span><span>Funnel Breakdown</span></a>
+<a class="flex items-center gap-3 px-3 py-2 text-on-surface-variant hover:bg-surface-container-high" href="#"><span class="material-symbols-outlined">compare_arrows</span><span>Competitor Benchmark</span></a>
+<a class="flex items-center gap-3 px-3 py-2 text-on-surface-variant hover:bg-surface-container-high" href="#"><span class="material-symbols-outlined">map</span><span>RQ Map</span></a>
+<a class="flex items-center gap-3 px-3 py-2 text-on-primary-container bg-primary-container font-bold rounded-lg" href="#"><span class="material-symbols-outlined">segment</span><span>Segments</span></a>
+<a class="flex items-center gap-3 px-3 py-2 text-on-surface-variant hover:bg-surface-container-high" href="#"><span class="material-symbols-outlined">verified_user</span><span>Validation</span></a>
+</nav>
+</aside>
+<main class="ml-72 p-8 min-h-screen">
+<h2 class="font-headline-lg mb-2">Segments</h2>
+<p class="text-secondary mb-8">Insights grouped by shopper segment relevance</p>
+<div id="segments-list" class="grid grid-cols-1 lg:grid-cols-2 gap-6">Loading…</div>
+</main>
+<script src="/js/config.js"></script><script src="/js/api.js"></script><script src="/js/shared.js"></script><script src="/js/pages/segments.js"></script>
+</body></html>

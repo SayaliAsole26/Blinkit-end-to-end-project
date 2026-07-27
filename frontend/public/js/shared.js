@@ -83,15 +83,29 @@
     return `${years} years (${days} days)`;
   }
 
+  function formatPlatformName(id) {
+    return String(id).replace(/_/g, " ").replace(/\b\w/g, (c) => c.toUpperCase());
+  }
+
   function formatDataCollection(dc) {
     if (!dc || !dc.evidence_date_min || !dc.evidence_date_max) return null;
+    const minDt = new Date(dc.evidence_date_min);
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);
+    const minYear = minDt.getFullYear();
+    const todayYear = today.getFullYear();
+    const yearRange = minYear === todayYear ? String(minYear) : `${minYear}–${todayYear}`;
     const min = formatDate(dc.evidence_date_min);
-    const max = formatDate(dc.evidence_date_max);
-    const span = formatDurationDays(dc.duration_days);
+    const max = formatDate(today.toISOString());
+    const durationDays = Math.max(0, Math.round((today - minDt) / (1000 * 60 * 60 * 24)));
+    const span = formatDurationDays(durationDays);
     const records = dc.record_count != null ? `${formatNumber(dc.record_count)} records` : null;
-    const platforms =
-      dc.platform_count != null ? `${formatNumber(dc.platform_count)} platforms` : null;
-    const parts = [`${min} → ${max}`, span, records, platforms].filter(Boolean);
+    const platformNames = Array.isArray(dc.platforms) && dc.platforms.length
+      ? dc.platforms.map(formatPlatformName).join(", ")
+      : dc.platform_count != null
+        ? `${formatNumber(dc.platform_count)} platforms`
+        : null;
+    const parts = [yearRange, `${min} → ${max}`, span, records, platformNames].filter(Boolean);
     return parts.join(" · ");
   }
 

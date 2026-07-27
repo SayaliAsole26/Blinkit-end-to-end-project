@@ -13,9 +13,6 @@
         case "evidence":
           el.textContent = UI.formatNumber(data.evidence_mentions);
           break;
-        case "platforms":
-          el.textContent = UI.formatNumber(data.max_source_diversity || 5);
-          break;
         case "high_confidence":
           el.textContent = `${data.high_confidence_pct ?? "—"}%`;
           break;
@@ -139,16 +136,6 @@
     tbody.innerHTML = rows || `<tr><td colspan="5" class="px-6 py-8 text-center text-secondary">No insights loaded</td></tr>`;
   }
 
-  function wireSearch() {
-    const input = document.querySelector('header input[type="text"]');
-    if (!input) return;
-    input.addEventListener("keydown", (e) => {
-      if (e.key === "Enter" && input.value.trim()) {
-        window.location.href = `/insights.html?q=${encodeURIComponent(input.value.trim())}`;
-      }
-    });
-  }
-
   function wireViewAll() {
     const btn = document.getElementById("view-all-insights");
     if (btn) btn.addEventListener("click", () => (window.location.href = "/insights.html"));
@@ -156,7 +143,6 @@
 
   document.addEventListener("DOMContentLoaded", async () => {
     UI.wireSidebar("overview");
-    wireSearch();
     wireViewAll();
 
     const main = document.querySelector("main") || document.body;

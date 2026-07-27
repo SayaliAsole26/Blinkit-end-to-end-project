@@ -185,29 +185,8 @@
 <!-- Main Content Area -->
 <main class="ml-72 min-h-screen">
 <!-- TopNavBar (Shared Component) -->
-<header class="sticky top-0 z-40 w-full h-16 border-b border-outline-variant bg-surface-container-lowest flex justify-between items-center px-gutter shadow-sm">
-<div class="flex items-center gap-4">
+<header class="sticky top-0 z-40 w-full h-16 border-b border-outline-variant bg-surface-container-lowest flex items-center px-gutter shadow-sm">
 <h2 class="font-headline-sm text-headline-sm font-bold text-on-surface">Overview Dashboard</h2>
-<div class="h-6 w-px bg-outline-variant"></div>
-<nav class="flex gap-6">
-<a class="text-primary font-bold border-b-2 border-primary pb-1 font-label-md text-label-md" href="#">Read-only dashboard</a>
-</nav>
-</div>
-<div class="flex items-center gap-6">
-<div class="relative focus-within:ring-2 focus-within:ring-primary rounded-lg">
-<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-secondary">search</span>
-<input class="pl-10 pr-4 py-2 bg-surface-container rounded-lg border-none focus:ring-0 text-body-md w-64" placeholder="Search insights..." type="text"/>
-</div>
-<div class="flex items-center gap-4">
-<button class="text-secondary hover:text-on-surface transition-all cursor-pointer">
-<span class="material-symbols-outlined">notifications</span>
-</button>
-<button class="text-secondary hover:text-on-surface transition-all cursor-pointer flex items-center gap-2">
-<img class="w-8 h-8 rounded-full border border-outline-variant" data-alt="A professional portrait of a senior market research analyst wearing a charcoal blazer, standing in a brightly lit modern office with glass walls. The lighting is crisp and cool, emphasizing a high-authority business persona. Realistic photography style with soft bokeh background of a tech office." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCbQZfJxlZoyLejzXoxxrBnjxYOGG_aFG4OSx0rkJj0yDeNplt4rY89Uq0ma3t752z2l_ZMV2c-fXWcoKYQDjenWJzh_mH0BQfpqd-wh_gln5inGiVoU9FnUTOkw3N5PLbIKiFCNJGEODK-Z5OQQO7CIo5SrXLIaEJvvdOBVI5_PkKAFKm3D4HB0CyWwmlqatA3Nnt3mGgAvnUHWx5qVS7rUA_QhxCQnveFdZKwaI-jfTJ156FVYbO_wuF-Wb-v4ZZoSC9jPR_96EY"/>
-<span class="material-symbols-outlined">account_circle</span>
-</button>
-</div>
-</div>
 </header>
 <div class="p-8 max-w-container-max mx-auto">
 <!-- Data collection info banner -->
@@ -220,7 +199,7 @@
 </div>
 </div>
 <!-- KPI Cards -->
-<div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
 <!-- KPI 1 -->
 <div class="bg-surface-container-lowest p-6 rounded-lg card-shadow border border-outline-variant group hover:border-primary transition-colors">
 <div class="flex justify-between items-start mb-4">
@@ -250,24 +229,6 @@
 </div>
 </div>
 <!-- KPI 3 -->
-<div class="bg-surface-container-lowest p-6 rounded-lg card-shadow border border-outline-variant group hover:border-primary transition-colors">
-<div class="flex justify-between items-start mb-4">
-<span class="text-secondary font-label-md text-label-md uppercase tracking-wider">Source Platforms</span>
-<span class="material-symbols-outlined text-primary group-hover:scale-110 transition-transform">hub</span>
-</div>
-<div class="flex items-end gap-2">
-<span class="font-headline-lg text-headline-lg text-on-surface" data-kpi="platforms">—</span>
-<span class="text-secondary font-label-md text-label-md pb-1.5">max diversity</span>
-</div>
-<div class="mt-4 flex gap-1">
-<div class="w-3 h-3 rounded-full bg-primary-container"></div>
-<div class="w-3 h-3 rounded-full bg-primary-container"></div>
-<div class="w-3 h-3 rounded-full bg-primary-container"></div>
-<div class="w-3 h-3 rounded-full bg-primary-container"></div>
-<div class="w-3 h-3 rounded-full bg-primary-container"></div>
-</div>
-</div>
-<!-- KPI 4 -->
 <div class="bg-primary-container p-6 rounded-lg card-shadow border border-primary group cursor-default">
 <div class="flex justify-between items-start mb-4">
 <span class="text-on-primary-container font-label-md text-label-md uppercase tracking-wider">High-Confidence</span>
@@ -303,12 +264,7 @@
 <div class="bg-surface-container-lowest rounded-lg card-shadow border border-outline-variant overflow-hidden">
 <div class="px-6 py-4 border-b border-outline-variant flex justify-between items-center">
 <h3 class="font-headline-sm text-headline-sm">Top 5 Insights</h3>
-<div class="flex gap-2">
-<button class="px-3 py-1.5 border border-outline-variant rounded-lg text-label-md flex items-center gap-1 hover:bg-surface-container transition-colors">
-<span class="material-symbols-outlined text-[18px]">filter_list</span> Filter
-                        </button>
 <button id="view-all-insights" class="px-3 py-1.5 bg-on-surface text-surface rounded-lg text-label-md hover:opacity-90 transition-opacity">View All</button>
-</div>
 </div>
 <div class="overflow-x-auto">
 <table class="w-full text-left">
@@ -329,13 +285,6 @@
 </div>
 </div>
 </main>
-<!-- Contextual FAB -->
-<button class="fixed bottom-8 right-8 w-16 h-16 bg-primary-container text-on-primary-container rounded-full shadow-lg flex items-center justify-center hover:scale-110 active:scale-95 transition-all z-50 group border-2 border-primary/20">
-<span class="material-symbols-outlined text-[32px] group-hover:rotate-12 transition-transform">add_comment</span>
-<div class="absolute right-full mr-4 px-3 py-1 bg-on-surface text-surface text-label-md rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none">
-            New Analysis Pipeline
-        </div>
-</button>
 <script src="/js/config.js"></script>
 <script src="/js/api.js"></script>
 <script src="/js/shared.js"></script>

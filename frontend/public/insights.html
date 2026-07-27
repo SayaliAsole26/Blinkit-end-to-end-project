@@ -134,24 +134,8 @@
 <!-- Main Content Wrapper -->
 <main class="ml-72 flex flex-col h-screen">
 <!-- Top Bar (Shared Component Style) -->
-<header class="sticky top-0 z-40 w-full h-16 bg-surface-container-lowest border-b border-outline-variant px-gutter flex justify-between items-center">
-<div class="flex items-center gap-4">
+<header class="sticky top-0 z-40 w-full h-16 bg-surface-container-lowest border-b border-outline-variant px-gutter flex items-center">
 <h2 class="font-headline-sm text-headline-sm font-bold text-on-surface">Insight Explorer</h2>
-<span class="text-secondary text-label-md font-label-md border-l border-outline-variant pl-4">Read-only dashboard</span>
-</div>
-<div class="flex items-center gap-6">
-<div class="relative w-96 flex items-center bg-surface-container-low rounded-full px-4 py-1.5 focus-within:ring-2 focus-within:ring-primary transition-all">
-<span class="material-symbols-outlined text-on-surface-variant text-[20px]">search</span>
-<input class="bg-transparent border-none focus:ring-0 text-body-md w-full ml-2 placeholder:text-on-surface-variant/50" placeholder="Search insights..." type="text"/>
-</div>
-<div class="flex items-center gap-4">
-<button class="material-symbols-outlined text-secondary hover:text-primary transition-all">notifications</button>
-<div class="flex items-center gap-2 cursor-pointer group">
-<span class="material-symbols-outlined text-secondary group-hover:text-primary transition-all">account_circle</span>
-<span class="text-label-md font-label-md text-on-surface">Analyst 01</span>
-</div>
-</div>
-</div>
 </header>
 <!-- Content Area -->
 <div class="flex-1 overflow-y-auto bg-background p-gutter flex flex-col gap-gutter">
@@ -159,19 +143,9 @@
 <section class="sticky top-0 z-30 bg-background/80 backdrop-blur-md pb-4 border-b border-outline-variant/30">
 <div class="flex flex-col gap-4">
 <!-- Global Controls -->
-<div class="flex items-center justify-between">
 <div class="flex items-center gap-2">
 <span class="text-label-md font-bold text-on-surface-variant">FILTER BY:</span>
 <div class="flex gap-1 flex-wrap" id="rq-chips"></div>
-</div>
-<div class="flex items-center bg-surface-container-high p-1 rounded-lg">
-<button class="flex items-center gap-1 px-3 py-1 rounded-md bg-surface-container-lowest shadow-sm text-label-md font-bold">
-<span class="material-symbols-outlined text-[18px]">grid_view</span> Card
-                            </button>
-<button class="flex items-center gap-1 px-3 py-1 rounded-md text-on-surface-variant text-label-md font-bold hover:bg-surface-container-highest transition-colors">
-<span class="material-symbols-outlined text-[18px]">table_rows</span> Table
-                            </button>
-</div>
 </div>
 <!-- Secondary Multi-select Filters -->
 <div class="flex flex-wrap gap-2 items-center">
@@ -204,6 +178,14 @@
 <option value="pet_owners">Pet Owners</option>
 <option value="health_conscious_buyers">Health Conscious</option>
 </select>
+<select id="filter-platform" class="bg-surface-container-lowest border-outline rounded-lg text-label-md py-1 px-3 focus:ring-primary focus:border-primary">
+<option value="">Platform</option>
+</select>
+<select id="filter-category" class="bg-surface-container-lowest border-outline rounded-lg text-label-md py-1 px-3 focus:ring-primary focus:border-primary">
+<option value="">Category</option>
+</select>
+<input id="filter-date-from" type="date" class="bg-surface-container-lowest border-outline rounded-lg text-label-md py-1 px-3 focus:ring-primary focus:border-primary" title="Evidence from"/>
+<input id="filter-date-to" type="date" class="bg-surface-container-lowest border-outline rounded-lg text-label-md py-1 px-3 focus:ring-primary focus:border-primary" title="Evidence to"/>
 <div class="h-6 w-[1px] bg-outline-variant mx-2"></div>
 <div class="flex items-center gap-2 ml-auto">
 <span class="text-label-md text-on-surface-variant">Sort by:</span>
@@ -227,11 +209,6 @@
 </footer>
 </div>
 </main>
-<!-- Contextual FAB (Only for main landing, suppressed on deeper explorer if needed, but relevant here for "New Pipeline Run") -->
-<button class="fixed bottom-8 right-8 bg-primary-container text-on-primary-container h-14 px-6 rounded-full shadow-lg flex items-center gap-3 font-bold hover:scale-105 active:scale-95 transition-all z-50">
-<span class="material-symbols-outlined">refresh</span>
-<span>Re-analyze Pipeline</span>
-</button>
 <script src="/js/config.js"></script>
 <script src="/js/api.js"></script>
 <script src="/js/shared.js"></script>

@@ -4,7 +4,7 @@ from __future__ import annotations
 
 import json
 import os
-from datetime import datetime, timezone
+from datetime import UTC, datetime
 from functools import lru_cache
 from pathlib import Path
 
@@ -34,6 +34,11 @@ def validation_path() -> Path:
     return get_data_dir() / "processed" / f"validation_{run_id}.json"
 
 
+def human_audits_path() -> Path:
+    run_id = get_insights_run_id()
+    return get_data_dir() / "processed" / f"human_audits_{run_id}.json"
+
+
 def summary_path() -> Path:
     run_id = get_insights_run_id()
     return get_data_dir() / "processed" / f"synthesize_validate_summary_{run_id}.json"
@@ -52,7 +57,7 @@ def _parse_iso_datetime(value: str | None) -> datetime | None:
     try:
         dt = datetime.fromisoformat(value.replace("Z", "+00:00"))
         if dt.tzinfo is None:
-            dt = dt.replace(tzinfo=timezone.utc)
+            dt = dt.replace(tzinfo=UTC)
         return dt
     except ValueError:
         return None
@@ -72,6 +77,7 @@ def data_collection_meta(summary: dict | list | None) -> dict[str, str | int | N
             "duration_days": stored.get("duration_days"),
             "record_count": stored.get("record_count"),
             "platform_count": stored.get("platform_count"),
+            "platforms": stored.get("platforms"),
             "pipeline_generated_at": generated_at,
         }
 

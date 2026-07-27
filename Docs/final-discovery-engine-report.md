@@ -3,6 +3,7 @@
 
 > **Project:** Blinkit Review Analyzer Dashboard  
 > **Pipeline run:** `run_phase4_final` · Generated July 2026  
+> **Executive deck:** [executive-deck.md](./executive-deck.md) (10-slide summary)  
 > **Live dashboard:** [Vercel](https://blinkit-end-to-end-project.vercel.app) · [API](https://blinkit-end-to-end-project-production.up.railway.app)  
 > **Status:** 117 validated insight cards from 800 public feedback records (Jan 2023 – May 2025)
 

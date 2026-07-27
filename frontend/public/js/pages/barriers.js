@@ -11,6 +11,22 @@
     NONE_GROCERY_LOYAL: "#D1C4E9",
   };
 
+  const CATEGORY_LABELS = {
+    personal_care: "Personal Care",
+    groceries: "Groceries",
+    health_pharmacy: "Health & Pharmacy",
+    baby_care: "Baby Care",
+    pet_supplies: "Pet Supplies",
+    stationery: "Stationery",
+    electronics: "Electronics",
+    snacks: "Snacks",
+    beverages: "Beverages",
+    household: "Household",
+    general: "General",
+    all_categories: "Overall Corpus",
+    other: "Other Categories",
+  };
+
   const CATEGORY_KEYWORDS = [
     ["personal care", "personal_care"],
     ["grocer", "groceries"],
@@ -30,8 +46,9 @@
   let chartData = null;
 
   function formatCategory(id) {
-    if (id === "all_categories") return "Overall Corpus";
-    return id.replace(/_/g, " ").replace(/\b\w/g, (c) => c.toUpperCase());
+    if (CATEGORY_LABELS[id]) return CATEGORY_LABELS[id];
+    const pretty = id.replace(/_/g, " ").replace(/\b\w/g, (c) => c.toUpperCase());
+    return pretty.length > 28 ? `${pretty.slice(0, 26)}…` : pretty;
   }
 
   function inferCategories(card) {
@@ -43,16 +60,45 @@
     for (const [keyword, slug] of CATEGORY_KEYWORDS) {
       if (haystack.includes(keyword) && !found.includes(slug)) found.push(slug);
     }
-    if (found.length) return found;
-    if (card.theme_tags?.[0]) {
-      const slug = card.theme_tags[0]
-        .toLowerCase()
-        .replace(/[^a-z0-9]+/g, "_")
-        .replace(/^_|_$/g, "")
-        .slice(0, 32);
-      return slug ? [slug] : ["general"];
+    return found.length ? found : ["general"];
+  }
+
+  function normalizeEntries(byCategory, categoryCounts) {
+    const entries = Object.entries(byCategory || {}).map(([category, split]) => ({
+      category,
+      split,
+      insightCount: categoryCounts[category] || 0,
+      weight: Object.values(split).reduce((s, v) => s + v, 0),
+    }));
+
+    if (entries.length === 1 && entries[0].category === "all_categories") {
+      return [{ ...entries[0], category: "all_categories" }];
     }
-    return ["general"];
+
+    entries.sort((a, b) => b.insightCount - a.insightCount || b.weight - a.weight);
+
+    const top = entries.filter((e) => e.category !== "general" && e.category !== "all_categories").slice(0, 7);
+    const rest = entries.filter((e) => !top.includes(e));
+
+    if (!rest.length) return top.length ? top : entries.slice(0, 8);
+
+    const otherSplit = {};
+    let otherCount = 0;
+    for (const entry of rest) {
+      otherCount += entry.insightCount;
+      for (const [barrier, weight] of Object.entries(entry.split)) {
+        otherSplit[barrier] = (otherSplit[barrier] || 0) + weight * Math.max(entry.insightCount, 1);
+      }
+    }
+    const otherTotal = Object.values(otherSplit).reduce((s, v) => s + v, 0) || 1;
+    const normalizedOther = Object.fromEntries(
+      Object.entries(otherSplit).map(([k, v]) => [k, Math.round((v / otherTotal) * 10000) / 10000])
+    );
+
+    if (otherCount > 0) {
+      top.push({ category: "other", split: normalizedOther, insightCount: otherCount, weight: 1 });
+    }
+    return top;
   }
 
   function renderLegend(barriers) {
@@ -60,9 +106,9 @@
     if (!el) return;
     el.innerHTML = barriers
       .map(
-        (b) => `<div class="flex items-center gap-2 px-2 py-1 rounded-full bg-surface-container-low">
+        (b) => `<div class="flex items-center gap-2 px-3 py-1.5 rounded-full bg-surface-container-low border border-outline-variant/30">
           <span class="w-2.5 h-2.5 rounded-full shrink-0" style="background:${BARRIER_COLORS[b] || "#ccc"}"></span>
-          <span class="text-label-md text-secondary">${UI.barrierLabel(b)}</span>
+          <span class="text-label-md text-on-surface-variant">${UI.barrierLabel(b)}</span>
         </div>`
       )
       .join("");
@@ -73,72 +119,147 @@
       .map(([barrier, weight]) => {
         const pct = Math.round((weight / total) * 100);
         if (pct <= 0) return "";
-        const showLabel = pct >= 10;
-        const label = showLabel ? `${pct}%` : "";
-        return `<div class="barrier-segment h-full flex items-center justify-center shrink-0 overflow-hidden ${
-          showLabel ? "text-[11px] font-bold text-on-surface" : ""
-        }" style="width:${pct}%;min-width:${pct > 0 ? "4px" : "0"};background:${
-          BARRIER_COLORS[barrier] || "#ccc"
-        }" title="${UI.barrierLabel(barrier)}: ${pct}%">${label}</div>`;
+        return `<div class="barrier-segment h-full shrink-0" style="width:${pct}%;min-width:${
+          pct > 0 ? "3px" : "0"
+        };background:${BARRIER_COLORS[barrier] || "#ccc"}" title="${UI.barrierLabel(barrier)}: ${pct}%"></div>`;
       })
       .join("");
   }
 
-  function renderCategoryRows(byCategory) {
+  function renderSegmentChips(sorted, total) {
+    return sorted
+      .map(([barrier, weight]) => {
+        const pct = Math.round((weight / total) * 100);
+        if (pct <= 0) return "";
+        const color = BARRIER_COLORS[barrier] || "#ccc";
+        return `<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[11px] font-semibold border border-outline-variant/20"
+          style="background:${color}22;color:#1a1c1c">
+          <span class="w-2 h-2 rounded-full" style="background:${color}"></span>
+          ${UI.barrierLabel(barrier)} ${pct}%
+        </span>`;
+      })
+      .join("");
+  }
+
+  function renderSummary(entries, raw) {
+    const el = document.getElementById("barrier-summary");
+    if (!el) return;
+
+    const totalInsights = entries.reduce((s, e) => s + e.insightCount, 0);
+    const corpus = raw || {};
+    const corpusTotal = Object.values(corpus).reduce((s, v) => s + v, 0) || 1;
+    const topBarrier = Object.entries(corpus).sort((a, b) => b[1] - a[1])[0];
+    const topLabel = topBarrier ? UI.barrierLabel(topBarrier[0]) : "—";
+    const topPct = topBarrier ? Math.round((topBarrier[1] / corpusTotal) * 100) : 0;
+
+    el.innerHTML = `
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-6">
+        <div class="rounded-xl border border-outline-variant/40 bg-surface-container-low p-4">
+          <p class="text-label-md text-secondary uppercase tracking-wide mb-1">Categories</p>
+          <p class="font-headline-sm font-bold">${entries.length}</p>
+        </div>
+        <div class="rounded-xl border border-outline-variant/40 bg-surface-container-low p-4">
+          <p class="text-label-md text-secondary uppercase tracking-wide mb-1">Insights mapped</p>
+          <p class="font-headline-sm font-bold">${UI.formatNumber(totalInsights)}</p>
+        </div>
+        <div class="rounded-xl border border-outline-variant/40 bg-surface-container-low p-4">
+          <p class="text-label-md text-secondary uppercase tracking-wide mb-1">Top barrier</p>
+          <p class="font-headline-sm font-bold">${topLabel} <span class="text-secondary font-normal text-body-md">(${topPct}%)</span></p>
+        </div>
+      </div>`;
+  }
+
+  function renderOverallBar(raw) {
+    const el = document.getElementById("barrier-overall");
+    if (!el || !raw || !Object.keys(raw).length) {
+      if (el) el.innerHTML = "";
+      return;
+    }
+
+    const sorted = Object.entries(raw).sort((a, b) => b[1] - a[1]);
+    const total = sorted.reduce((s, [, v]) => s + v, 0) || 1;
+
+    el.innerHTML = `
+      <div class="mb-6 p-4 rounded-xl bg-surface-container-low border border-outline-variant/30">
+        <div class="flex justify-between items-center mb-3">
+          <span class="font-bold text-on-surface">Overall Corpus</span>
+          <span class="text-label-md text-secondary">${UI.formatNumber(total)} weighted insights</span>
+        </div>
+        <div class="h-10 w-full flex rounded-full overflow-hidden bg-white border border-outline-variant/30 shadow-inner">${renderBarSegments(
+          sorted,
+          total
+        )}</div>
+        <div class="flex flex-wrap gap-2 mt-3">${renderSegmentChips(sorted, total)}</div>
+      </div>`;
+  }
+
+  function renderCategoryRows(byCategory, categoryCounts, raw) {
     const container = document.getElementById("barrier-chart-rows");
     if (!container) return;
 
-    const entries = Object.entries(byCategory || {})
-      .map(([category, split]) => ({
-        category,
-        split,
-        total: Object.values(split).reduce((s, v) => s + v, 0),
-      }))
-      .sort((a, b) => b.total - a.total)
-      .slice(0, 8);
+    const entries = normalizeEntries(byCategory, categoryCounts);
 
     if (!entries.length) {
-      container.innerHTML = `<p class="text-secondary text-body-md">No barrier data available.</p>`;
+      container.innerHTML = `<p class="text-secondary text-body-md py-8 text-center">No barrier data available.</p>`;
+      renderSummary([], raw);
+      renderOverallBar(raw);
       return;
     }
 
     const allBarriers = [...new Set(entries.flatMap((e) => Object.keys(e.split)))];
     renderLegend(allBarriers);
+    renderSummary(entries, raw);
+    if (entries.length !== 1 || entries[0].category !== "all_categories") {
+      renderOverallBar(raw);
+    } else {
+      const overallEl = document.getElementById("barrier-overall");
+      if (overallEl) overallEl.innerHTML = "";
+    }
 
     container.innerHTML = entries
-      .map(({ category, split }) => {
+      .map(({ category, split, insightCount }) => {
         const sorted = Object.entries(split).sort((a, b) => b[1] - a[1]);
         const total = sorted.reduce((s, [, v]) => s + v, 0) || 1;
         const dominant = sorted[0];
         const dominantPct = dominant ? Math.round((dominant[1] / total) * 100) : 0;
 
-        return `<div class="space-y-2">
-          <div class="flex justify-between items-center gap-4">
-            <span class="font-bold text-on-surface">${formatCategory(category)}</span>
-            <span class="text-label-md text-secondary whitespace-nowrap">${UI.barrierLabel(dominant?.[0])} · ${dominantPct}%</span>
+        return `<article class="barrier-row p-4 rounded-xl border border-outline-variant/30 bg-white hover:shadow-sm transition-shadow">
+          <div class="flex flex-wrap justify-between items-start gap-2 mb-3">
+            <div>
+              <h4 class="font-bold text-on-surface">${formatCategory(category)}</h4>
+              <p class="text-label-md text-secondary mt-0.5">${UI.formatNumber(insightCount)} insight${insightCount === 1 ? "" : "s"}</p>
+            </div>
+            <span class="px-2.5 py-1 rounded-full text-label-md font-semibold bg-primary-container/40 text-on-primary-container">
+              ${UI.barrierLabel(dominant?.[0])} · ${dominantPct}%
+            </span>
           </div>
-          <div class="h-9 w-full flex rounded-full overflow-hidden bg-surface-container-low border border-outline-variant/30">${renderBarSegments(
+          <div class="h-10 w-full flex rounded-full overflow-hidden bg-surface-container-low border border-outline-variant/30">${renderBarSegments(
             sorted,
             total
           )}</div>
-        </div>`;
+          <div class="flex flex-wrap gap-2 mt-3">${renderSegmentChips(sorted, total)}</div>
+        </article>`;
       })
       .join("");
   }
 
   function buildByCategoryFromInsights(items) {
     const byCategory = {};
+    const categoryCounts = {};
+
     for (const card of items || []) {
       const split = card.cognitive_barrier_split || {};
       if (!Object.keys(split).length) continue;
       const cats = inferCategories(card);
       for (const cat of cats) {
+        categoryCounts[cat] = (categoryCounts[cat] || 0) + 1;
         const bucket = byCategory[cat] || (byCategory[cat] = {});
         for (const [barrier, weight] of Object.entries(split)) {
           bucket[barrier] = (bucket[barrier] || 0) + Number(weight);
         }
       }
     }
+
     for (const cat of Object.keys(byCategory)) {
       const barriers = byCategory[cat];
       const total = Object.values(barriers).reduce((s, v) => s + v, 0) || 1;
@@ -146,16 +267,20 @@
         Object.entries(barriers).map(([k, v]) => [k, Math.round((v / total) * 10000) / 10000])
       );
     }
-    return byCategory;
+
+    return { byCategory, categoryCounts };
   }
 
   function buildByCategoryFromRaw(raw) {
-    if (!raw || !Object.keys(raw).length) return {};
+    if (!raw || !Object.keys(raw).length) return { byCategory: {}, categoryCounts: {} };
     const total = Object.values(raw).reduce((s, v) => s + v, 0) || 1;
     const split = Object.fromEntries(
       Object.entries(raw).map(([barrier, count]) => [barrier, Math.round((count / total) * 10000) / 10000])
     );
-    return { all_categories: split };
+    return {
+      byCategory: { all_categories: split },
+      categoryCounts: { all_categories: total },
+    };
   }
 
   async function fetchAllInsights() {
@@ -171,19 +296,28 @@
 
   async function resolveChartData(initial) {
     let byCategory = initial?.by_category;
+    let categoryCounts = {};
     let topInsight = initial?.top_insight;
 
     if (!byCategory || !Object.keys(byCategory).length) {
       try {
-        const items = await fetchAllInsights();
-        byCategory = buildByCategoryFromInsights(items);
+        const built = buildByCategoryFromInsights(await fetchAllInsights());
+        byCategory = built.byCategory;
+        categoryCounts = built.categoryCounts;
       } catch (_) {
         byCategory = {};
       }
       if (!Object.keys(byCategory).length || (Object.keys(byCategory).length === 1 && byCategory.general)) {
         const fromRaw = buildByCategoryFromRaw(initial?.raw);
-        if (Object.keys(fromRaw).length) byCategory = fromRaw;
+        if (Object.keys(fromRaw.byCategory).length) {
+          byCategory = fromRaw.byCategory;
+          categoryCounts = fromRaw.categoryCounts;
+        }
       }
+    } else {
+      categoryCounts = Object.fromEntries(
+        Object.keys(byCategory).map((cat) => [cat, Math.round((byCategory[cat] ? Object.values(byCategory[cat]).reduce((a, b) => a + b, 0) : 0) * 10)])
+      );
     }
 
     if (!topInsight) {
@@ -195,7 +329,7 @@
       }
     }
 
-    return { ...initial, by_category: byCategory, top_insight: topInsight };
+    return { ...initial, by_category: byCategory, category_counts: categoryCounts, top_insight: topInsight };
   }
 
   function renderTopInsight(insight) {
@@ -211,7 +345,7 @@
         <span class="bg-primary-container text-on-primary-container px-3 py-1 rounded-full text-label-md font-bold uppercase">Top Insight</span>
         ${UI.confidenceCardBadge(insight.confidence_tier)}
       </div>
-      <p class="font-headline-sm mb-3">${insight.statement}</p>
+      <p class="font-headline-sm mb-3 leading-snug">${insight.statement}</p>
       <p class="text-on-surface-variant font-body-md mb-4">
         Dominant barrier: <strong>${barrier.label}</strong> · ${UI.formatNumber(insight.evidence_count)} evidence mentions
       </p>
@@ -231,7 +365,7 @@
               <div class="w-2 h-2 rounded-full" style="background:${BARRIER_COLORS[id] || "#ccc"}"></div>
               <span class="font-bold">${label}</span>
             </div>
-            <span class="material-symbols-outlined">expand_more</span>
+            <span class="material-symbols-outlined definition-chevron transition-transform">expand_more</span>
           </button>
           <div class="px-4 pb-4 text-secondary text-body-md definition-content">${label} — cognitive friction identified in cross-category shopping feedback (not sentiment).</div>
         </div>`
@@ -242,8 +376,14 @@
       btn.addEventListener("click", () => {
         const parent = btn.closest(".group");
         const open = parent.getAttribute("data-open") === "true";
-        el.querySelectorAll(".group").forEach((g) => g.removeAttribute("data-open"));
-        if (!open) parent.setAttribute("data-open", "true");
+        el.querySelectorAll(".group").forEach((g) => {
+          g.removeAttribute("data-open");
+          g.querySelector(".definition-chevron")?.classList.remove("rotate-180");
+        });
+        if (!open) {
+          parent.setAttribute("data-open", "true");
+          btn.querySelector(".definition-chevron")?.classList.add("rotate-180");
+        }
       });
     });
   }
@@ -251,7 +391,7 @@
   async function loadChart() {
     const initial = await BlinkitAPI.barriers("");
     chartData = await resolveChartData(initial);
-    renderCategoryRows(chartData.by_category);
+    renderCategoryRows(chartData.by_category, chartData.category_counts || {}, chartData.raw);
     renderTopInsight(chartData.top_insight);
   }
 

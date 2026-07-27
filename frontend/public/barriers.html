@@ -10,9 +10,10 @@
 body{font-family:Inter,sans-serif}
 .material-symbols-outlined{font-variation-settings:'FILL' 0,'wght' 400,'GRAD' 0,'opsz' 24}
 .group[data-open=true] .definition-content{display:block}
+.group[data-open=true] .definition-chevron{transform:rotate(180deg)}
 .definition-content{display:none}
-.barrier-segment{transition:filter .15s ease}
-.barrier-segment:hover{filter:brightness(.95)}
+.barrier-segment{transition:filter .15s ease, transform .15s ease}
+.barrier-segment:hover{filter:brightness(.92);transform:scaleY(1.05)}
 </style>
 </head>
 <body class="bg-background text-on-surface min-h-screen">
@@ -37,13 +38,15 @@ body{font-family:Inter,sans-serif}
 </div>
 </div>
 <div class="grid grid-cols-12 gap-6">
-<div class="col-span-12 lg:col-span-8 bg-white rounded-xl border border-outline-variant p-6">
-<div class="mb-4">
-<h3 class="font-headline-sm mb-3">Category × Barrier Split</h3>
-<div class="flex gap-3 flex-wrap pb-4 border-b border-outline-variant/40" id="barrier-legend"></div>
+<div class="col-span-12 lg:col-span-8 bg-white rounded-xl border border-outline-variant shadow-sm p-6">
+<div class="mb-2">
+<h3 class="font-headline-sm mb-1">Category × Barrier Split</h3>
+<p class="text-body-md text-secondary mb-4">Barrier mix within each shopping category — percentages sum to 100% per row.</p>
+<div class="flex gap-2 flex-wrap pb-4 border-b border-outline-variant/40" id="barrier-legend"></div>
 </div>
-<div id="barrier-chart-rows" class="space-y-5">Loading…</div>
-<p class="mt-4 pt-4 border-t border-outline-variant/40 text-label-md text-secondary">Percentages show barrier mix within each category. Hover segments for details.</p>
+<div id="barrier-summary"></div>
+<div id="barrier-overall"></div>
+<div id="barrier-chart-rows" class="space-y-4">Loading…</div>
 </div>
 <div class="col-span-12 lg:col-span-4 flex flex-col gap-6">
 <div class="bg-white rounded-xl border border-outline-variant overflow-hidden">

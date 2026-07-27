@@ -11,7 +11,7 @@
 | Service | URL | Platform |
 |---------|-----|----------|
 | **Dashboard** | `https://blinkit-end-to-end-project.vercel.app` | Vercel |
-| **API (direct)** | `https://blinkit-production-877e.up.railway.app` | Railway |
+| **API (direct)** | `https://blinkit-end-to-end-project-production.up.railway.app` | Railway |
 | **API (via proxy)** | `https://blinkit-end-to-end-project.vercel.app/api/*` | Vercel → Railway |
 
 Update this table when domains change, then sync `frontend/vercel.json` and Railway `CORS_ORIGINS`.
@@ -76,8 +76,8 @@ The script:
 
 ```powershell
 .\.tools\railway.exe domain          # copy public URL
-curl https://blinkit-production-877e.up.railway.app/health
-curl https://blinkit-production-877e.up.railway.app/api/overview
+curl https://blinkit-end-to-end-project-production.up.railway.app/health
+curl https://blinkit-end-to-end-project-production.up.railway.app/api/overview
 ```
 
 Expected: `{"status":"ok"}` and `insight_count: 117`.
@@ -280,7 +280,7 @@ Run after every deploy:
 PowerShell one-liner (adjust URLs):
 
 ```powershell
-$r="https://blinkit-production-877e.up.railway.app"
+$r="https://blinkit-end-to-end-project-production.up.railway.app"
 $v="https://blinkit-end-to-end-project.vercel.app"
 (Invoke-RestMethod "$r/health").status
 (Invoke-RestMethod "$r/api/overview").insight_count

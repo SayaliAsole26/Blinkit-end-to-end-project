@@ -7,7 +7,7 @@
     { "source": "/shell", "destination": "/shell.html" },
     {
       "source": "/api/:path*",
-      "destination": "https://blinkit-api-production.up.railway.app/api/:path*"
+      "destination": "https://blinkit-end-to-end-project-production.up.railway.app/api/:path*"
     }
   ],
   "headers": [

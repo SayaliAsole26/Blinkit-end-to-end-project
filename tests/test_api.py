@@ -25,6 +25,14 @@ def test_health(client):
     assert res.json()["status"] == "ok"
 
 
+def test_root(client):
+    res = client.get("/")
+    assert res.status_code == 200
+    body = res.json()
+    assert body["status"] == "ok"
+    assert "/api/overview" in body["endpoints"]
+
+
 def test_overview(client):
     res = client.get("/api/overview")
     assert res.status_code == 200

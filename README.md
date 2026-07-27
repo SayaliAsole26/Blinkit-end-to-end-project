@@ -7,6 +7,7 @@ AI-powered review analyzer dashboard for Blinkit. Ingests public feedback from a
 - [Problem Statement](Docs/Problemstatement.md)
 - [Architecture](Docs/architecture.md)
 - [Implementation Plan](Docs/implementation-plan.md)
+- [Deployment Playbook](Docs/deployment-playbook.md) — operational runbook
 - [Deployment Plan](Docs/deployment-plan.md) — overview
   - [Backend — Railway](Docs/deployment-plan-backend-railway.md)
   - [Frontend — Vercel](Docs/deployment-plan-frontend-vercel.md) (Stitch HTML export)
@@ -122,14 +123,22 @@ Outputs:
 
 | Layer | Platform | Guide |
 |-------|----------|-------|
+| **Playbook** | Railway + Vercel | [deployment-playbook.md](Docs/deployment-playbook.md) |
 | Overview | — | [deployment-plan.md](Docs/deployment-plan.md) |
 | Backend API | Railway | [deployment-plan-backend-railway.md](Docs/deployment-plan-backend-railway.md) |
 | Frontend (Stitch HTML) | Vercel | [deployment-plan-frontend-vercel.md](Docs/deployment-plan-frontend-vercel.md) |
+
+**Production:** [Dashboard](https://blinkit-end-to-end-project.vercel.app) · [API](https://blinkit-end-to-end-project-production.up.railway.app)
 
 **Stitch source:** `stitch_blinkit_review_analyzer_dashboard.zip` → `stitch/`  
 **Deployable frontend:** `frontend/public/` · **API wired:** `/`, `/insights`, `/evidence`
 
 **Deploy order:** Railway API → update `frontend/vercel.json` proxy URL → Vercel deploy.
+
+```powershell
+.\scripts\deploy_railway.ps1    # backend
+.\scripts\deploy_vercel.ps1      # frontend
+```
 
 ```powershell
 # Local API

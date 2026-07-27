@@ -33,6 +33,22 @@ app.add_middleware(
 app.include_router(insights_router)
 
 
+@app.get("/")
+def root() -> dict[str, str | list[str]]:
+    """API index — dashboard UI is hosted on Vercel, not Railway."""
+    return {
+        "service": "Blinkit Review Analyzer API",
+        "status": "ok",
+        "message": "Dashboard UI is on Vercel. Use /health and /api/* endpoints.",
+        "endpoints": [
+            "/health",
+            "/api/overview",
+            "/api/insights",
+            "/api/charts/barriers",
+        ],
+    }
+
+
 @app.get("/health")
 def health() -> dict[str, str]:
     return {"status": "ok"}

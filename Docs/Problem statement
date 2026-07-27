@@ -1,0 +1,30 @@
+Problem Statement: Blinkit Review Analyzer Dashboard
+
+Context
+Blinkit users repeat-buy same categories (groceries, snacks, essentials) and rarely cross-shop adjacent categories (pet, baby, personal care). This project is a review analyzer dashboard: it mines public feedback to explain why, surfaces validated causal insights in filterable views, and does not output raw sentiment scores or serve as a throwaway prototype.
+
+Tech Constraints (fixed)
+- LLM inference: Groq API (fast, cheap — use for classification/synthesis calls, not embeddings)
+- Embeddings: BGE-small (local/lightweight — for semantic clustering, theme dedup, RAG retrieval)
+
+Research Questions (RQ1–8)
+[See Problemstatement.md for full detail]
+
+Validation (must be demonstrable, not claimed)
+- 10% re-sample agreement rate logged
+- Human audit export/import
+- High confidence requires ≥2 source platforms
+- Stale insights flagged (>12 months)
+
+Out of Scope (for this review analyzer dashboard)
+- Real-time streaming ingestion
+- Full multilingual NLP beyond English+Hinglish
+- In-app product changes, experiments, or feature rollout (analysis only)
+- Paid social-listening tools
+
+Deliverables
+1. Architecture — ingestion → clean → embed → cluster → Groq-label → synthesize → store → dashboard
+2. Phased build plan — schema/ingestion → clean/embed → theme analysis → validation → dashboard
+3. Edge-case handling matrix
+4. Token-cost notes
+5. Review analyzer dashboard — all nine filterable views with validation metrics

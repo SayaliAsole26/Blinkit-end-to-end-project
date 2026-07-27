@@ -1,0 +1,78 @@
+# Versioned taxonomy — cognitive barriers, funnel stages, research questions
+version: "1.0.0"
+name: "blinkit_cross_shop_taxonomy_v1"
+
+cognitive_barriers:
+  - id: AWARENESS_DEFICIT
+    label: "Awareness Deficit"
+    description: "User didn't know the category existed on Blinkit"
+  - id: AUTHENTICITY_DISTRUST
+    label: "Authenticity Distrust"
+    description: "Fear of fake, refurbished, or duplicate products"
+  - id: ASSORTMENT_GAP
+    label: "Assortment Gap"
+    description: "Searched but brand or variant was not found"
+  - id: CONVENIENCE_MISMATCH
+    label: "Convenience Mismatch"
+    description: "Category doesn't fit 10-minute urgency use case"
+  - id: RETURN_POLICY_ANXIETY
+    label: "Return Policy Anxiety"
+    description: "Unclear return, replace, or defective handling"
+  - id: NONE_GROCERY_LOYAL
+    label: "Grocery Loyal"
+    description: "Regular grocery buyer with no cross-shop intent shown"
+
+funnel_leak_stages:
+  - id: DISCOVERY
+    label: "Discovery"
+    description: "Didn't know category existed on platform"
+  - id: CONSIDERATION
+    label: "Consideration"
+    description: "Browsed but brand or variant missing"
+  - id: CONVERSION
+    label: "Conversion"
+    description: "Added to cart but backed out (price, fees)"
+  - id: POST_PURCHASE_RETENTION
+    label: "Post-Purchase Retention"
+    description: "Bought once but distrust after experience"
+
+competitor_advantages:
+  - id: ASSORTMENT
+    label: "Assortment"
+  - id: PRICE
+    label: "Price"
+  - id: TRUST
+    label: "Trust"
+  - id: DELIVERY_SPEED
+    label: "Delivery Speed"
+  - id: RETURN_POLICY
+    label: "Return Policy"
+
+research_questions:
+  - id: RQ1
+    question: "Why same-category repeat buying?"
+  - id: RQ2
+    question: "What blocks new-category exploration?"
+  - id: RQ3
+    question: "How do users discover products today?"
+  - id: RQ4
+    question: "Role of habit (reorder/regulars)?"
+  - id: RQ5
+    question: "What info/trust builds confidence to try new category?"
+  - id: RQ6
+    question: "Recurring frustrations (any category)?"
+  - id: RQ7
+    question: "Which segments experiment more?"
+  - id: RQ8
+    question: "Recurring unmet needs?"
+
+confidence_tiers:
+  - id: high
+    min_platforms: 2
+    min_agreement: 0.70
+  - id: medium
+    min_platforms: 1
+    min_agreement: 0.50
+  - id: low
+    min_platforms: 0
+    min_agreement: 0.0

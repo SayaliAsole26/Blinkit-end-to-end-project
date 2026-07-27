@@ -1,0 +1,47 @@
+# Competitor entity aliases → canonical name
+# Used for NER pre-tagging (Clean) and competitor benchmarking (Groq)
+
+version: "1.0.0"
+
+competitors:
+  - canonical: Amazon
+    aliases: ["amazon", "amazon fresh", "amazon pantry", "amzn"]
+    default_advantages: [ASSORTMENT, PRICE, TRUST]
+
+  - canonical: Nykaa
+    aliases: ["nykaa", "nykaa fashion"]
+    default_advantages: [ASSORTMENT, TRUST]
+
+  - canonical: Myntra
+    aliases: ["myntra"]
+    default_advantages: [ASSORTMENT, PRICE]
+
+  - canonical: Zepto
+    aliases: ["zepto", "zepto app"]
+    default_advantages: [DELIVERY_SPEED, ASSORTMENT]
+    note: "Quick-commerce peer — separate from Blinkit cross-shop friction"
+
+  - canonical: Instamart
+    aliases: ["instamart", "swiggy instamart", "swiggy insta mart"]
+    default_advantages: [DELIVERY_SPEED, ASSORTMENT]
+    note: "Quick-commerce peer — separate from Blinkit cross-shop friction"
+
+  - canonical: Flipkart
+    aliases: ["flipkart", "flipkart minutes"]
+    default_advantages: [PRICE, ASSORTMENT]
+
+  - canonical: BigBasket
+    aliases: ["bigbasket", "big basket", "bb now", "bbnow"]
+    default_advantages: [ASSORTMENT, PRICE]
+
+  - canonical: DMart
+    aliases: ["dmart", "d-mart"]
+    default_advantages: [PRICE]
+
+comparison_phrases:
+  - "better than blinkit"
+  - "cheaper on"
+  - "more variety on"
+  - "prefer"
+  - "switch to"
+  - "only use blinkit for"

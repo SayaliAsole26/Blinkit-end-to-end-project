@@ -1,0 +1,64 @@
+# Category mention → controlled vocabulary ID
+# Used in Clean module (Phase 2) for normalized category tagging
+
+version: "1.0.0"
+
+mappings:
+  # Pet
+  - phrases: ["dog food", "cat food", "pet food", "dog treats", "cat litter"]
+    category_id: pet_supplies
+  - phrases: ["pet supplies", "pet care", "aquarium"]
+    category_id: pet_supplies
+
+  # Baby
+  - phrases: ["baby food", "diapers", "baby care", "infant formula", "baby products"]
+    category_id: baby_care
+  - phrases: ["kids toys", "children toys", "baby toys"]
+    category_id: baby_kids
+
+  # Personal care
+  - phrases: ["shampoo", "skincare", "face wash", "personal care", "cosmetics"]
+    category_id: personal_care
+  - phrases: ["makeup", "lipstick", "moisturizer"]
+    category_id: personal_care
+
+  # Electronics
+  - phrases: ["electronics", "earphones", "headphones", "charger", "cable", "phone accessory"]
+    category_id: electronics
+
+  # Groceries (baseline)
+  - phrases: ["groceries", "grocery", "vegetables", "fruits", "milk", "bread", "snacks"]
+    category_id: groceries
+
+  # Home / essentials
+  - phrases: ["stationery", "notebooks", "pens", "office supplies"]
+    category_id: stationery
+  - phrases: ["cleaning supplies", "detergent", "household"]
+    category_id: home_essentials
+
+  # Health
+  - phrases: ["medicine", "pharmacy", "health supplements", "vitamins"]
+    category_id: health_pharmacy
+
+fuzzy_match_threshold: 85
+
+logistics_keywords:
+  - delivery
+  - rider
+  - late
+  - delayed
+  - refund delay
+  - wrong item
+  - packaging damaged
+  - missing item
+
+search_gap_patterns:
+  - "wish it had"
+  - "wish they had"
+  - "couldn't find"
+  - "could not find"
+  - "don't have"
+  - "do not have"
+  - "missing"
+  - "not available"
+  - "add "

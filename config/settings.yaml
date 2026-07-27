@@ -1,0 +1,81 @@
+# Runtime settings — Blinkit Review Analyzer Dashboard
+# Override paths via environment variables (see .env.example)
+# Tuned for normalized corpus profile: ~1,200 records, mostly single-sentence reviews
+
+taxonomy_version: "1.0.0"
+
+embedding:
+  model: "BAAI/bge-small-en-v1.5"
+  batch_size: 128
+  dimensions: 384
+  cache_path: "data/processed/embedding_cache.db"
+  # Prefix prepended at embed time (BGE instruction-style enrichment)
+  instruction_prefix: "Represent feedback about cross-category shopping on Blinkit: "
+
+clustering:
+  algorithm: "hdbscan"
+  # Lower than default 5 to preserve niche themes (pet, baby) in ~1.2K corpus
+  min_cluster_size: 3
+  metric: "cosine"
+  # Merge near-duplicate template clusters before Groq (e.g. "never order {category} here")
+  dedup_threshold: 0.90
+  kmeans_fallback_k: 20
+  # If HDBSCAN noise exceeds this %, fall back to KMeans
+  noise_threshold_pct: 0.25
+  # Separate parallel tracks (see architecture.md §4.6)
+  dual_track: true
+
+groq:
+  model: "llama-3.3-70b-versatile"
+  temperature: 0.1
+  max_tokens: 512
+  max_retries: 2
+
+preprocess:
+  sentence_splitter: "pysbd"
+  # Records shorter than this → single segment (avoids over-splitting Twitter/short reviews)
+  short_record_char_threshold: 280
+  # Merge or drop fragments shorter than this after split
+  min_segment_chars: 20
+  max_snippets_per_cluster: 10
+  max_snippet_tokens: 150
+
+filter:
+  review_bomb_window_hours: 24
+  review_bomb_threshold: 50
+  # Near-duplicate template detection (Jaccard on token sets); tag, do not hard-delete
+  near_duplicate_jaccard_threshold: 0.85
+  tag_template_families: true
+
+clean:
+  # Build embed_text = prefix + [categories] + [competitors] + normalized_text
+  embed_enrichment: true
+  # Hinglish: tag and include in pipeline; exclude only if Devanagari ratio > threshold
+  hinglish_devanagari_exclude_threshold: 0.90
+  strip_handles_for_embed: true   # @Blinkit → Blinkit in embed_text only; raw_text unchanged
+
+validation:
+  resample_rate: 0.10
+  agreement_target: 0.70
+  stale_months: 12
+
+paths:
+  config_dir: "config"
+  raw_data: "data/raw"
+  processed_data: "data/processed"
+  insights: "data/insights"
+  metadata_db: "data/metadata.db"
+  logs: "logs"
+
+logging:
+  level: "INFO"
+  format: "json"
+
+# Corpus scale reference (current sample corpus — scales linearly with ingestion)
+corpus_profile:
+  typical_record_count: 1200
+  expected_segments_min: 1200
+  expected_segments_max: 1800
+  expected_discovery_clusters: "40-80"
+  expected_search_gap_clusters: "15-30"
+  expected_groq_calls: "55-90"

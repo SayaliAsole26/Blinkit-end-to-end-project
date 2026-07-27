@@ -34,9 +34,10 @@ class SynthesizeValidateResult:
     insights_path: str | None = None
     validation_path: str | None = None
     insight_cards: list[InsightCard] = field(default_factory=list)
+    data_collection: dict = field(default_factory=dict)
 
     def to_dict(self) -> dict:
-        return {
+        payload = {
             "pipeline_run_id": self.pipeline_run_id,
             "cluster_label_run_id": self.cluster_label_run_id,
             "segments_run_id": self.segments_run_id,
@@ -46,6 +47,9 @@ class SynthesizeValidateResult:
             "insights_path": self.insights_path,
             "validation_path": self.validation_path,
         }
+        if self.data_collection:
+            payload["data_collection"] = self.data_collection
+        return payload
 
 
 class SynthesizeValidatePipeline:
@@ -60,6 +64,28 @@ class SynthesizeValidatePipeline:
         self.synthesis_mod = SynthesisModule(self.settings)
         self.validation_mod = ValidationModule(self.settings, groq_client=groq_client)
         self.metadata_db = MetadataDB()
+
+    @staticmethod
+    def _data_collection_from_segments(segments) -> dict:
+        if not segments:
+            return {}
+        dates = [s.created_at for s in segments if getattr(s, "created_at", None)]
+        if not dates:
+            return {}
+        min_dt = min(dates)
+        max_dt = max(dates)
+        if min_dt.tzinfo is None:
+            min_dt = min_dt.replace(tzinfo=timezone.utc)
+        if max_dt.tzinfo is None:
+            max_dt = max_dt.replace(tzinfo=timezone.utc)
+        platforms = {s.platform for s in segments if getattr(s, "platform", None)}
+        return {
+            "evidence_date_min": min_dt.isoformat(),
+            "evidence_date_max": max_dt.isoformat(),
+            "duration_days": (max_dt - min_dt).days,
+            "record_count": len(segments),
+            "platform_count": len(platforms),
+        }
 
     def run(
         self,
@@ -151,6 +177,7 @@ class SynthesizeValidatePipeline:
             result.insight_cards = synth_result.insight_cards
             result.insights_path = str(insights_path)
             result.synthesis = synth_result.summary()
+            result.data_collection = self._data_collection_from_segments(segments)
 
             for card in synth_result.insight_cards:
                 self.metadata_db.save_insight(

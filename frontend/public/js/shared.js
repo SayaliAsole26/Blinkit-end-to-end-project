@@ -45,6 +45,34 @@
     return `${Math.round(rate * 100)}%`;
   }
 
+  function formatDate(iso) {
+    if (!iso) return "—";
+    const dt = new Date(iso);
+    if (Number.isNaN(dt.getTime())) return "—";
+    return dt.toLocaleDateString(undefined, { year: "numeric", month: "short", day: "numeric" });
+  }
+
+  function formatDurationDays(days) {
+    if (days == null || Number.isNaN(days)) return "—";
+    if (days < 31) return `${days} days`;
+    const months = Math.round(days / 30.44);
+    if (months < 24) return `${months} months (${days} days)`;
+    const years = (days / 365.25).toFixed(1);
+    return `${years} years (${days} days)`;
+  }
+
+  function formatDataCollection(dc) {
+    if (!dc || !dc.evidence_date_min || !dc.evidence_date_max) return null;
+    const min = formatDate(dc.evidence_date_min);
+    const max = formatDate(dc.evidence_date_max);
+    const span = formatDurationDays(dc.duration_days);
+    const records = dc.record_count != null ? `${formatNumber(dc.record_count)} records` : null;
+    const platforms =
+      dc.platform_count != null ? `${formatNumber(dc.platform_count)} platforms` : null;
+    const parts = [`${min} → ${max}`, span, records, platforms].filter(Boolean);
+    return parts.join(" · ");
+  }
+
   function dominantBarrier(split) {
     if (!split || !Object.keys(split).length) return { id: "UNKNOWN", value: 0 };
     const id = Object.entries(split).reduce((a, b) => (a[1] >= b[1] ? a : b))[0];
@@ -137,6 +165,9 @@
     funnelLabel,
     formatNumber,
     formatPercent,
+    formatDate,
+    formatDurationDays,
+    formatDataCollection,
     dominantBarrier,
     confidenceBadge,
     confidenceCardBadge,

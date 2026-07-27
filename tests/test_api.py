@@ -40,6 +40,8 @@ def test_overview(client):
     assert body["insight_count"] > 0
     assert "barrier_distribution" in body
     assert "high_confidence_pct" in body
+    assert "data_collection" in body
+    assert body["data_collection"].get("duration_days", 0) > 0
     assert "sentiment_split" not in body
 
 

@@ -36,15 +36,14 @@
     }
   }
 
-  function renderStaleBanner(data) {
-    const banner = document.getElementById("stale-banner");
+  function renderDataCollectionBanner(data) {
+    const banner = document.getElementById("data-collection-banner");
     if (!banner) return;
-    if (data.stale_count > 0) {
+    const msg = banner.querySelector("[data-collection-msg]");
+    const text = UI.formatDataCollection(data.data_collection);
+    if (text) {
       banner.classList.remove("hidden");
-      const msg = banner.querySelector("[data-stale-msg]");
-      if (msg) {
-        msg.textContent = `${UI.formatNumber(data.stale_count)} of ${UI.formatNumber(data.insight_count)} insights flagged stale (>12 months since latest evidence).`;
-      }
+      if (msg) msg.textContent = text;
     } else {
       banner.classList.add("hidden");
     }
@@ -132,7 +131,7 @@
             <span class="text-label-sm text-secondary mt-1 block">${UI.funnelLabel(item.dominant_funnel_leak_stage)}</span>
           </td>
           <td class="px-6 py-4 text-center"><span class="font-body-md font-bold">${UI.formatNumber(item.evidence_count)}</span></td>
-          <td class="px-6 py-4">${UI.staleIcon(item.is_stale)}</td>
+          <td class="px-6 py-4"><span class="material-symbols-outlined text-green-500" title="Validated insight">verified</span></td>
         </tr>`;
       })
       .join("");
@@ -164,7 +163,7 @@
     try {
       const data = await BlinkitAPI.overview();
       renderKpis(data);
-      renderStaleBanner(data);
+      renderDataCollectionBanner(data);
       renderConfidenceChart(data);
       renderBarrierChart(data);
       renderTopInsights(data);

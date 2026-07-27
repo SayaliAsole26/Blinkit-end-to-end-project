@@ -3,6 +3,13 @@
   "cluster_label_run_id": "run_phase4_final",
   "segments_run_id": "run_phase2_003",
   "generated_at": "2026-07-27T11:33:13.271047+00:00",
+  "data_collection": {
+    "evidence_date_min": "2023-01-01T03:46:43+00:00",
+    "evidence_date_max": "2025-05-30T12:57:42+00:00",
+    "duration_days": 880,
+    "record_count": 800,
+    "platform_count": 4
+  },
   "synthesis": {
     "insight_count": 117,
     "confidence_tiers": {

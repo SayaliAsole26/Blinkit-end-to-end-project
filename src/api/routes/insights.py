@@ -6,7 +6,14 @@ from typing import Any
 
 from fastapi import APIRouter, HTTPException, Query
 
-from api.deps import get_insights_run_id, insights_path, load_json, summary_path, validation_path
+from api.deps import (
+    data_collection_meta,
+    get_insights_run_id,
+    insights_path,
+    load_json,
+    summary_path,
+    validation_path,
+)
 
 router = APIRouter(prefix="/api", tags=["insights"])
 
@@ -99,6 +106,7 @@ def overview() -> dict[str, Any]:
         "high_confidence_pct": round(high_count / total_insights * 100, 1),
         "max_source_diversity": max((i.get("source_diversity", 0) for i in insights), default=0),
         "stale_count": synth.get("stale_count", sum(1 for i in insights if i.get("is_stale"))),
+        "data_collection": data_collection_meta(summary if isinstance(summary, dict) else {}),
         "agreement_rate": val.get("agreement_rate"),
         "barrier_distribution": barrier_totals,
         "funnel_distribution": funnel_totals,

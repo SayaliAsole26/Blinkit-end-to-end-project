@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Blinkit Review Analyzer - Overview</title>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Shared Tailwind Config -->
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "inverse-primary": "#e2c624",
+                        "primary-fixed-dim": "#e2c624",
+                        "surface-variant": "#e2e2e2",
+                        "secondary": "#5f5e5e",
+                        "tertiary": "#00696c",
+                        "on-tertiary-container": "#006f72",
+                        "background": "#f9f9f9",
+                        "on-primary-fixed": "#211b00",
+                        "surface-tint": "#6d5e00",
+                        "outline-variant": "#cec6ad",
+                        "surface-container-lowest": "#ffffff",
+                        "on-surface-variant": "#4c4733",
+                        "surface-bright": "#f9f9f9",
+                        "on-error-container": "#93000a",
+                        "on-secondary-container": "#636262",
+                        "primary": "#6d5e00",
+                        "on-error": "#ffffff",
+                        "on-primary-container": "#736300",
+                        "on-surface": "#1a1c1c",
+                        "on-secondary": "#ffffff",
+                        "secondary-fixed": "#e5e2e1",
+                        "on-tertiary-fixed": "#002021",
+                        "secondary-container": "#e2dfde",
+                        "primary-container": "#ffe141",
+                        "surface": "#f9f9f9",
+                        "tertiary-fixed-dim": "#00dce1",
+                        "inverse-on-surface": "#f1f1f1",
+                        "surface-container": "#eeeeee",
+                        "primary-fixed": "#ffe24d",
+                        "tertiary-fixed": "#2efaff",
+                        "tertiary-container": "#0efaff",
+                        "on-primary-fixed-variant": "#524600",
+                        "outline": "#7d7761",
+                        "surface-dim": "#dadada",
+                        "on-secondary-fixed": "#1c1b1b",
+                        "on-tertiary": "#ffffff",
+                        "surface-container-high": "#e8e8e8",
+                        "on-primary": "#ffffff",
+                        "inverse-surface": "#2f3131",
+                        "error-container": "#ffdad6",
+                        "on-background": "#1a1c1c",
+                        "surface-container-highest": "#e2e2e2",
+                        "on-tertiary-fixed-variant": "#004f51",
+                        "secondary-fixed-dim": "#c8c6c5",
+                        "error": "#ba1a1a",
+                        "on-secondary-fixed-variant": "#474746",
+                        "surface-container-low": "#f3f3f3"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "margin-page": "2rem",
+                        "stack-md": "1rem",
+                        "gutter": "1.5rem",
+                        "stack-lg": "2rem",
+                        "container-max": "1440px",
+                        "stack-sm": "0.5rem"
+                    },
+                    "fontFamily": {
+                        "headline-lg-mobile": ["Inter"],
+                        "body-md": ["Inter"],
+                        "label-sm": ["Inter"],
+                        "label-md": ["Inter"],
+                        "headline-sm": ["Inter"],
+                        "headline-md": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "headline-lg": ["Inter"]
+                    },
+                    "fontSize": {
+                        "headline-lg-mobile": ["24px", {"lineHeight": "32px", "fontWeight": "700"}],
+                        "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                        "label-sm": ["11px", {"lineHeight": "14px", "fontWeight": "500"}],
+                        "label-md": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                        "headline-sm": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                        "headline-md": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                        "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "headline-lg": ["30px", {"lineHeight": "38px", "letterSpacing": "-0.02em", "fontWeight": "700"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #F5F5F5;
+            color: #1A1A1A;
+            -webkit-font-smoothing: antialiased;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .sidebar-active {
+            font-variation-settings: 'FILL' 1;
+        }
+        /* Custom Scrollbar for Sidebar */
+        .sidebar-scroll::-webkit-scrollbar {
+            width: 4px;
+        }
+        .sidebar-scroll::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        .sidebar-scroll::-webkit-scrollbar-thumb {
+            background: #E5E5E5;
+            border-radius: 10px;
+        }
+        /* Page layout container */
+        .app-container {
+            display: grid;
+            grid-template-columns: 288px 1fr; /* 72 * 4 = 288px */
+            min-height: 100vh;
+        }
+    </style>
+</head>
+<body class="flex overflow-hidden">
+<!-- Sidebar Wrapper -->
+<aside class="fixed left-0 top-0 h-screen w-72 bg-surface dark:bg-surface-dim shadow-sm border-r border-outline-variant flex flex-col py-6 px-4 z-50" id="side-nav">
+<!-- Logo Area -->
+<div class="flex items-center gap-3 mb-10 px-2">
+<div class="w-10 h-10 bg-primary-container rounded-lg flex items-center justify-center">
+<span class="material-symbols-outlined text-on-primary-container font-bold" style="font-variation-settings: 'FILL' 1;">insights</span>
+</div>
+<div>
+<h1 class="font-headline-md text-headline-md font-bold text-on-surface dark:text-on-surface-variant leading-none">Blinkit Review</h1>
+<p class="text-label-md font-label-md text-secondary uppercase tracking-widest mt-1">Analyzer</p>
+</div>
+</div>
+<!-- Navigation Scrollable Area -->
+<nav class="flex-1 space-y-1 sidebar-scroll overflow-y-auto px-1">
+<!-- Active State Logic: Mapping to Overview -->
+<a class="flex items-center gap-3 px-3 py-2.5 text-on-primary-container bg-primary-container font-bold rounded-lg cursor-pointer active:scale-95 transition-all duration-200" href="#">
+<span class="material-symbols-outlined sidebar-active">dashboard</span>
+<span class="font-body-md text-body-md">Overview</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 text-on-surface-variant hover:bg-surface-container-high transition-colors duration-200 rounded-lg cursor-pointer active:scale-95" href="#">
+<span class="material-symbols-outlined">explore</span>
+<span class="font-body-md text-body-md">Insight Explorer</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 text-on-surface-variant hover:bg-surface-container-high transition-colors duration-200 rounded-lg cursor-pointer active:scale-95" href="#">
+<span class="material-symbols-outlined">bar_chart</span>
+<span class="font-body-md text-body-md">Barrier Chart</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 text-on-surface-variant hover:bg-surface-container-high transition-colors duration-200 rounded-lg cursor-pointer active:scale-95" href="#">
+<span class="material-symbols-outlined">filter_alt</span>
+<span class="font-body-md text-body-md">Funnel Breakdown</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 text-on-surface-variant hover:bg-surface-container-high transition-colors duration-200 rounded-lg cursor-pointer active:scale-95" href="#">
+<span class="material-symbols-outlined">compare_arrows</span>
+<span class="font-body-md text-body-md">Competitor Benchmark</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 text-on-surface-variant hover:bg-surface-container-high transition-colors duration-200 rounded-lg cursor-pointer active:scale-95" href="#">
+<span class="material-symbols-outlined">map</span>
+<span class="font-body-md text-body-md">RQ Map</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 text-on-surface-variant hover:bg-surface-container-high transition-colors duration-200 rounded-lg cursor-pointer active:scale-95" href="#">
+<span class="material-symbols-outlined">segment</span>
+<span class="font-body-md text-body-md">Segments</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 text-on-surface-variant hover:bg-surface-container-high transition-colors duration-200 rounded-lg cursor-pointer active:scale-95" href="#">
+<span class="material-symbols-outlined">verified_user</span>
+<span class="font-body-md text-body-md">Validation</span>
+</a>
+</nav>
+<!-- Footer Section -->
+<div class="mt-auto pt-6 border-t border-outline-variant">
+<div class="space-y-1 mb-4 px-1">
+<a class="flex items-center gap-3 px-3 py-2 text-on-surface-variant hover:bg-surface-container-high transition-all rounded-lg" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="font-body-md text-body-md">Settings</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-on-surface-variant hover:bg-surface-container-high transition-all rounded-lg" href="#">
+<span class="material-symbols-outlined">help</span>
+<span class="font-body-md text-body-md">Support</span>
+</a>
+</div>
+<!-- Pipeline Active Status -->
+<div class="bg-surface-container p-3 rounded-xl flex items-center justify-between group cursor-help">
+<div class="flex items-center gap-2">
+<div class="relative flex h-2 w-2">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary-container opacity-75"></span>
+<span class="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
+</div>
+<span class="font-label-md text-label-md text-on-surface font-bold">Pipeline Active</span>
+</div>
+<span class="material-symbols-outlined text-[16px] text-secondary">sync</span>
+</div>
+</div>
+</aside>
+<!-- Main View Area -->
+<main class="flex-1 ml-72 h-screen flex flex-col overflow-hidden">
+<!-- Top Navigation Bar -->
+<header class="sticky top-0 z-40 w-full flex justify-between items-center h-16 px-gutter border-b border-outline-variant bg-surface-container-lowest" id="top-nav">
+<div class="flex items-center gap-8">
+<h2 class="font-headline-sm text-headline-sm font-bold text-on-surface">Overview</h2>
+<!-- Search Bar -->
+<div class="relative w-96 group">
+<div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+<span class="material-symbols-outlined text-primary text-[20px] group-focus-within:scale-110 transition-transform">search</span>
+</div>
+<input class="block w-full pl-10 pr-4 py-2 border border-outline-variant rounded-lg bg-surface-container-low text-body-md focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all placeholder:text-secondary-fixed-dim" placeholder="Search insight statements..." type="text"/>
+</div>
+</div>
+<!-- Trailing Actions -->
+<div class="flex items-center gap-4">
+<div class="px-3 py-1 bg-surface-container-highest border border-outline-variant rounded-full flex items-center gap-2">
+<div class="w-2 h-2 rounded-full bg-secondary"></div>
+<span class="font-label-md text-label-md text-secondary">Read-only dashboard</span>
+</div>
+<button class="w-10 h-10 flex items-center justify-center text-secondary hover:text-on-surface transition-all">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<div class="flex items-center gap-3 pl-4 border-l border-outline-variant">
+<div class="text-right hidden xl:block">
+<p class="font-label-md text-label-md text-on-surface font-bold">Alex Rivera</p>
+<p class="text-[10px] text-secondary uppercase font-semibold">Lead Analyst</p>
+</div>
+<button class="w-10 h-10 rounded-full bg-surface-container-high border border-outline-variant flex items-center justify-center hover:ring-2 hover:ring-primary-container transition-all overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="A professional headshot of a corporate business analyst in their 30s with a warm but professional expression, high-end photography with soft studio lighting, shallow depth of field, and a neutral minimalist background that matches the professional B2B analytical theme." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAwY7q3PuUjBSwT3PXbsH4WVPPyc8Am91GJfYXRSjHpl4gTSb3SpK1t-k2eeRpQQXtenoVkGcVSRTYHLVFHJXsVekc2H45gM25yJPTPDwamIW261egzm4k1z06gpE3ANmrEHqAdxAWXdNZN7KNAXNagcgri5y1BSJwOmDSIzgnl4h5voiPeyyaUupueQiA3IfNX4yyV8dtrT2LR4QSfXKkLzR92qYpCBiZV0XxBsRJv6eVk3oy6ZUhGm9ew9_fjqTsz5uUwDfTbzE0"/>
+</button>
+</div>
+</div>
+</header>
+<!-- Page Content Canvas -->
+<div class="flex-1 overflow-y-auto p-gutter bg-[#F5F5F5]" id="content-canvas">
+<div class="max-w-[1440px] mx-auto">
+<!-- Bento Grid / Placeholder Content -->
+<div class="grid grid-cols-12 gap-6">
+<!-- Stat Card 1 -->
+<div class="col-span-12 md:col-span-4 bg-white p-6 rounded-lg shadow-[0px_4px_20px_rgba(0,0,0,0.05)] border border-outline-variant relative overflow-hidden group">
+<div class="flex justify-between items-start relative z-10">
+<div>
+<p class="text-label-md font-label-md text-secondary mb-1">Total Reviews Scanned</p>
+<h3 class="font-headline-lg text-headline-lg text-on-surface">1,284,092</h3>
+</div>
+<div class="bg-primary-container/20 p-2 rounded-lg">
+<span class="material-symbols-outlined text-primary">analytics</span>
+</div>
+</div>
+<div class="mt-4 flex items-center gap-2 relative z-10">
+<span class="text-green-600 font-bold text-label-md flex items-center">+12.4%</span>
+<span class="text-secondary text-label-sm">vs previous month</span>
+</div>
+<div class="absolute -bottom-4 -right-4 w-24 h-24 bg-primary-container/10 rounded-full blur-2xl group-hover:bg-primary-container/20 transition-all duration-500"></div>
+</div>
+<!-- Stat Card 2 -->
+<div class="col-span-12 md:col-span-4 bg-white p-6 rounded-lg shadow-[0px_4px_20px_rgba(0,0,0,0.05)] border border-outline-variant">
+<div class="flex justify-between items-start">
+<div>
+<p class="text-label-md font-label-md text-secondary mb-1">Average Sentiment Score</p>
+<h3 class="font-headline-lg text-headline-lg text-on-surface">4.2<span class="text-body-md text-secondary">/5.0</span></h3>
+</div>
+<div class="bg-tertiary-container/20 p-2 rounded-lg">
+<span class="material-symbols-outlined text-tertiary">sentiment_satisfied</span>
+</div>
+</div>
+<div class="mt-4 flex items-center gap-2">
+<div class="flex-1 bg-surface-container rounded-full h-1.5 overflow-hidden">
+<div class="bg-primary-container h-full w-[84%]"></div>
+</div>
+<span class="text-label-sm text-secondary">84% Positive</span>
+</div>
+</div>
+<!-- Stat Card 3 -->
+<div class="col-span-12 md:col-span-4 bg-white p-6 rounded-lg shadow-[0px_4px_20px_rgba(0,0,0,0.05)] border border-outline-variant">
+<div class="flex justify-between items-start">
+<div>
+<p class="text-label-md font-label-md text-secondary mb-1">Critical Insight Density</p>
+<h3 class="font-headline-lg text-headline-lg text-on-surface">14.2%</h3>
+</div>
+<div class="bg-error-container/20 p-2 rounded-lg">
+<span class="material-symbols-outlined text-error">priority_high</span>
+</div>
+</div>
+<div class="mt-4 flex items-center gap-2">
+<span class="text-on-surface-variant font-body-md text-body-md">High signal-to-noise ratio</span>
+</div>
+</div>
+<!-- Main Graph Placeholder (Bento Large) -->
+<div class="col-span-12 lg:col-span-8 h-96 bg-white rounded-lg shadow-[0px_4px_20px_rgba(0,0,0,0.05)] border border-outline-variant overflow-hidden flex flex-col">
+<div class="p-6 border-b border-outline-variant flex items-center justify-between">
+<h4 class="font-headline-sm text-headline-sm">Cognitive Entry Volume</h4>
+<div class="flex gap-2">
+<button class="px-3 py-1 rounded-full bg-surface-container-high text-label-md border border-outline-variant">7D</button>
+<button class="px-3 py-1 rounded-full bg-primary-container text-label-md border border-primary">30D</button>
+<button class="px-3 py-1 rounded-full bg-surface-container-high text-label-md border border-outline-variant">90D</button>
+</div>
+</div>
+<div class="flex-1 relative bg-surface-container-lowest flex items-center justify-center">
+<div class="absolute inset-0 flex items-center justify-center opacity-40">
+<div class="w-full h-full" style="background-image: linear-gradient(#e5e5e5 1px, transparent 1px), linear-gradient(90deg, #e5e5e5 1px, transparent 1px); background-size: 40px 40px;"></div>
+</div>
+<div class="z-10 flex flex-col items-center">
+<span class="material-symbols-outlined text-primary text-6xl mb-4">stacked_line_chart</span>
+<p class="font-body-md text-body-md text-secondary italic">Volume trend visualization module loading...</p>
+</div>
+</div>
+</div>
+<!-- Side Activity Bento -->
+<div class="col-span-12 lg:col-span-4 h-96 bg-white rounded-lg shadow-[0px_4px_20px_rgba(0,0,0,0.05)] border border-outline-variant flex flex-col">
+<div class="p-6 border-b border-outline-variant">
+<h4 class="font-headline-sm text-headline-sm">Active Insights</h4>
+</div>
+<div class="flex-1 overflow-y-auto p-4 space-y-4">
+<div class="p-3 border border-outline-variant rounded-lg hover:border-primary-container cursor-pointer transition-colors group">
+<div class="flex items-center gap-2 mb-1">
+<span class="text-[10px] px-2 py-0.5 bg-green-100 text-green-800 rounded-full font-bold">HIGH CONFIDENCE</span>
+<span class="text-[10px] text-secondary font-medium">2m ago</span>
+</div>
+<p class="text-body-md font-bold leading-tight group-hover:text-primary transition-colors">Pricing barriers emerging in Tier 2 cities</p>
+</div>
+<div class="p-3 border border-outline-variant rounded-lg hover:border-primary-container cursor-pointer transition-colors group">
+<div class="flex items-center gap-2 mb-1">
+<span class="text-[10px] px-2 py-0.5 bg-yellow-100 text-yellow-800 rounded-full font-bold">MEDIUM CONFIDENCE</span>
+<span class="text-[10px] text-secondary font-medium">15m ago</span>
+</div>
+<p class="text-body-md font-bold leading-tight group-hover:text-primary transition-colors">Packaging quality concerns in North Region</p>
+</div>
+<div class="p-3 border border-outline-variant rounded-lg hover:border-primary-container cursor-pointer transition-colors group">
+<div class="flex items-center gap-2 mb-1">
+<span class="text-[10px] px-2 py-0.5 bg-blue-100 text-blue-800 rounded-full font-bold">TRENDING</span>
+<span class="text-[10px] text-secondary font-medium">1h ago</span>
+</div>
+<p class="text-body-md font-bold leading-tight group-hover:text-primary transition-colors">Alternative use-cases for organic produce categories</p>
+</div>
+</div>
+<div class="p-4 border-t border-outline-variant">
+<button class="w-full py-2 border border-on-surface rounded-full text-label-md font-bold hover:bg-surface-container-high transition-colors">View All Statements</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Slide-over Panel (Right Side, Closed by Default) -->
+<div class="fixed inset-y-0 right-0 w-[400px] bg-white shadow-[-8px_0_30px_rgba(0,0,0,0.12)] z-[60] transform translate-x-full transition-transform duration-300 ease-in-out border-l border-outline-variant" id="slide-over">
+<div class="h-full flex flex-col">
+<div class="p-gutter flex items-center justify-between border-b border-outline-variant">
+<h3 class="font-headline-sm text-headline-sm">Insight Details</h3>
+<button class="p-2 hover:bg-surface-container rounded-full transition-all" onclick="toggleSlideOver()">
+<span class="material-symbols-outlined">close</span>
+</button>
+</div>
+<div class="flex-1 p-gutter overflow-y-auto">
+<div class="animate-pulse flex flex-col gap-6">
+<div class="h-4 bg-surface-container rounded w-3/4"></div>
+<div class="space-y-3">
+<div class="h-24 bg-surface-container rounded"></div>
+<div class="h-4 bg-surface-container rounded w-5/6"></div>
+<div class="h-4 bg-surface-container rounded w-2/3"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Micro-interaction Scripts -->
+<script>
+        function toggleSlideOver() {
+            const panel = document.getElementById('slide-over');
+            panel.classList.toggle('translate-x-full');
+        }
+
+        // Simulating some interactive behavior for demonstration
+        document.querySelectorAll('.cursor-pointer').forEach(item => {
+            item.addEventListener('click', (e) => {
+                if (item.querySelector('p')?.innerText.includes('Pricing barriers')) {
+                    toggleSlideOver();
+                }
+            });
+        });
+
+        // Initialize tooltips or other micro-interactions
+        console.log("Blinkit Review Analyzer Shell Initialized");
+    </script>
+</body></html>

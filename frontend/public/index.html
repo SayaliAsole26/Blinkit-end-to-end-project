@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Blinkit Review Analyzer - Overview</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "inverse-primary": "#e2c624",
+                        "primary-fixed-dim": "#e2c624",
+                        "surface-variant": "#e2e2e2",
+                        "secondary": "#5f5e5e",
+                        "tertiary": "#00696c",
+                        "on-tertiary-container": "#006f72",
+                        "background": "#f9f9f9",
+                        "on-primary-fixed": "#211b00",
+                        "surface-tint": "#6d5e00",
+                        "outline-variant": "#cec6ad",
+                        "surface-container-lowest": "#ffffff",
+                        "on-surface-variant": "#4c4733",
+                        "surface-bright": "#f9f9f9",
+                        "on-error-container": "#93000a",
+                        "on-secondary-container": "#636262",
+                        "primary": "#6d5e00",
+                        "on-error": "#ffffff",
+                        "on-primary-container": "#736300",
+                        "on-surface": "#1a1c1c",
+                        "on-secondary": "#ffffff",
+                        "secondary-fixed": "#e5e2e1",
+                        "on-tertiary-fixed": "#002021",
+                        "secondary-container": "#e2dfde",
+                        "primary-container": "#ffe141",
+                        "surface": "#f9f9f9",
+                        "tertiary-fixed-dim": "#00dce1",
+                        "inverse-on-surface": "#f1f1f1",
+                        "surface-container": "#eeeeee",
+                        "primary-fixed": "#ffe24d",
+                        "tertiary-fixed": "#2efaff",
+                        "tertiary-container": "#0efaff",
+                        "on-primary-fixed-variant": "#524600",
+                        "outline": "#7d7761",
+                        "surface-dim": "#dadada",
+                        "on-secondary-fixed": "#1c1b1b",
+                        "on-tertiary": "#ffffff",
+                        "surface-container-high": "#e8e8e8",
+                        "on-primary": "#ffffff",
+                        "inverse-surface": "#2f3131",
+                        "error-container": "#ffdad6",
+                        "on-background": "#1a1c1c",
+                        "surface-container-highest": "#e2e2e2",
+                        "on-tertiary-fixed-variant": "#004f51",
+                        "secondary-fixed-dim": "#c8c6c5",
+                        "error": "#ba1a1a",
+                        "on-secondary-fixed-variant": "#474746",
+                        "surface-container-low": "#f3f3f3"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "margin-page": "2rem",
+                        "stack-md": "1rem",
+                        "gutter": "1.5rem",
+                        "stack-lg": "2rem",
+                        "container-max": "1440px",
+                        "stack-sm": "0.5rem"
+                    },
+                    "fontFamily": {
+                        "body-md": ["Inter"],
+                        "label-sm": ["Inter"],
+                        "label-md": ["Inter"],
+                        "headline-sm": ["Inter"],
+                        "headline-md": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "headline-lg": ["Inter"]
+                    },
+                    "fontSize": {
+                        "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                        "label-sm": ["11px", {"lineHeight": "14px", "fontWeight": "500"}],
+                        "label-md": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                        "headline-sm": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                        "headline-md": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                        "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "headline-lg": ["30px", {"lineHeight": "38px", "letterSpacing": "-0.02em", "fontWeight": "700"}]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; background-color: #f5f5f5; }
+        .card-shadow { box-shadow: 0px 4px 20px rgba(0,0,0,0.05); }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        .active-dot {
+            width: 8px;
+            height: 8px;
+            background-color: #4CAF50;
+            border-radius: 50%;
+            display: inline-block;
+            box-shadow: 0 0 8px rgba(76, 175, 80, 0.6);
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0% { transform: scale(0.95); opacity: 0.7; }
+            70% { transform: scale(1.1); opacity: 1; }
+            100% { transform: scale(0.95); opacity: 0.7; }
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface">
+<!-- SideNavBar (Shared Component) -->
+<aside class="fixed left-0 top-0 h-screen w-72 bg-surface dark:bg-surface-dim shadow-sm border-r border-outline-variant flex flex-col py-6 px-4 z-50">
+<div class="mb-10 px-2">
+<h1 class="font-headline-md text-headline-md font-bold text-on-surface dark:text-on-surface-variant flex items-center gap-2">
+<span class="bg-primary-container p-2 rounded-lg text-primary">
+<span class="material-symbols-outlined">analytics</span>
+</span>
+<span>Blinkit Review <span class="text-primary">Analyzer</span></span>
+</h1>
+</div>
+<nav class="flex-1 space-y-1">
+<!-- Overview (Active) -->
+<a class="flex items-center gap-3 px-4 py-3 text-on-primary-container bg-primary-container font-bold rounded-lg cursor-pointer active:scale-95 transition-all" href="/">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="font-body-md text-body-md">Overview</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container-high transition-colors duration-200 cursor-pointer active:scale-95" href="/insights.html">
+<span class="material-symbols-outlined">explore</span>
+<span class="font-body-md text-body-md">Insight Explorer</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container-high transition-colors duration-200 cursor-pointer active:scale-95" href="/barriers.html">
+<span class="material-symbols-outlined">bar_chart</span>
+<span class="font-body-md text-body-md">Barrier Chart</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container-high transition-colors duration-200 cursor-pointer active:scale-95" href="#">
+<span class="material-symbols-outlined">filter_alt</span>
+<span class="font-body-md text-body-md">Funnel Breakdown</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container-high transition-colors duration-200 cursor-pointer active:scale-95" href="#">
+<span class="material-symbols-outlined">compare_arrows</span>
+<span class="font-body-md text-body-md">Competitor Benchmark</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container-high transition-colors duration-200 cursor-pointer active:scale-95" href="#">
+<span class="material-symbols-outlined">map</span>
+<span class="font-body-md text-body-md">RQ Map</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container-high transition-colors duration-200 cursor-pointer active:scale-95" href="#">
+<span class="material-symbols-outlined">segment</span>
+<span class="font-body-md text-body-md">Segments</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container-high transition-colors duration-200 cursor-pointer active:scale-95" href="#">
+<span class="material-symbols-outlined">verified_user</span>
+<span class="font-body-md text-body-md">Validation</span>
+</a>
+</nav>
+<div class="mt-auto pt-6 border-t border-outline-variant space-y-1">
+<div class="flex items-center gap-3 px-4 py-2 mb-4 bg-tertiary-container/20 rounded-full border border-tertiary/20">
+<span class="active-dot"></span>
+<span class="text-tertiary font-label-md text-label-md">Pipeline Active</span>
+</div>
+<a class="flex items-center gap-3 px-4 py-2 text-on-surface-variant hover:bg-surface-container-high transition-colors duration-200 rounded-lg" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="font-body-md text-body-md">Settings</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-2 text-on-surface-variant hover:bg-surface-container-high transition-colors duration-200 rounded-lg" href="#">
+<span class="material-symbols-outlined">help</span>
+<span class="font-body-md text-body-md">Support</span>
+</a>
+</div>
+</aside>
+<!-- Main Content Area -->
+<main class="ml-72 min-h-screen">
+<!-- TopNavBar (Shared Component) -->
+<header class="sticky top-0 z-40 w-full h-16 border-b border-outline-variant bg-surface-container-lowest flex justify-between items-center px-gutter shadow-sm">
+<div class="flex items-center gap-4">
+<h2 class="font-headline-sm text-headline-sm font-bold text-on-surface">Overview Dashboard</h2>
+<div class="h-6 w-px bg-outline-variant"></div>
+<nav class="flex gap-6">
+<a class="text-primary font-bold border-b-2 border-primary pb-1 font-label-md text-label-md" href="#">Read-only dashboard</a>
+</nav>
+</div>
+<div class="flex items-center gap-6">
+<div class="relative focus-within:ring-2 focus-within:ring-primary rounded-lg">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-secondary">search</span>
+<input class="pl-10 pr-4 py-2 bg-surface-container rounded-lg border-none focus:ring-0 text-body-md w-64" placeholder="Search insights..." type="text"/>
+</div>
+<div class="flex items-center gap-4">
+<button class="text-secondary hover:text-on-surface transition-all cursor-pointer">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button class="text-secondary hover:text-on-surface transition-all cursor-pointer flex items-center gap-2">
+<img class="w-8 h-8 rounded-full border border-outline-variant" data-alt="A professional portrait of a senior market research analyst wearing a charcoal blazer, standing in a brightly lit modern office with glass walls. The lighting is crisp and cool, emphasizing a high-authority business persona. Realistic photography style with soft bokeh background of a tech office." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCbQZfJxlZoyLejzXoxxrBnjxYOGG_aFG4OSx0rkJj0yDeNplt4rY89Uq0ma3t752z2l_ZMV2c-fXWcoKYQDjenWJzh_mH0BQfpqd-wh_gln5inGiVoU9FnUTOkw3N5PLbIKiFCNJGEODK-Z5OQQO7CIo5SrXLIaEJvvdOBVI5_PkKAFKm3D4HB0CyWwmlqatA3Nnt3mGgAvnUHWx5qVS7rUA_QhxCQnveFdZKwaI-jfTJ156FVYbO_wuF-Wb-v4ZZoSC9jPR_96EY"/>
+<span class="material-symbols-outlined">account_circle</span>
+</button>
+</div>
+</div>
+</header>
+<div class="p-8 max-w-container-max mx-auto">
+<!-- Stale Insight Banner -->
+<div id="stale-banner" class="hidden mb-8 flex items-center gap-4 p-4 bg-orange-50 border-l-4 border-orange-400 rounded-r-lg card-shadow">
+<span class="material-symbols-outlined text-orange-600">warning</span>
+<div class="flex-1">
+<p class="font-body-md text-orange-900">
+<span class="font-bold">Stale Data Warning:</span> <span data-stale-msg>Some insights are flagged stale.</span>
+                    </p>
+</div>
+</div>
+<!-- KPI Cards -->
+<div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
+<!-- KPI 1 -->
+<div class="bg-surface-container-lowest p-6 rounded-lg card-shadow border border-outline-variant group hover:border-primary transition-colors">
+<div class="flex justify-between items-start mb-4">
+<span class="text-secondary font-label-md text-label-md uppercase tracking-wider">Total Insights</span>
+<span class="material-symbols-outlined text-primary group-hover:scale-110 transition-transform">database</span>
+</div>
+<div class="flex items-end gap-2">
+<span class="font-headline-lg text-headline-lg text-on-surface" data-kpi="insights">—</span>
+<span class="text-secondary font-label-md text-label-md pb-1.5">validated</span>
+</div>
+<div class="mt-4 h-1 w-full bg-surface-container rounded-full overflow-hidden">
+<div class="h-full bg-primary-container w-3/4"></div>
+</div>
+</div>
+<!-- KPI 2 -->
+<div class="bg-surface-container-lowest p-6 rounded-lg card-shadow border border-outline-variant group hover:border-primary transition-colors">
+<div class="flex justify-between items-start mb-4">
+<span class="text-secondary font-label-md text-label-md uppercase tracking-wider">Evidence Mentions</span>
+<span class="material-symbols-outlined text-primary group-hover:scale-110 transition-transform">chat_bubble</span>
+</div>
+<div class="flex items-end gap-2">
+<span class="font-headline-lg text-headline-lg text-on-surface" data-kpi="evidence">—</span>
+<span class="text-secondary font-label-md text-label-md pb-1.5">mentions</span>
+</div>
+<div class="mt-4 h-1 w-full bg-surface-container rounded-full overflow-hidden">
+<div class="h-full bg-primary-container w-1/2"></div>
+</div>
+</div>
+<!-- KPI 3 -->
+<div class="bg-surface-container-lowest p-6 rounded-lg card-shadow border border-outline-variant group hover:border-primary transition-colors">
+<div class="flex justify-between items-start mb-4">
+<span class="text-secondary font-label-md text-label-md uppercase tracking-wider">Source Platforms</span>
+<span class="material-symbols-outlined text-primary group-hover:scale-110 transition-transform">hub</span>
+</div>
+<div class="flex items-end gap-2">
+<span class="font-headline-lg text-headline-lg text-on-surface" data-kpi="platforms">—</span>
+<span class="text-secondary font-label-md text-label-md pb-1.5">max diversity</span>
+</div>
+<div class="mt-4 flex gap-1">
+<div class="w-3 h-3 rounded-full bg-primary-container"></div>
+<div class="w-3 h-3 rounded-full bg-primary-container"></div>
+<div class="w-3 h-3 rounded-full bg-primary-container"></div>
+<div class="w-3 h-3 rounded-full bg-primary-container"></div>
+<div class="w-3 h-3 rounded-full bg-primary-container"></div>
+</div>
+</div>
+<!-- KPI 4 -->
+<div class="bg-primary-container p-6 rounded-lg card-shadow border border-primary group cursor-default">
+<div class="flex justify-between items-start mb-4">
+<span class="text-on-primary-container font-label-md text-label-md uppercase tracking-wider">High-Confidence</span>
+<span class="material-symbols-outlined text-primary-fixed-dim" style="font-variation-settings: 'FILL' 1;">verified</span>
+</div>
+<div class="flex items-end gap-2">
+<span class="font-headline-lg text-headline-lg text-on-primary-container" data-kpi="high_confidence">—</span>
+<span class="text-on-primary-container/70 font-label-md text-label-md pb-1.5" data-kpi="agreement">— agreement</span>
+</div>
+<div class="mt-4 h-1 w-full bg-white/30 rounded-full overflow-hidden">
+<div class="h-full bg-on-primary-container transition-all duration-700" data-kpi-bar="high_confidence" style="width:0%"></div>
+</div>
+</div>
+</div>
+<!-- Charts Section -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8 mb-8">
+<!-- Confidence Tier Breakdown -->
+<div class="lg:col-span-5 bg-surface-container-lowest p-6 rounded-lg card-shadow border border-outline-variant">
+<div class="flex justify-between items-center mb-8">
+<h3 class="font-headline-sm text-headline-sm">Insights by Confidence</h3>
+</div>
+<div id="confidence-chart"></div>
+</div>
+<!-- Top Cognitive Barriers (Horizontal Bar) -->
+<div class="lg:col-span-7 bg-surface-container-lowest p-6 rounded-lg card-shadow border border-outline-variant">
+<div class="flex justify-between items-center mb-8">
+<h3 class="font-headline-sm text-headline-sm">Top Cognitive Barriers</h3>
+</div>
+<div id="barrier-chart" class="space-y-6"></div>
+</div>
+</div>
+<!-- Top 5 Insights Table -->
+<div class="bg-surface-container-lowest rounded-lg card-shadow border border-outline-variant overflow-hidden">
+<div class="px-6 py-4 border-b border-outline-variant flex justify-between items-center">
+<h3 class="font-headline-sm text-headline-sm">Top 5 Insights</h3>
+<div class="flex gap-2">
+<button class="px-3 py-1.5 border border-outline-variant rounded-lg text-label-md flex items-center gap-1 hover:bg-surface-container transition-colors">
+<span class="material-symbols-outlined text-[18px]">filter_list</span> Filter
+                        </button>
+<button id="view-all-insights" class="px-3 py-1.5 bg-on-surface text-surface rounded-lg text-label-md hover:opacity-90 transition-opacity">View All</button>
+</div>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left">
+<thead>
+<tr class="bg-surface-container-low text-secondary font-label-md text-label-md uppercase">
+<th class="px-6 py-4">Insight Statement</th>
+<th class="px-6 py-4">Confidence</th>
+<th class="px-6 py-4">Funnel Stage</th>
+<th class="px-6 py-4 text-center">Evidence</th>
+<th class="px-6 py-4">Status</th>
+</tr>
+</thead>
+<tbody id="top-insights-body" class="divide-y divide-outline-variant">
+<tr><td colspan="5" class="px-6 py-8 text-center text-secondary">Loading insights…</td></tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</main>
+<!-- Contextual FAB -->
+<button class="fixed bottom-8 right-8 w-16 h-16 bg-primary-container text-on-primary-container rounded-full shadow-lg flex items-center justify-center hover:scale-110 active:scale-95 transition-all z-50 group border-2 border-primary/20">
+<span class="material-symbols-outlined text-[32px] group-hover:rotate-12 transition-transform">add_comment</span>
+<div class="absolute right-full mr-4 px-3 py-1 bg-on-surface text-surface text-label-md rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none">
+            New Analysis Pipeline
+        </div>
+</button>
+<script src="/js/config.js"></script>
+<script src="/js/api.js"></script>
+<script src="/js/shared.js"></script>
+<script src="/js/pages/overview.js"></script>
+</body></html>

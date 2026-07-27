@@ -44,3 +44,9 @@ chroma/
 # Logs
 logs/
 *.log
+
+# Frontend (Vercel)
+frontend/node_modules/
+
+# Local tools (Railway CLI binary)
+.tools/

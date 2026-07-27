@@ -1,0 +1,4104 @@
+[
+  {
+    "insight_id": "392c450713a1ebe0",
+    "statement": "Missing personal care products: 23 feedback mentions suggest Assortment Gap as a barrier at the Discovery stage, observed across 4 platform(s).",
+    "related_RQs": [
+      "RQ3",
+      "RQ5"
+    ],
+    "theme_tags": [
+      "Missing personal care products"
+    ],
+    "evidence_count": 23,
+    "source_diversity": 4,
+    "cognitive_barrier_split": {
+      "ASSORTMENT_GAP": 1.0
+    },
+    "dominant_funnel_leak_stage": "DISCOVERY",
+    "competitor_mentions": [
+      {
+        "entity": "Nykaa",
+        "advantage": "ASSORTMENT",
+        "count": 1
+      }
+    ],
+    "example_snippets": [
+      "Good app but missing shampoo. a specialty retail platform has better personal care range. Price seems higher than competitors.",
+      "Where do you buy shampoo \u2014 the quick-commerce app or a specialty retail platform? Category tab feels hidden.",
+      "Good app but missing shampoo. a specialty retail platform has better personal care range. Happens every reorder cycle."
+    ],
+    "confidence_tier": "high",
+    "segment_relevance": [
+      "frequent_buyers",
+      "personal_care_shoppers"
+    ],
+    "is_stale": true,
+    "taxonomy_version": "1.0.0",
+    "created_at": "2026-07-27T11:33:01.781431Z"
+  },
+  {
+    "insight_id": "a0b3f5825719587c",
+    "statement": "Grocery assortment gap on Blinkit: 22 feedback mentions suggest Assortment Gap as a barrier at the Discovery stage, observed across 3 platform(s).",
+    "related_RQs": [
+      "RQ1",
+      "RQ3",
+      "RQ5"
+    ],
+    "theme_tags": [
+      "Grocery assortment gap on Blinkit"
+    ],
+    "evidence_count": 22,
+    "source_diversity": 3,
+    "cognitive_barrier_split": {
+      "ASSORTMENT_GAP": 1.0
+    },
+    "dominant_funnel_leak_stage": "DISCOVERY",
+    "competitor_mentions": [
+      {
+        "entity": "Amazon",
+        "advantage": "ASSORTMENT",
+        "count": 1
+      },
+      {
+        "entity": "Zepto",
+        "advantage": "ASSORTMENT",
+        "count": 1
+      }
+    ],
+    "example_snippets": [
+      "Does anyone order groceries on the quick-commerce app? Can't find milk there. Needs better in-app discovery.",
+      "the quick-commerce app pe groceries nahi milta, a major online marketplace se order karta hoon. BigBasket still wins here for me.",
+      "Does anyone order groceries on the quick-commerce app? Can't find milk there. Might switch to a rival delivery service next time."
+    ],
+    "confidence_tier": "high",
+    "segment_relevance": [
+      "frequent_grocery_buyers"
+    ],
+    "is_stale": true,
+    "taxonomy_version": "1.0.0",
+    "created_at": "2026-07-27T11:33:01.781431Z"
+  },
+  {
+    "insight_id": "b5b521b1344b9b2b",
+    "statement": "Vitamins and personal care assortment gap: 20 feedback mentions suggest Assortment Gap as a barrier at the Consideration stage, observed across 3 platform(s).",
+    "related_RQs": [
+      "RQ3",
+      "RQ5"
+    ],
+    "theme_tags": [
+      "Vitamins and personal care assortment gap"
+    ],
+    "evidence_count": 20,
+    "source_diversity": 3,
+    "cognitive_barrier_split": {
+      "ASSORTMENT_GAP": 1.0
+    },
+    "dominant_funnel_leak_stage": "CONSIDERATION",
+    "competitor_mentions": [
+      {
+        "entity": "Nykaa",
+        "advantage": "ASSORTMENT",
+        "count": 1
+      }
+    ],
+    "example_snippets": [
+      "Good app but missing vitamins. a specialty retail platform has better personal care range. My friends feel the same.",
+      "Good app but missing vitamins. a specialty retail platform has better personal care range.",
+      "Good app but missing vitamins. a specialty retail platform has better personal care range. Would buy if assortment improved."
+    ],
+    "confidence_tier": "high",
+    "segment_relevance": [
+      "health_conscious_buyers"
+    ],
+    "is_stale": true,
+    "taxonomy_version": "1.0.0",
+    "created_at": "2026-07-27T11:33:01.781431Z"
+  },
+  {
+    "insight_id": "09f6dd9bd34ea3d0",
+    "statement": "Limited grocery brands and higher prices: 20 feedback mentions suggest Assortment Gap as a barrier at the Consideration stage, observed across 3 platform(s).",
+    "related_RQs": [
+      "RQ2",
+      "RQ5"
+    ],
+    "theme_tags": [
+      "Limited grocery brands and higher prices"
+    ],
+    "evidence_count": 20,
+    "source_diversity": 3,
+    "cognitive_barrier_split": {
+      "ASSORTMENT_GAP": 1.0
+    },
+    "dominant_funnel_leak_stage": "CONSIDERATION",
+    "competitor_mentions": [
+      {
+        "entity": "Zepto",
+        "advantage": "ASSORTMENT",
+        "count": 1
+      }
+    ],
+    "example_snippets": [
+      "I wish the quick-commerce app had more brands in groceries. a rival delivery service seems better for that. Search never surfaces these products.",
+      "a rival delivery service &gt; the quick-commerce app for groceries. Change my mind. BigBasket still wins here for me.",
+      "a rival delivery service &gt; the quick-commerce app for groceries. Change my mind. Wish the homepage showed this category."
+    ],
+    "confidence_tier": "high",
+    "segment_relevance": [
+      "frequent_grocery_buyers"
+    ],
+    "is_stale": true,
+    "taxonomy_version": "1.0.0",
+    "created_at": "2026-07-27T11:33:01.781431Z"
+  },
+  {
+    "insight_id": "127830594a844b7e",
+    "statement": "Limited baby care brands on Blinkit: 20 feedback mentions suggest Assortment Gap as a barrier at the Consideration stage, observed across 3 platform(s).",
+    "related_RQs": [
+      "RQ2",
+      "RQ5"
+    ],
+    "theme_tags": [
+      "Limited baby care brands on Blinkit"
+    ],
+    "evidence_count": 20,
+    "source_diversity": 3,
+    "cognitive_barrier_split": {
+      "ASSORTMENT_GAP": 1.0
+    },
+    "dominant_funnel_leak_stage": "CONSIDERATION",
+    "competitor_mentions": [
+      {
+        "entity": "Zepto",
+        "advantage": "ASSORTMENT",
+        "count": 1
+      }
+    ],
+    "example_snippets": [
+      "I wish the quick-commerce app had more brands in baby care. a rival delivery service seems better for that. My friends feel the same.",
+      "I wish the quick-commerce app had more brands in baby care. a rival delivery service seems better for that. Delivery was fine though.",
+      "Didn't know the quick-commerce app sells baby care until my friend mentioned it. Might switch to a rival delivery service next time."
+    ],
+    "confidence_tier": "high",
+    "segment_relevance": [
+      "new_parents",
+      "frequent_buyers"
+    ],
+    "is_stale": true,
+    "taxonomy_version": "1.0.0",
+    "created_at": "2026-07-27T11:33:01.781431Z"
+  },
+  {
+    "insight_id": "51f411848a3022de",
+    "statement": "Stationery products not found on Blinkit: 19 feedback mentions suggest Assortment Gap as a barrier at the Discovery stage, observed across 3 platform(s).",
+    "related_RQs": [
+      "RQ3",
+      "RQ5"
+    ],
+    "theme_tags": [
+      "Stationery products not found on Blinkit"
+    ],
+    "evidence_count": 19,
+    "source_diversity": 3,
+    "cognitive_barrier_split": {
+      "ASSORTMENT_GAP": 1.0
+    },
+    "dominant_funnel_leak_stage": "DISCOVERY",
+    "competitor_mentions": [],
+    "example_snippets": [
+      "Is the quick-commerce app good for stationery? Looking for notebooks but can't find it. Been using the quick-commerce app for two years.",
+      "Does anyone order stationery on the quick-commerce app? Can't find notebooks there. Price seems higher than competitors.",
+      "the quick-commerce app missing notebooks again. Why no stationery section? @the quick-commerce app Delivery was fine though."
+    ],
+    "confidence_tier": "high",
+    "segment_relevance": [],
+    "is_stale": true,
+    "taxonomy_version": "1.0.0",
+    "created_at": "2026-07-27T11:33:01.781431Z"
+  },
+  {
+    "insight_id": "cb23c6a532bf665e",
+    "statement": "Electronics shopping on Blinkit: 18 feedback mentions suggest Assortment Gap as a barrier at the Discovery stage, observed across 3 platform(s).",
+    "related_RQs": [
+      "RQ1",
+      "RQ3",
+      "RQ5"
+    ],
+    "theme_tags": [
+      "Electronics shopping on Blinkit"
+    ],
+    "evidence_count": 18,
+    "source_diversity": 3,
+    "cognitive_barrier_split": {
+      "ASSORTMENT_GAP": 1.0
+    },
+    "dominant_funnel_leak_stage": "DISCOVERY",
+    "competitor_mentions": [
+      {
+        "entity": "Nykaa",
+        "advantage": "ASSORTMENT",
+        "count": 1
+      },
+      {
+        "entity": "BigBasket, Instamart",
+        "advantage": "ASSORTMENT",
+        "count": 1
+      }
+    ],
+    "example_snippets": [
+      "Where do you buy earphones \u2014 the quick-commerce app or a specialty retail platform? Especially in Bangalore.",
+      "Where do you buy earphones \u2014 the quick-commerce app or a specialty retail platform? a major online marketplace is my fallback always.",
+      "the quick-commerce app missing earphones again. Why no electronics section? @the quick-commerce app a specialty retail platform feels safer for this purchase."
+    ],
+    "confidence_tier": "high",
+    "segment_relevance": [
+      "tech_savvy_users",
+      "tech_savvy_shoppers"
+    ],
+    "is_stale": true,
+    "taxonomy_version": "1.0.0",
+    "created_at": "2026-07-27T11:33:01.781431Z"
+  },
+  {
+    "insight_id": "b75a2dfbe7a01436",
+    "statement": "Personal care products not easily found: 18 feedback mentions suggest Assortment Gap as a barrier at the Discovery stage, observed across 3 platform(s).",
+    "related_RQs": [
+      "RQ1",
+      "RQ3"
+    ],
+    "theme_tags": [
+      "Personal care products not easily found"
+    ],
+    "evidence_count": 18,
+    "source_diversity": 3,
+    "cognitive_barrier_split": {
+      "ASSORTMENT_GAP": 1.0
+    },
+    "dominant_funnel_leak_stage": "DISCOVERY",
+    "competitor_mentions": [
+      {
+        "entity": "Amazon",
+        "advantage": "ASSORTMENT",
+        "count": 1
+      }
+    ],
+    "example_snippets": [
+      "Does anyone order personal care on the quick-commerce app? Can't find shampoo there. Wish the homepage showed this category.",
+      "Does anyone order personal care on the quick-commerce app? Can't find shampoo there. My friends feel the same.",
+      "Does anyone order personal care on the quick-commerce app? Can't find shampoo there. a major online marketplace is my fallback always."
+    ],
+    "confidence_tier": "high",
+    "segment_relevance": [
+      "frequent_shoppers",
+      "health_conscious"
+    ],
+    "is_stale": true,
+    "taxonomy_version": "1.0.0",
+    "created_at": "2026-07-27T11:33:01.781431Z"
+  },
+  {
+    "insight_id": "084bdac20e95bba9",
+    "statement": "Lack of awareness about personal care products: 18 feedback mentions suggest Awareness Deficit as a barrier at the Discovery stage, observed across 3 platform(s).",
+    "related_RQs": [
+      "RQ1",
+      "RQ4",
+      "RQ5"
+    ],
+    "theme_tags": [
+      "Lack of awareness about personal care products"
+    ],
+    "evidence_count": 18,
+    "source_diversity": 3,
+    "cognitive_barrier_split": {
+      "AWARENESS_DEFICIT": 1.0
+    },
+    "dominant_funnel_leak_stage": "DISCOVERY",
+    "competitor_mentions": [
+      {
+        "entity": "Zepto",
+        "advantage": "ASSORTMENT",
+        "count": 1
+      }
+    ],
+    "example_snippets": [
+      "a rival delivery service &gt; the quick-commerce app for personalcare. Change my mind. Same thought last month.",
+      "Didn't know the quick-commerce app sells personal care until my friend mentioned it.",
+      "Didn't know the quick-commerce app sells personal care until my friend mentioned it. Wish the homepage showed this category."
+    ],
+    "confidence_tier": "high",
+    "segment_relevance": [
+      "first_time_buyers"
+    ],
+    "is_stale": true,
+    "taxonomy_version": "1.0.0",
+    "created_at": "2026-07-27T11:33:01.781431Z"
+  },
+  {
+    "insight_id": "086cb36ef26aef15",
+    "statement": "Milk product availability issue: 17 feedback mentions suggest Assortment Gap as a barrier at the Discovery stage, observed across 3 platform(s).",
+    "related_RQs": [
+      "RQ1",
+      "RQ3",
+      "RQ5"
+    ],
+    "theme_tags": [
+      "Milk product availability issue"
+    ],
+    "evidence_count": 17,
+    "source_diversity": 3,
+    "cognitive_barrier_split": {
+      "ASSORTMENT_GAP": 1.0
+    },
+    "dominant_funnel_leak_stage": "DISCOVERY",
+    "competitor_mentions": [
+      {
+        "entity": "Amazon",
+        "advantage": "ASSORTMENT",
+        "count": 1
+      }
+    ],
+    "example_snippets": [
+      "Why doesn't the quick-commerce app have milk? I always buy from a major online marketplace instead. Delivery was fine though.",
+      "Why doesn't the quick-commerce app have milk? I always buy from a major online marketplace instead. Noticed this after the app update.",
+      "Why doesn't the quick-commerce app have milk? I always buy from a major online marketplace instead. Category tab feels hidden."
+    ],
+    "confidence_tier": "high",
+    "segment_relevance": [
+      "frequent_grocery_buyers"
+    ],
+    "is_stale": true,
+    "taxonomy_version": "1.0.0",
+    "created_at": "2026-07-27T11:33:01.781431Z"
+  },
+  {
+    "insight_id": "ae6c0a85c2872187",
+    "statement": "Limited Electronics Brands on Blinkit: 17 feedback mentions suggest Assortment Gap as a barrier at the Consideration stage, observed across 3 platform(s).",
+    "related_RQs": [
+      "RQ3",
+      "RQ5"
+    ],
+    "theme_tags": [
+      "Limited Electronics Brands on Blinkit"
+    ],
+    "evidence_count": 17,
+    "source_diversity": 3,
+    "cognitive_barrier_split": {
+      "ASSORTMENT_GAP": 1.0
+    },
+    "dominant_funnel_leak_stage": "CONSIDERATION",
+    "competitor_mentions": [
+      {
+        "entity": "Zepto",
+        "advantage": "ASSORTMENT",
+        "count": 1
+      }
+    ],
+    "example_snippets": [
+      "I wish the quick-commerce app had more brands in electronics. a rival delivery service seems better for that.",
+      "I wish the quick-commerce app had more brands in electronics. a rival delivery service seems better for that. Wish the homepage showed this category.",
+      "I wish the quick-commerce app had more brands in electronics. a rival delivery service seems better for that. Been using the quick-commerce app for two years."
+    ],
+    "confidence_tier": "high",
+    "segment_relevance": [
+      "tech_savvy_shoppers"
+    ],
+    "is_stale": true,
+    "taxonomy_version": "1.0.0",
+    "created_at": "2026-07-27T11:33:01.781431Z"
+  },
+  {
+    "insight_id": "bb9d41c64e2903e2",
+    "statement": "Limited grocery selection on Blinkit: 20 feedback mentions suggest Assortment Gap as a barrier at the Discovery stage, observed across 2 platform(s).",
+    "related_RQs": [
+      "RQ1",
+      "RQ3",
+      "RQ5"
+    ],
+    "theme_tags": [
+      "Limited grocery selection on Blinkit"
+    ],
+    "evidence_count": 20,
+    "source_diversity": 2,
+    "cognitive_barrier_split": {
+      "ASSORTMENT_GAP": 1.0
+    },
+    "dominant_funnel_leak_stage": "DISCOVERY",
+    "competitor_mentions": [
+      {
+        "entity": "Amazon",
+        "advantage": "ASSORTMENT",
+        "count": 1
+      }
+    ],
+    "example_snippets": [
+      "Reviewers mention that fast delivery for milk and bread but groceries selection is very limited. Ref 567.",
+      "Reviewers mention that fast delivery for milk and bread but groceries selection is very limited. Noticed this after the app update.",
+      "Reviewers mention that fast delivery for milk and bread but groceries selection is very limited."
+    ],
+    "confidence_tier": "high",
+    "segment_relevance": [
+      "frequent_grocery_buyers"
+    ],
+    "is_stale": true,
+    "taxonomy_version": "1.0.0",
+    "created_at": "2026-07-27T11:33:01.781431Z"
+  },
+  {
+    "insight_id": "d316a1b2e61fcdb5",
+    "statement": "Limited product selection across categories: 19 feedback mentions suggest Assortment Gap as a barrier at the Consideration stage, observed across 2 platform(s).",
+    "related_RQs": [
+      "RQ3",
+      "RQ5"
+    ],
+    "theme_tags": [
+      "Limited product selection across categories"
+    ],
+    "evidence_count": 19,
+    "source_diversity": 2,
+    "cognitive_barrier_split": {
+      "ASSORTMENT_GAP": 1.0
+    },
+    "dominant_funnel_leak_stage": "CONSIDERATION",
+    "competitor_mentions": [
+      {
+        "entity": "Nykaa",
+        "advantage": "ASSORTMENT",
+        "count": 1
+      },
+      {
+        "entity": "Zepto",
+        "advantage": "ASSORTMENT",
+        "count": 1
+      },
+      {
+        "entity": "BigBasket",
+        "advantage": "ASSORTMENT",
+        "count": 1
+      }
+    ],
+    "example_snippets": [
+      "Fast delivery for milk and bread but pet supplies selection is very limited. a specialty retail platform feels safer for this purchase.",
+      "Fast delivery for milk and bread but home essentials selection is very limited. Might switch to a rival delivery service next time.",
+      "Reviewers mention that fast delivery for milk and bread but home essentials selection is very limited. BigBasket still wins here for me."
+    ],
+    "confidence_tier": "high",
+    "segment_relevance": [
+      "pet_owners",
+      "frequent_buyers",
+      "frequent_shoppers",
+      "category_hoppers"
+    ],
+    "is_stale": true,
+    "taxonomy_version": "1.0.0",
+    "created_at": "2026-07-27T11:33:01.781431Z"
+  },
+  {
+    "insight_id": "d1b4578f54b260f1",
+    "statement": "Search-gap theme 'app / better / nykaa': 19 users report unmet product needs (assortment gap) across 2 platform(s).",
+    "related_RQs": [
+      "RQ8"
+    ],
+    "theme_tags": [
+      "app / better / nykaa",
+      "app",
+      "better"
+    ],
+    "evidence_count": 19,
+    "source_diversity": 2,
+    "cognitive_barrier_split": {
+      "ASSORTMENT_GAP": 1.0
+    },
+    "dominant_funnel_leak_stage": "CONSIDERATION",
+    "competitor_mentions": [],
+    "example_snippets": [
+      "Good app but missing vitamins. a specialty retail platform has better personal care range. Wish the homepage showed this category.",
+      "Good app but missing vitamins. a specialty retail platform has better personal care range.",
+      "Good app but missing vitamins. a specialty retail platform has better personal care range. Needs better in-app discovery."
+    ],
+    "confidence_tier": "high",
+    "segment_relevance": [],
+    "is_stale": true,
+    "taxonomy_version": "1.0.0",
+    "created_at": "2026-07-27T11:33:01.781431Z"
+  },
+  {
+    "insight_id": "69a72c973f33c918",
+    "statement": "Limited Home Essentials Assortment: 15 feedback mentions suggest Assortment Gap as a barrier at the Consideration stage, observed across 3 platform(s).",
+    "related_RQs": [
+      "RQ3",
+      "RQ5"
+    ],
+    "theme_tags": [
+      "Limited Home Essentials Assortment"
+    ],
+    "evidence_count": 15,
+    "source_diversity": 3,
+    "cognitive_barrier_split": {
+      "ASSORTMENT_GAP": 1.0
+    },
+    "dominant_funnel_leak_stage": "CONSIDERATION",
+    "competitor_mentions": [
+      {
+        "entity": "Zepto",
+        "advantage": "ASSORTMENT",
+        "count": 1
+      }
+    ],
+    "example_snippets": [
+      "I wish the quick-commerce app had more brands in home essentials. a rival delivery service seems better for that. Especially in Bangalore.",
+      "I wish the quick-commerce app had more brands in home essentials. a rival delivery service seems better for that.",
+      "I wish the quick-commerce app had more brands in home essentials. a rival delivery service seems better for that. BigBasket still wins here for me."
+    ],
+    "confidence_tier": "high",
+    "segment_relevance": [
+      "frequent_shoppers",
+      "home_essentials_buyers"
+    ],
+    "is_stale": true,
+    "taxonomy_version": "1.0.0",
+    "created_at": "2026-07-27T11:33:01.781431Z"
+  },
+  {
+    "insight_id": "30e66e57bd2a917c",
+    "statement": "Stationery not available on Blinkit: 17 feedback mentions suggest Assortment Gap as a barrier at the Discovery stage, observed across 2 platform(s).",
+    "related_RQs": [
+      "RQ1",
+      "RQ3"
+    ],
+    "theme_tags": [
+      "Stationery not available on Blinkit"
+    ],
+    "evidence_count": 17,
+    "source_diversity": 2,
+    "cognitive_barrier_split": {
+      "ASSORTMENT_GAP": 1.0
+    },
+    "dominant_funnel_leak_stage": "DISCOVERY",
+    "competitor_mentions": [
+      {
+        "entity": "Amazon",
+        "advantage": "ASSORTMENT",
+        "count": 1
+      }
+    ],
+    "example_snippets": [
+      "the quick-commerce app pe stationery nahi milta, a major online marketplace se order karta hoon. Same thought last month.",
+      "the quick-commerce app pe stationery nahi milta, a major online marketplace se order karta hoon. Happens every reorder cycle.",
+      "the quick-commerce app pe stationery nahi milta, a major online marketplace se order karta hoon. Been using the quick-commerce app for two years."
+    ],
+    "confidence_tier": "high",
+    "segment_relevance": [],
+    "is_stale": true,
+    "taxonomy_version": "1.0.0",
+    "created_at": "2026-07-27T11:33:01.781431Z"
+  },
+  {
+    "insight_id": "43b8198395ea88b0",
+    "statement": "Unaware of electronics category on Blinkit: 17 feedback mentions suggest Awareness Deficit as a barrier at the Discovery stage, observed across 2 platform(s).",
+    "related_RQs": [
+      "RQ1",
+      "RQ4"
+    ],
+    "theme_tags": [
+      "Unaware of electronics category on Blinkit"
+    ],
+    "evidence_count": 17,
+    "source_diversity": 2,
+    "cognitive_barrier_split": {
+      "AWARENESS_DEFICIT": 1.0
+    },
+    "dominant_funnel_leak_stage": "DISCOVERY",
+    "competitor_mentions": [],
+    "example_snippets": [
+      "Didn't know the quick-commerce app sells electronics until my friend mentioned it. Never saw an promo for this category.",
+      "Didn't know the quick-commerce app sells electronics until my friend mentioned it. Price seems higher than competitors.",
+      "Didn't know the quick-commerce app sells electronics until my friend mentioned it. Search never surfaces these products."
+    ],
+    "confidence_tier": "high",
+    "segment_relevance": [],
+    "is_stale": true,
+    "taxonomy_version": "1.0.0",
+    "created_at": "2026-07-27T11:33:01.781431Z"
+  },
+  {
+    "insight_id": "ad1c2afbfa71ec3f",
+    "statement": "Missing products and higher prices: 14 feedback mentions suggest Assortment Gap as a barrier at the Discovery stage, observed across 3 platform(s).",
+    "related_RQs": [
+      "RQ1",
+      "RQ3",
+      "RQ5"
+    ],
+    "theme_tags": [
+      "Missing products and higher prices"
+    ],
+    "evidence_count": 14,
+    "source_diversity": 3,
+    "cognitive_barrier_split": {
+      "ASSORTMENT_GAP": 1.0
+    },
+    "dominant_funnel_leak_stage": "DISCOVERY",
+    "competitor_mentions": [
+      {
+        "entity": "Nykaa",
+        "advantage": "ASSORTMENT",
+        "count": 1
+      }
+    ],
+    "example_snippets": [
+      "Good app but missing notebooks. a specialty retail platform has better personal care range. Price seems higher than competitors.",
+      "Good app but missing notebooks. a specialty retail platform has better personal care range. Would buy if assortment improved.",
+      "Good app but missing notebooks. a specialty retail platform has better personal care range. a major online marketplace is my fallback always."
+    ],
+    "confidence_tier": "high",
+    "segment_relevance": [
+      "frequent_buyers",
+      "price_sensitive_customers"
+    ],
+    "is_stale": true,
+    "taxonomy_version": "1.0.0",
+    "created_at": "2026-07-27T11:33:01.781431Z"
+  },
+  {
+    "insight_id": "9208e98abb3e0674",
+    "statement": "Limited product awareness outside groceries: 21 feedback mentions suggest Awareness Deficit as a barrier at the Discovery stage, observed across 1 platform(s).",
+    "related_RQs": [
+      "RQ1",
+      "RQ3",
+      "RQ5"
+    ],
+    "theme_tags": [
+      "Limited product awareness outside groceries"
+    ],
+    "evidence_count": 21,
+    "source_diversity": 1,
+    "cognitive_barrier_split": {
+      "AWARENESS_DEFICIT": 1.0
+    },
+    "dominant_funnel_leak_stage": "DISCOVERY",
+    "competitor_mentions": [
+      {
+        "entity": "Amazon",
+        "advantage": "ASSORTMENT",
+        "count": 1
+      }
+    ],
+    "example_snippets": [
+      "Only use the quick-commerce app for milk. Everything else from a major online marketplace. #homeessentials Same thought last month.",
+      "Only use the quick-commerce app for milk. Everything else from a major online marketplace. #healthpharmacy Noticed this after the app update.",
+      "Only use the quick-commerce app for milk. Everything else from a major online marketplace. #stationery Happens every reorder cycle."
+    ],
+    "confidence_tier": "medium",
+    "segment_relevance": [
+      "grocery_buyers",
+      "multi_category_shoppers"
+    ],
+    "is_stale": true,
+    "taxonomy_version": "1.0.0",
+    "created_at": "2026-07-27T11:33:01.781431Z"
+  },
+  {
+    "insight_id": "a1c4ba548473ee88",
+    "statement": "Missing pet and personal care products: 16 feedback mentions suggest Assortment Gap as a barrier at the Discovery stage, observed across 2 platform(s).",
+    "related_RQs": [
+      "RQ2",
+      "RQ5"
+    ],
+    "theme_tags": [
+      "Missing pet and personal care products"
+    ],
+    "evidence_count": 16,
+    "source_diversity": 2,
+    "cognitive_barrier_split": {
+      "ASSORTMENT_GAP": 1.0
+    },
+    "dominant_funnel_leak_stage": "DISCOVERY",
+    "competitor_mentions": [
+      {
+        "entity": "Nykaa",
+        "advantage": "ASSORTMENT",
+        "count": 1
+      }
+    ],
+    "example_snippets": [
+      "Good app but missing dog food. a specialty retail platform has better personal care range. a specialty retail platform feels safer for this purchase.",
+      "Good app but missing dog food. a specialty retail platform has better personal care range. a competing grocery app has better variety lately.",
+      "Good app but missing dog food. a specialty retail platform has better personal care range. Might switch to a rival delivery service next time."
+    ],
+    "confidence_tier": "high",
+    "segment_relevance": [
+      "pet_owners"
+    ],
+    "is_stale": true,
+    "taxonomy_version": "1.0.0",
+    "created_at": "2026-07-27T11:33:01.781431Z"
+  },
+  {
+    "insight_id": "33d95c1938fde060",
+    "statement": "Missing home essentials products: 16 feedback mentions suggest Assortment Gap as a barrier at the Discovery stage, observed across 2 platform(s).",
+    "related_RQs": [
+      "RQ1",
+      "RQ3",
+      "RQ5"
+    ],
+    "theme_tags": [
+      "Missing home essentials products"
+    ],
+    "evidence_count": 16,
+    "source_diversity": 2,
+    "cognitive_barrier_split": {
+      "ASSORTMENT_GAP": 1.0
+    },
+    "dominant_funnel_leak_stage": "DISCOVERY",
+    "competitor_mentions": [
+      {
+        "entity": "Amazon",
+        "advantage": "ASSORTMENT",
+        "count": 1
+      }
+    ],
+    "example_snippets": [
+      "Why doesn't the quick-commerce app have detergent? I always buy from a major online marketplace instead. Might switch to a rival delivery service next time.",
+      "Why doesn't the quick-commerce app have detergent? I always buy from a major online marketplace instead. a major online marketplace is my fallback always.",
+      "Why doesn't the quick-commerce app have detergent? I always buy from a major online marketplace instead. Price seems higher than competitors."
+    ],
+    "confidence_tier": "high",
+    "segment_relevance": [
+      "frequent_buyers",
+      "household_shoppers"
+    ],
+    "is_stale": true,
+    "taxonomy_version": "1.0.0",
+    "created_at": "2026-07-27T11:33:01.781431Z"
+  },
+  {
+    "insight_id": "0e83937336094011",
+    "statement": "Grocery users unaware of health pharmacy options: 16 feedback mentions suggest Awareness Deficit as a barrier at the Discovery stage, observed across 2 platform(s).",
+    "related_RQs": [
+      "RQ1",
+      "RQ5"
+    ],
+    "theme_tags": [
+      "Grocery users unaware of health pharmacy options"
+    ],
+    "evidence_count": 16,
+    "source_diversity": 2,
+    "cognitive_barrier_split": {
+      "AWARENESS_DEFICIT": 1.0
+    },
+    "dominant_funnel_leak_stage": "DISCOVERY",
+    "competitor_mentions": [],
+    "example_snippets": [
+      "the quick-commerce app is great for groceries but I never think to order health pharmacy here. Needs better in-app discovery.",
+      "the quick-commerce app is great for groceries but I never think to order groceries here. BigBasket still wins here for me.",
+      "the quick-commerce app is great for groceries but I never think to order health pharmacy here. Same thought last month."
+    ],
+    "confidence_tier": "high",
+    "segment_relevance": [
+      "frequent_grocery_buyers"
+    ],
+    "is_stale": true,
+    "taxonomy_version": "1.0.0",
+    "created_at": "2026-07-27T11:33:01.781431Z"
+  },
+  {
+    "insight_id": "62f863c43accde73",
+    "statement": "Search-gap theme 'better / app / nykaa': 16 users report unmet product needs (assortment gap) across 2 platform(s).",
+    "related_RQs": [
+      "RQ8"
+    ],
+    "theme_tags": [
+      "better / app / nykaa",
+      "better",
+      "app"
+    ],
+    "evidence_count": 16,
+    "source_diversity": 2,
+    "cognitive_barrier_split": {
+      "ASSORTMENT_GAP": 1.0
+    },
+    "dominant_funnel_leak_stage": "CONSIDERATION",
+    "competitor_mentions": [],
+    "example_snippets": [
+      "Good app but missing dog food. a specialty retail platform has better personal care range. My friends feel the same.",
+      "Good app but missing dog food. a specialty retail platform has better personal care range. Delivery was fine though.",
+      "Good app but missing dog food. a specialty retail platform has better personal care range. Happens every reorder cycle."
+    ],
+    "confidence_tier": "high",
+    "segment_relevance": [],
+    "is_stale": true,
+    "taxonomy_version": "1.0.0",
+    "created_at": "2026-07-27T11:33:01.781431Z"
+  },
+  {
+    "insight_id": "d1b4578f54b260f1",
+    "statement": "Search-gap theme 'app / better / nykaa': 16 users report unmet product needs (assortment gap) across 2 platform(s).",
+    "related_RQs": [
+      "RQ8"
+    ],
+    "theme_tags": [
+      "app / better / nykaa",
+      "app",
+      "better"
+    ],
+    "evidence_count": 16,
+    "source_diversity": 2,
+    "cognitive_barrier_split": {
+      "ASSORTMENT_GAP": 1.0
+    },
+    "dominant_funnel_leak_stage": "CONSIDERATION",
+    "competitor_mentions": [],
+    "example_snippets": [
+      "Good app but missing shampoo. a specialty retail platform has better personal care range. Wish the homepage showed this category.",
+      "Good app but missing shampoo. a specialty retail platform has better personal care range. Noticed this after the app update.",
+      "Good app but missing shampoo. a specialty retail platform has better personal care range. a specialty retail platform feels safer for this purchase."
+    ],
+    "confidence_tier": "high",
+    "segment_relevance": [],
+    "is_stale": true,
+    "taxonomy_version": "1.0.0",
+    "created_at": "2026-07-27T11:33:01.781431Z"
+  },
+  {
+    "insight_id": "80dd3a2ab2b262e5",
+    "statement": "Missing baby care products: 13 feedback mentions suggest Assortment Gap as a barrier at the Discovery stage, observed across 3 platform(s).",
+    "related_RQs": [
+      "RQ2",
+      "RQ5"
+    ],
+    "theme_tags": [
+      "Missing baby care products"
+    ],
+    "evidence_count": 13,
+    "source_diversity": 3,
+    "cognitive_barrier_split": {
+      "ASSORTMENT_GAP": 1.0
+    },
+    "dominant_funnel_leak_stage": "DISCOVERY",
+    "competitor_mentions": [
+      {
+        "entity": "Nykaa",
+        "advantage": "ASSORTMENT",
+        "count": 1
+      }
+    ],
+    "example_snippets": [
+      "Good app but missing diapers. a specialty retail platform has better personal care range. Noticed this after the app update.",
+      "Good app but missing diapers. a specialty retail platform has better personal care range. Might switch to a rival delivery service next time.",
+      "Good app but missing diapers. a specialty retail platform has better personal care range. BigBasket still wins here for me."
+    ],
+    "confidence_tier": "high",
+    "segment_relevance": [
+      "new_parents",
+      "families_with_infants"
+    ],
+    "is_stale": true,
+    "taxonomy_version": "1.0.0",
+    "created_at": "2026-07-27T11:33:01.781431Z"
+  },
+  {
+    "insight_id": "474a785a1a01218d",
+    "statement": "Limited stationery options on Blinkit: 13 feedback mentions suggest Assortment Gap as a barrier at the Consideration stage, observed across 3 platform(s).",
+    "related_RQs": [
+      "RQ3",
+      "RQ5"
+    ],
+    "theme_tags": [
+      "Limited stationery options on Blinkit"
+    ],
+    "evidence_count": 13,
+    "source_diversity": 3,
+    "cognitive_barrier_split": {
+      "ASSORTMENT_GAP": 1.0
+    },
+    "dominant_funnel_leak_stage": "CONSIDERATION",
+    "competitor_mentions": [
+      {
+        "entity": "Zepto",
+        "advantage": "ASSORTMENT",
+        "count": 1
+      }
+    ],
+    "example_snippets": [
+      "I wish the quick-commerce app had more brands in stationery. a rival delivery service seems better for that. Wish the homepage showed this category.",
+      "I wish the quick-commerce app had more brands in stationery. a rival delivery service seems better for that. BigBasket still wins here for me.",
+      "I wish the quick-commerce app had more brands in stationery. a rival delivery service seems better for that. a competing grocery app has better variety lately."
+    ],
+    "confidence_tier": "high",
+    "segment_relevance": [
+      "frequent_shoppers",
+      "students"
+    ],
+    "is_stale": true,
+    "taxonomy_version": "1.0.0",
+    "created_at": "2026-07-27T11:33:01.781431Z"
+  },
+  {
+    "insight_id": "e39b1395e8f9eab6",
+    "statement": "Limited brand options across categories: 11 feedback mentions suggest Assortment Gap as a barrier at the Consideration stage, observed across 4 platform(s).",
+    "related_RQs": [
+      "RQ2",
+      "RQ5"
+    ],
+    "theme_tags": [
+      "Limited brand options across categories"
+    ],
+    "evidence_count": 11,
+    "source_diversity": 4,
+    "cognitive_barrier_split": {
+      "ASSORTMENT_GAP": 1.0
+    },
+    "dominant_funnel_leak_stage": "CONSIDERATION",
+    "competitor_mentions": [
+      {
+        "entity": "Zepto",
+        "advantage": "ASSORTMENT",
+        "count": 1
+      }
+    ],
+    "example_snippets": [
+      "I wish the quick-commerce app had more brands in stationery. a rival delivery service seems better for that. a specialty retail platform feels safer for this purchase.",
+      "I wish the quick-commerce app had more brands in health pharmacy. a rival delivery service seems better for that. a specialty retail platform feels safer for this purchase.",
+      "I wish the quick-commerce app had more brands in personal care. a rival delivery service seems better for that. a specialty retail platform feels safer for this purchase."
+    ],
+    "confidence_tier": "high",
+    "segment_relevance": [
+      "frequent_shoppers",
+      "category_hoppers"
+    ],
+    "is_stale": true,
+    "taxonomy_version": "1.0.0",
+    "created_at": "2026-07-27T11:33:01.781431Z"
+  },
+  {
+    "insight_id": "8959ca31674cb54b",
+    "statement": "Limited grocery options force users to Amazon: 19 feedback mentions suggest Convenience Mismatch as a barrier at the Consideration stage, observed across 1 platform(s).",
+    "related_RQs": [
+      "RQ2",
+      "RQ5"
+    ],
+    "theme_tags": [
+      "Limited grocery options force users to Amazon"
+    ],
+    "evidence_count": 19,
+    "source_diversity": 1,
+    "cognitive_barrier_split": {
+      "CONVENIENCE_MISMATCH": 1.0
+    },
+    "dominant_funnel_leak_stage": "CONSIDERATION",
+    "competitor_mentions": [
+      {
+        "entity": "Amazon",
+        "advantage": "ASSORTMENT",
+        "count": 1
+      }
+    ],
+    "example_snippets": [
+      "I use the quick-commerce app only for emergency groceries. For home essentials I go to a major online marketplace. Price seems higher than competitors.",
+      "I use the quick-commerce app only for emergency groceries. For groceries I go to a major online marketplace. BigBasket still wins here for me.",
+      "I use the quick-commerce app only for emergency groceries. For groceries I go to a major online marketplace. Search never surfaces these products."
+    ],
+    "confidence_tier": "medium",
+    "segment_relevance": [
+      "emergency_grocery_buyers"
+    ],
+    "is_stale": true,
+    "taxonomy_version": "1.0.0",
+    "created_at": "2026-07-27T11:33:01.781431Z"
+  },
+  {
+    "insight_id": "005322a95c494fc9",
+    "statement": "Missing products and high prices: 15 feedback mentions suggest Assortment Gap as a barrier at the Discovery stage, observed across 2 platform(s).",
+    "related_RQs": [
+      "RQ2",
+      "RQ5"
+    ],
+    "theme_tags": [
+      "Missing products and high prices"
+    ],
+    "evidence_count": 15,
+    "source_diversity": 2,
+    "cognitive_barrier_split": {
+      "ASSORTMENT_GAP": 1.0
+    },
+    "dominant_funnel_leak_stage": "DISCOVERY",
+    "competitor_mentions": [
+      {
+        "entity": "Nykaa",
+        "advantage": "ASSORTMENT",
+        "count": 1
+      }
+    ],
+    "example_snippets": [
+      "Good app but missing earphones. a specialty retail platform has better personal care range. Category tab feels hidden.",
+      "Good app but missing earphones. a specialty retail platform has better personal care range. Wish the homepage showed this category.",
+      "Good app but missing earphones. a specialty retail platform has better personal care range. Been using the quick-commerce app for two years."
+    ],
+    "confidence_tier": "high",
+    "segment_relevance": [
+      "frequent_buyers"
+    ],
+    "is_stale": true,
+    "taxonomy_version": "1.0.0",
+    "created_at": "2026-07-27T11:33:01.781431Z"
+  },
+  {
+    "insight_id": "7624519c4e736d65",
+    "statement": "Vitamins not available on Blinkit: 15 feedback mentions suggest Assortment Gap as a barrier at the Consideration stage, observed across 2 platform(s).",
+    "related_RQs": [
+      "RQ2",
+      "RQ5"
+    ],
+    "theme_tags": [
+      "Vitamins not available on Blinkit"
+    ],
+    "evidence_count": 15,
+    "source_diversity": 2,
+    "cognitive_barrier_split": {
+      "ASSORTMENT_GAP": 1.0
+    },
+    "dominant_funnel_leak_stage": "CONSIDERATION",
+    "competitor_mentions": [
+      {
+        "entity": "Amazon",
+        "advantage": "ASSORTMENT",
+        "count": 1
+      }
+    ],
+    "example_snippets": [
+      "Why doesn't the quick-commerce app have vitamins? I always buy from a major online marketplace instead. Wish the homepage showed this category.",
+      "Why doesn't the quick-commerce app have vitamins? I always buy from a major online marketplace instead. Never saw an promo for this category.",
+      "Why doesn't the quick-commerce app have vitamins? I always buy from a major online marketplace instead. Noticed this after the app update."
+    ],
+    "confidence_tier": "high",
+    "segment_relevance": [
+      "health_conscious"
+    ],
+    "is_stale": true,
+    "taxonomy_version": "1.0.0",
+    "created_at": "2026-07-27T11:33:01.781431Z"
+  },
+  {
+    "insight_id": "9348e436f4e9b9df",
+    "statement": "Limited product assortment: 15 feedback mentions suggest Assortment Gap as a barrier at the Consideration stage, observed across 2 platform(s).",
+    "related_RQs": [
+      "RQ1",
+      "RQ3",
+      "RQ5"
+    ],
+    "theme_tags": [
+      "Limited product assortment"
+    ],
+    "evidence_count": 15,
+    "source_diversity": 2,
+    "cognitive_barrier_split": {
+      "ASSORTMENT_GAP": 1.0
+    },
+    "dominant_funnel_leak_stage": "CONSIDERATION",
+    "competitor_mentions": [
+      {
+        "entity": "Amazon",
+        "advantage": "ASSORTMENT",
+        "count": 1
+      }
+    ],
+    "example_snippets": [
+      "Why doesn't the quick-commerce app have notebooks? I always buy from a major online marketplace instead. BigBasket still wins here for me.",
+      "Why doesn't the quick-commerce app have notebooks? I always buy from a major online marketplace instead. My friends feel the same.",
+      "Why doesn't the quick-commerce app have notebooks? I always buy from a major online marketplace instead. Might switch to a rival delivery service next time."
+    ],
+    "confidence_tier": "high",
+    "segment_relevance": [],
+    "is_stale": true,
+    "taxonomy_version": "1.0.0",
+    "created_at": "2026-07-27T11:33:01.781431Z"
+  },
+  {
+    "insight_id": "5839b2781c1d69d5",
+    "statement": "Limited personal care selection: 15 feedback mentions suggest Assortment Gap as a barrier at the Discovery stage, observed across 2 platform(s).",
+    "related_RQs": [
+      "RQ2",
+      "RQ5"
+    ],
+    "theme_tags": [
+      "Limited personal care selection"
+    ],
+    "evidence_count": 15,
+    "source_diversity": 2,
+    "cognitive_barrier_split": {
+      "ASSORTMENT_GAP": 1.0
+    },
+    "dominant_funnel_leak_stage": "DISCOVERY",
+    "competitor_mentions": [
+      {
+        "entity": "Amazon",
+        "advantage": "ASSORTMENT",
+        "count": 1
+      }
+    ],
+    "example_snippets": [
+      "Reviewers mention that fast delivery for milk and bread but personal care selection is very limited. Never saw an promo for this category.",
+      "Reviewers mention that fast delivery for milk and bread but personal care selection is very limited. Noticed this after the app update.",
+      "Reviewers mention that fast delivery for milk and bread but personal care selection is very limited. Price seems higher than competitors."
+    ],
+    "confidence_tier": "high",
+    "segment_relevance": [
+      "frequent_buyers"
+    ],
+    "is_stale": true,
+    "taxonomy_version": "1.0.0",
+    "created_at": "2026-07-27T11:33:01.781431Z"
+  },
+  {
+    "insight_id": "f75a895f8178dec1",
+    "statement": "Grocery shoppers unaware of home essentials: 15 feedback mentions suggest Awareness Deficit as a barrier at the Discovery stage, observed across 2 platform(s).",
+    "related_RQs": [
+      "RQ1",
+      "RQ5"
+    ],
+    "theme_tags": [
+      "Grocery shoppers unaware of home essentials"
+    ],
+    "evidence_count": 15,
+    "source_diversity": 2,
+    "cognitive_barrier_split": {
+      "AWARENESS_DEFICIT": 1.0
+    },
+    "dominant_funnel_leak_stage": "DISCOVERY",
+    "competitor_mentions": [],
+    "example_snippets": [
+      "the quick-commerce app is great for groceries but I never think to order home essentials here. a competing grocery app has better variety lately.",
+      "the quick-commerce app is great for groceries but I never think to order home essentials here. Been using the quick-commerce app for two years.",
+      "the quick-commerce app is great for groceries but I never think to order home essentials here. Never saw an promo for this category."
+    ],
+    "confidence_tier": "high",
+    "segment_relevance": [
+      "frequent_grocery_buyers"
+    ],
+    "is_stale": true,
+    "taxonomy_version": "1.0.0",
+    "created_at": "2026-07-27T11:33:01.781431Z"
+  },
+  {
+    "insight_id": "62f863c43accde73",
+    "statement": "Search-gap theme 'better / app / nykaa': 15 users report unmet product needs (assortment gap) across 2 platform(s).",
+    "related_RQs": [
+      "RQ8"
+    ],
+    "theme_tags": [
+      "better / app / nykaa",
+      "better",
+      "app"
+    ],
+    "evidence_count": 15,
+    "source_diversity": 2,
+    "cognitive_barrier_split": {
+      "ASSORTMENT_GAP": 1.0
+    },
+    "dominant_funnel_leak_stage": "CONSIDERATION",
+    "competitor_mentions": [],
+    "example_snippets": [
+      "Good app but missing earphones. a specialty retail platform has better personal care range. a major online marketplace is my fallback always.",
+      "Good app but missing earphones. a specialty retail platform has better personal care range. Price seems higher than competitors.",
+      "Good app but missing earphones. a specialty retail platform has better personal care range. BigBasket still wins here for me."
+    ],
+    "confidence_tier": "high",
+    "segment_relevance": [],
+    "is_stale": true,
+    "taxonomy_version": "1.0.0",
+    "created_at": "2026-07-27T11:33:01.781431Z"
+  },
+  {
+    "insight_id": "e3afca61177d584f",
+    "statement": "Home essentials availability on Blinkit: 12 feedback mentions suggest Assortment Gap as a barrier at the Discovery stage, observed across 3 platform(s).",
+    "related_RQs": [
+      "RQ1",
+      "RQ3",
+      "RQ5"
+    ],
+    "theme_tags": [
+      "Home essentials availability on Blinkit"
+    ],
+    "evidence_count": 12,
+    "source_diversity": 3,
+    "cognitive_barrier_split": {
+      "ASSORTMENT_GAP": 1.0
+    },
+    "dominant_funnel_leak_stage": "DISCOVERY",
+    "competitor_mentions": [
+      {
+        "entity": "Amazon",
+        "advantage": "ASSORTMENT",
+        "count": 1
+      }
+    ],
+    "example_snippets": [
+      "the quick-commerce app missing detergent again. Why no homeessentials section? @the quick-commerce app Same thought last month.",
+      "Is the quick-commerce app good for home essentials? Looking for detergent but can't find it. Needs better in-app discovery.",
+      "Does anyone order home essentials on the quick-commerce app? Can't find detergent there."
+    ],
+    "confidence_tier": "high",
+    "segment_relevance": [
+      "frequent_buyers",
+      "household_shoppers"
+    ],
+    "is_stale": true,
+    "taxonomy_version": "1.0.0",
+    "created_at": "2026-07-27T11:33:01.781431Z"
+  },
+  {
+    "insight_id": "39e470b24f92f435",
+    "statement": "Health pharmacy assortment gap on Blinkit: 12 feedback mentions suggest Assortment Gap as a barrier at the Discovery stage, observed across 3 platform(s).",
+    "related_RQs": [
+      "RQ2",
+      "RQ5"
+    ],
+    "theme_tags": [
+      "Health pharmacy assortment gap on Blinkit"
+    ],
+    "evidence_count": 12,
+    "source_diversity": 3,
+    "cognitive_barrier_split": {
+      "ASSORTMENT_GAP": 1.0
+    },
+    "dominant_funnel_leak_stage": "DISCOVERY",
+    "competitor_mentions": [
+      {
+        "entity": "Instamart",
+        "advantage": "ASSORTMENT",
+        "count": 1
+      }
+    ],
+    "example_snippets": [
+      "Does anyone order health pharmacy on the quick-commerce app? Can't find vitamins there. Category tab feels hidden.",
+      "the quick-commerce app missing vitamins again. Why no healthpharmacy section? @the quick-commerce app a competing grocery app has better variety lately.",
+      "the quick-commerce app missing vitamins again. Why no healthpharmacy section? @the quick-commerce app"
+    ],
+    "confidence_tier": "high",
+    "segment_relevance": [
+      "health_conscious_buyers"
+    ],
+    "is_stale": true,
+    "taxonomy_version": "1.0.0",
+    "created_at": "2026-07-27T11:33:01.781431Z"
+  },
+  {
+    "insight_id": "acaa4799b780897a",
+    "statement": "Grocery shopping awareness and price concerns: 12 feedback mentions suggest Awareness Deficit as a barrier at the Discovery stage, observed across 3 platform(s).",
+    "related_RQs": [
+      "RQ1",
+      "RQ4",
+      "RQ7"
+    ],
+    "theme_tags": [
+      "Grocery shopping awareness and price concerns"
+    ],
+    "evidence_count": 12,
+    "source_diversity": 3,
+    "cognitive_barrier_split": {
+      "AWARENESS_DEFICIT": 1.0
+    },
+    "dominant_funnel_leak_stage": "DISCOVERY",
+    "competitor_mentions": [
+      {
+        "entity": "Instamart",
+        "advantage": "PRICE",
+        "count": 1
+      }
+    ],
+    "example_snippets": [
+      "the quick-commerce app is great for groceries but I never think to order groceries here. Price seems higher than competitors.",
+      "Is the quick-commerce app good for groceries? Looking for milk but can't find it. Category tab feels hidden.",
+      "the quick-commerce app is great for groceries but I never think to order groceries here. a major online marketplace is my fallback always."
+    ],
+    "confidence_tier": "high",
+    "segment_relevance": [
+      "frequent_shoppers",
+      "price_sensitive_buyers"
+    ],
+    "is_stale": true,
+    "taxonomy_version": "1.0.0",
+    "created_at": "2026-07-27T11:33:01.781431Z"
+  },
+  {
+    "insight_id": "4a577d02fdcaf0ee",
+    "statement": "Baby care products not available: 14 feedback mentions suggest Assortment Gap as a barrier at the Discovery stage, observed across 2 platform(s).",
+    "related_RQs": [
+      "RQ1",
+      "RQ3"
+    ],
+    "theme_tags": [
+      "Baby care products not available"
+    ],
+    "evidence_count": 14,
+    "source_diversity": 2,
+    "cognitive_barrier_split": {
+      "ASSORTMENT_GAP": 1.0
+    },
+    "dominant_funnel_leak_stage": "DISCOVERY",
+    "competitor_mentions": [
+      {
+        "entity": "Amazon",
+        "advantage": "ASSORTMENT",
+        "count": 1
+      }
+    ],
+    "example_snippets": [
+      "the quick-commerce app pe baby care nahi milta, a major online marketplace se order karta hoon. a major online marketplace is my fallback always.",
+      "the quick-commerce app pe baby care nahi milta, a major online marketplace se order karta hoon. Price seems higher than competitors.",
+      "the quick-commerce app pe baby care nahi milta, a major online marketplace se order karta hoon. Might switch to a rival delivery service next time."
+    ],
+    "confidence_tier": "high",
+    "segment_relevance": [
+      "new_parents",
+      "families_with_infants"
+    ],
+    "is_stale": true,
+    "taxonomy_version": "1.0.0",
+    "created_at": "2026-07-27T11:33:01.781431Z"
+  },
+  {
+    "insight_id": "b28acf0129487cda",
+    "statement": "Lack of awareness about baby care products: 14 feedback mentions suggest Awareness Deficit as a barrier at the Discovery stage, observed across 2 platform(s).",
+    "related_RQs": [
+      "RQ1",
+      "RQ4"
+    ],
+    "theme_tags": [
+      "Lack of awareness about baby care products"
+    ],
+    "evidence_count": 14,
+    "source_diversity": 2,
+    "cognitive_barrier_split": {
+      "AWARENESS_DEFICIT": 1.0
+    },
+    "dominant_funnel_leak_stage": "DISCOVERY",
+    "competitor_mentions": [],
+    "example_snippets": [
+      "Didn't know the quick-commerce app sells baby care until my friend mentioned it. Never saw an promo for this category.",
+      "Didn't know the quick-commerce app sells baby care until my friend mentioned it. Price seems higher than competitors.",
+      "Didn't know the quick-commerce app sells baby care until my friend mentioned it. Same thought last month."
+    ],
+    "confidence_tier": "high",
+    "segment_relevance": [
+      "new_parents",
+      "young_families"
+    ],
+    "is_stale": true,
+    "taxonomy_version": "1.0.0",
+    "created_at": "2026-07-27T11:33:01.781431Z"
+  },
+  {
+    "insight_id": "cc1be2cdb49eaec7",
+    "statement": "Lack of electronics assortment: 13 feedback mentions suggest Assortment Gap as a barrier at the Discovery stage, observed across 2 platform(s).",
+    "related_RQs": [
+      "RQ1",
+      "RQ3",
+      "RQ6"
+    ],
+    "theme_tags": [
+      "Lack of electronics assortment"
+    ],
+    "evidence_count": 13,
+    "source_diversity": 2,
+    "cognitive_barrier_split": {
+      "ASSORTMENT_GAP": 1.0
+    },
+    "dominant_funnel_leak_stage": "DISCOVERY",
+    "competitor_mentions": [
+      {
+        "entity": "Amazon",
+        "advantage": "ASSORTMENT",
+        "count": 1
+      }
+    ],
+    "example_snippets": [
+      "Why doesn't the quick-commerce app have earphones? I always buy from a major online marketplace instead. Been using the quick-commerce app for two years.",
+      "Why doesn't the quick-commerce app have earphones? I always buy from a major online marketplace instead. Would buy if assortment improved.",
+      "Why doesn't the quick-commerce app have earphones? I always buy from a major online marketplace instead. Never saw an promo for this category."
+    ],
+    "confidence_tier": "high",
+    "segment_relevance": [
+      "tech_savvy_shoppers"
+    ],
+    "is_stale": true,
+    "taxonomy_version": "1.0.0",
+    "created_at": "2026-07-27T11:33:01.781431Z"
+  },
+  {
+    "insight_id": "dfde428285f807a9",
+    "statement": "Lack of awareness about product categories: 13 feedback mentions suggest Awareness Deficit as a barrier at the Discovery stage, observed across 2 platform(s).",
+    "related_RQs": [
+      "RQ1",
+      "RQ4"
+    ],
+    "theme_tags": [
+      "Lack of awareness about product categories"
+    ],
+    "evidence_count": 13,
+    "source_diversity": 2,
+    "cognitive_barrier_split": {
+      "AWARENESS_DEFICIT": 1.0
+    },
+    "dominant_funnel_leak_stage": "DISCOVERY",
+    "competitor_mentions": [],
+    "example_snippets": [
+      "Didn't know the quick-commerce app sells stationery until my friend mentioned it. Search never surfaces these products.",
+      "Didn't know the quick-commerce app sells stationery until my friend mentioned it.",
+      "Didn't know the quick-commerce app sells stationery until my friend mentioned it. Would buy if assortment improved."
+    ],
+    "confidence_tier": "high",
+    "segment_relevance": [],
+    "is_stale": true,
+    "taxonomy_version": "1.0.0",
+    "created_at": "2026-07-27T11:33:01.781431Z"
+  },
+  {
+    "insight_id": "26b5e339ea091fc8",
+    "statement": "Limited pet supplies assortment: 13 feedback mentions suggest Assortment Gap as a barrier at the Consideration stage, observed across 2 platform(s).",
+    "related_RQs": [
+      "RQ2",
+      "RQ5"
+    ],
+    "theme_tags": [
+      "Limited pet supplies assortment"
+    ],
+    "evidence_count": 13,
+    "source_diversity": 2,
+    "cognitive_barrier_split": {
+      "ASSORTMENT_GAP": 1.0
+    },
+    "dominant_funnel_leak_stage": "CONSIDERATION",
+    "competitor_mentions": [],
+    "example_snippets": [
+      "Reviewers mention that fast delivery for milk and bread but pet supplies selection is very limited. My friends feel the same.",
+      "Reviewers mention that fast delivery for milk and bread but pet supplies selection is very limited. Noticed this after the app update.",
+      "Reviewers mention that fast delivery for milk and bread but pet supplies selection is very limited. BigBasket still wins here for me."
+    ],
+    "confidence_tier": "high",
+    "segment_relevance": [
+      "pet_owners"
+    ],
+    "is_stale": true,
+    "taxonomy_version": "1.0.0",
+    "created_at": "2026-07-27T11:33:01.781431Z"
+  },
+  {
+    "insight_id": "3fcf2b74bab81c93",
+    "statement": "Lack of awareness about Blinkit's grocery offerings: 13 feedback mentions suggest Awareness Deficit as a barrier at the Discovery stage, observed across 2 platform(s).",
+    "related_RQs": [
+      "RQ1",
+      "RQ4"
+    ],
+    "theme_tags": [
+      "Lack of awareness about Blinkit's grocery offerings"
+    ],
+    "evidence_count": 13,
+    "source_diversity": 2,
+    "cognitive_barrier_split": {
+      "AWARENESS_DEFICIT": 1.0
+    },
+    "dominant_funnel_leak_stage": "DISCOVERY",
+    "competitor_mentions": [],
+    "example_snippets": [
+      "Didn't know the quick-commerce app sells groceries until my friend mentioned it.",
+      "Didn't know the quick-commerce app sells groceries until my friend mentioned it. Needs better in-app discovery.",
+      "Didn't know the quick-commerce app sells groceries until my friend mentioned it. BigBasket still wins here for me."
+    ],
+    "confidence_tier": "high",
+    "segment_relevance": [
+      "first_time_buyers"
+    ],
+    "is_stale": true,
+    "taxonomy_version": "1.0.0",
+    "created_at": "2026-07-27T11:33:01.781431Z"
+  },
+  {
+    "insight_id": "2a16116dbec2ca20",
+    "statement": "Grocery assortment and discovery issues: 13 feedback mentions suggest Assortment Gap as a barrier at the Discovery stage, observed across 2 platform(s).",
+    "related_RQs": [
+      "RQ1",
+      "RQ3",
+      "RQ5"
+    ],
+    "theme_tags": [
+      "Grocery assortment and discovery issues"
+    ],
+    "evidence_count": 13,
+    "source_diversity": 2,
+    "cognitive_barrier_split": {
+      "ASSORTMENT_GAP": 1.0
+    },
+    "dominant_funnel_leak_stage": "DISCOVERY",
+    "competitor_mentions": [
+      {
+        "entity": "Zepto",
+        "advantage": "ASSORTMENT",
+        "count": 1
+      }
+    ],
+    "example_snippets": [
+      "the quick-commerce app vs a rival delivery service \u2014 which has better groceries? Might switch to a rival delivery service next time.",
+      "the quick-commerce app vs a rival delivery service \u2014 which has better groceries? Delivery was fine though.",
+      "the quick-commerce app vs a rival delivery service \u2014 which has better groceries? Never saw an promo for this category."
+    ],
+    "confidence_tier": "high",
+    "segment_relevance": [
+      "first_time_buyers"
+    ],
+    "is_stale": true,
+    "taxonomy_version": "1.0.0",
+    "created_at": "2026-07-27T11:33:01.781431Z"
+  },
+  {
+    "insight_id": "7a5186362eb51008",
+    "statement": "Personal care products not found on Blinkit: 12 feedback mentions suggest Assortment Gap as a barrier at the Discovery stage, observed across 2 platform(s).",
+    "related_RQs": [
+      "RQ2",
+      "RQ5"
+    ],
+    "theme_tags": [
+      "Personal care products not found on Blinkit"
+    ],
+    "evidence_count": 12,
+    "source_diversity": 2,
+    "cognitive_barrier_split": {
+      "ASSORTMENT_GAP": 1.0
+    },
+    "dominant_funnel_leak_stage": "DISCOVERY",
+    "competitor_mentions": [
+      {
+        "entity": "Amazon",
+        "advantage": "ASSORTMENT",
+        "count": 1
+      }
+    ],
+    "example_snippets": [
+      "the quick-commerce app pe personal care nahi milta, a major online marketplace se order karta hoon. Delivery was fine though.",
+      "the quick-commerce app pe personal care nahi milta, a major online marketplace se order karta hoon. Been using the quick-commerce app for two years.",
+      "the quick-commerce app pe personal care nahi milta, a major online marketplace se order karta hoon. Same thought last month."
+    ],
+    "confidence_tier": "high",
+    "segment_relevance": [
+      "frequent_shoppers",
+      "health_beauty_buyers"
+    ],
+    "is_stale": true,
+    "taxonomy_version": "1.0.0",
+    "created_at": "2026-07-27T11:33:01.781431Z"
+  },
+  {
+    "insight_id": "de54136ff68f76e6",
+    "statement": "Shampoo assortment gap on Blinkit: 12 feedback mentions suggest Assortment Gap as a barrier at the Discovery stage, observed across 2 platform(s).",
+    "related_RQs": [
+      "RQ1",
+      "RQ3"
+    ],
+    "theme_tags": [
+      "Shampoo assortment gap on Blinkit"
+    ],
+    "evidence_count": 12,
+    "source_diversity": 2,
+    "cognitive_barrier_split": {
+      "ASSORTMENT_GAP": 1.0
+    },
+    "dominant_funnel_leak_stage": "DISCOVERY",
+    "competitor_mentions": [
+      {
+        "entity": "Amazon",
+        "advantage": "ASSORTMENT",
+        "count": 1
+      }
+    ],
+    "example_snippets": [
+      "Why doesn't the quick-commerce app have shampoo? I always buy from a major online marketplace instead. a competing grocery app has better variety lately.",
+      "Why doesn't the quick-commerce app have shampoo? I always buy from a major online marketplace instead. Might switch to a rival delivery service next time.",
+      "Why doesn't the quick-commerce app have shampoo? I always buy from a major online marketplace instead. Been using the quick-commerce app for two years."
+    ],
+    "confidence_tier": "high",
+    "segment_relevance": [
+      "frequent_buyers"
+    ],
+    "is_stale": true,
+    "taxonomy_version": "1.0.0",
+    "created_at": "2026-07-27T11:33:01.781431Z"
+  },
+  {
+    "insight_id": "26f66688ba9be582",
+    "statement": "Blinkit lacks baby care products: 12 feedback mentions suggest Assortment Gap as a barrier at the Discovery stage, observed across 2 platform(s).",
+    "related_RQs": [
+      "RQ1",
+      "RQ3"
+    ],
+    "theme_tags": [
+      "Blinkit lacks baby care products"
+    ],
+    "evidence_count": 12,
+    "source_diversity": 2,
+    "cognitive_barrier_split": {
+      "ASSORTMENT_GAP": 1.0
+    },
+    "dominant_funnel_leak_stage": "DISCOVERY",
+    "competitor_mentions": [
+      {
+        "entity": "BigBasket",
+        "advantage": "ASSORTMENT",
+        "count": 1
+      }
+    ],
+    "example_snippets": [
+      "the quick-commerce app missing diapers again. Why no babycare section? @the quick-commerce app a competing grocery app has better variety lately.",
+      "Does anyone order baby care on the quick-commerce app? Can't find diapers there.",
+      "Does anyone order baby care on the quick-commerce app? Can't find diapers there. BigBasket still wins here for me."
+    ],
+    "confidence_tier": "high",
+    "segment_relevance": [
+      "new_parents"
+    ],
+    "is_stale": true,
+    "taxonomy_version": "1.0.0",
+    "created_at": "2026-07-27T11:33:01.781431Z"
+  },
+  {
+    "insight_id": "ce09b1c927da8cc6",
+    "statement": "Lack of awareness about health pharmacy category: 12 feedback mentions suggest Awareness Deficit as a barrier at the Discovery stage, observed across 2 platform(s).",
+    "related_RQs": [
+      "RQ1",
+      "RQ4"
+    ],
+    "theme_tags": [
+      "Lack of awareness about health pharmacy category"
+    ],
+    "evidence_count": 12,
+    "source_diversity": 2,
+    "cognitive_barrier_split": {
+      "AWARENESS_DEFICIT": 1.0
+    },
+    "dominant_funnel_leak_stage": "DISCOVERY",
+    "competitor_mentions": [],
+    "example_snippets": [
+      "Didn't know the quick-commerce app sells health pharmacy until my friend mentioned it. Been using the quick-commerce app for two years.",
+      "Didn't know the quick-commerce app sells health pharmacy until my friend mentioned it. Noticed this after the app update.",
+      "Didn't know the quick-commerce app sells health pharmacy until my friend mentioned it. a major online marketplace is my fallback always."
+    ],
+    "confidence_tier": "high",
+    "segment_relevance": [
+      "health_conscious_users"
+    ],
+    "is_stale": true,
+    "taxonomy_version": "1.0.0",
+    "created_at": "2026-07-27T11:33:01.781431Z"
+  },
+  {
+    "insight_id": "a68e4aa57032d43a",
+    "statement": "Limited baby care selection: 12 feedback mentions suggest Assortment Gap as a barrier at the Discovery stage, observed across 2 platform(s).",
+    "related_RQs": [
+      "RQ2",
+      "RQ5"
+    ],
+    "theme_tags": [
+      "Limited baby care selection"
+    ],
+    "evidence_count": 12,
+    "source_diversity": 2,
+    "cognitive_barrier_split": {
+      "ASSORTMENT_GAP": 1.0
+    },
+    "dominant_funnel_leak_stage": "DISCOVERY",
+    "competitor_mentions": [
+      {
+        "entity": "Amazon",
+        "advantage": "ASSORTMENT",
+        "count": 1
+      }
+    ],
+    "example_snippets": [
+      "Reviewers mention that fast delivery for milk and bread but baby care selection is very limited. Search never surfaces these products.",
+      "Reviewers mention that fast delivery for milk and bread but baby care selection is very limited. Same thought last month.",
+      "Fast delivery for milk and bread but baby care selection is very limited. a major online marketplace is my fallback always."
+    ],
+    "confidence_tier": "high",
+    "segment_relevance": [
+      "new_parents"
+    ],
+    "is_stale": true,
+    "taxonomy_version": "1.0.0",
+    "created_at": "2026-07-27T11:33:01.781431Z"
+  },
+  {
+    "insight_id": "2460f45c5a391181",
+    "statement": "Limited electronics selection: 12 feedback mentions suggest Assortment Gap as a barrier at the Discovery stage, observed across 2 platform(s).",
+    "related_RQs": [
+      "RQ2",
+      "RQ5"
+    ],
+    "theme_tags": [
+      "Limited electronics selection"
+    ],
+    "evidence_count": 12,
+    "source_diversity": 2,
+    "cognitive_barrier_split": {
+      "ASSORTMENT_GAP": 1.0
+    },
+    "dominant_funnel_leak_stage": "DISCOVERY",
+    "competitor_mentions": [
+      {
+        "entity": "Amazon",
+        "advantage": "ASSORTMENT",
+        "count": 1
+      }
+    ],
+    "example_snippets": [
+      "Reviewers mention that fast delivery for milk and bread but electronics selection is very limited. Same thought last month.",
+      "Reviewers mention that fast delivery for milk and bread but electronics selection is very limited. Happens every reorder cycle.",
+      "Reviewers mention that fast delivery for milk and bread but electronics selection is very limited. My friends feel the same."
+    ],
+    "confidence_tier": "high",
+    "segment_relevance": [],
+    "is_stale": true,
+    "taxonomy_version": "1.0.0",
+    "created_at": "2026-07-27T11:33:01.781431Z"
+  },
+  {
+    "insight_id": "a520241064444362",
+    "statement": "Grocery shoppers unaware of non-grocery options: 10 feedback mentions suggest Awareness Deficit as a barrier at the Discovery stage, observed across 3 platform(s).",
+    "related_RQs": [
+      "RQ2",
+      "RQ5"
+    ],
+    "theme_tags": [
+      "Grocery shoppers unaware of non-grocery options"
+    ],
+    "evidence_count": 10,
+    "source_diversity": 3,
+    "cognitive_barrier_split": {
+      "AWARENESS_DEFICIT": 1.0
+    },
+    "dominant_funnel_leak_stage": "DISCOVERY",
+    "competitor_mentions": [
+      {
+        "entity": "Amazon",
+        "advantage": "ASSORTMENT",
+        "count": 1
+      }
+    ],
+    "example_snippets": [
+      "the quick-commerce app is great for groceries but I never think to order groceries here. Happens every reorder cycle.",
+      "the quick-commerce app is great for groceries but I never think to order stationery here. Never saw an promo for this category.",
+      "the quick-commerce app is great for groceries but I never think to order stationery here. BigBasket still wins here for me."
+    ],
+    "confidence_tier": "high",
+    "segment_relevance": [
+      "frequent_grocery_buyers"
+    ],
+    "is_stale": true,
+    "taxonomy_version": "1.0.0",
+    "created_at": "2026-07-27T11:33:01.781431Z"
+  },
+  {
+    "insight_id": "e569412919da9509",
+    "statement": "Blinkit stationery shopping awareness issue: 12 feedback mentions suggest Awareness Deficit as a barrier at the Discovery stage, observed across 2 platform(s).",
+    "related_RQs": [
+      "RQ1",
+      "RQ4"
+    ],
+    "theme_tags": [
+      "Blinkit stationery shopping awareness issue"
+    ],
+    "evidence_count": 12,
+    "source_diversity": 2,
+    "cognitive_barrier_split": {
+      "AWARENESS_DEFICIT": 1.0
+    },
+    "dominant_funnel_leak_stage": "DISCOVERY",
+    "competitor_mentions": [
+      {
+        "entity": "Zepto",
+        "advantage": "ASSORTMENT",
+        "count": 1
+      }
+    ],
+    "example_snippets": [
+      "a rival delivery service &gt; the quick-commerce app for stationery. Change my mind. Would buy if assortment improved.",
+      "a rival delivery service &gt; the quick-commerce app for stationery. Change my mind. a specialty retail platform feels safer for this purchase.",
+      "Didn't know the quick-commerce app sells stationery until my friend mentioned it. Might switch to a rival delivery service next time."
+    ],
+    "confidence_tier": "high",
+    "segment_relevance": [
+      "frequent_shoppers",
+      "young_adults"
+    ],
+    "is_stale": true,
+    "taxonomy_version": "1.0.0",
+    "created_at": "2026-07-27T11:33:01.781431Z"
+  },
+  {
+    "insight_id": "0ca5ba08a4884207",
+    "statement": "Search-gap theme 'app / nykaa / personal care': 12 users report unmet product needs (assortment gap) across 2 platform(s).",
+    "related_RQs": [
+      "RQ8"
+    ],
+    "theme_tags": [
+      "app / nykaa / personal care",
+      "app",
+      "nykaa"
+    ],
+    "evidence_count": 12,
+    "source_diversity": 2,
+    "cognitive_barrier_split": {
+      "ASSORTMENT_GAP": 1.0
+    },
+    "dominant_funnel_leak_stage": "CONSIDERATION",
+    "competitor_mentions": [],
+    "example_snippets": [
+      "Good app but missing notebooks. a specialty retail platform has better personal care range. a specialty retail platform feels safer for this purchase.",
+      "Good app but missing notebooks. a specialty retail platform has better personal care range. Might switch to a rival delivery service next time.",
+      "Good app but missing notebooks. a specialty retail platform has better personal care range. Price seems higher than competitors."
+    ],
+    "confidence_tier": "high",
+    "segment_relevance": [],
+    "is_stale": true,
+    "taxonomy_version": "1.0.0",
+    "created_at": "2026-07-27T11:33:01.781431Z"
+  },
+  {
+    "insight_id": "d1b4578f54b260f1",
+    "statement": "Search-gap theme 'app / better / nykaa': 12 users report unmet product needs (assortment gap) across 2 platform(s).",
+    "related_RQs": [
+      "RQ8"
+    ],
+    "theme_tags": [
+      "app / better / nykaa",
+      "app",
+      "better"
+    ],
+    "evidence_count": 12,
+    "source_diversity": 2,
+    "cognitive_barrier_split": {
+      "ASSORTMENT_GAP": 1.0
+    },
+    "dominant_funnel_leak_stage": "CONSIDERATION",
+    "competitor_mentions": [],
+    "example_snippets": [
+      "Good app but missing diapers. a specialty retail platform has better personal care range. Would buy if assortment improved.",
+      "Good app but missing diapers. a specialty retail platform has better personal care range. Needs better in-app discovery.",
+      "Good app but missing diapers. a specialty retail platform has better personal care range. Same thought last month."
+    ],
+    "confidence_tier": "high",
+    "segment_relevance": [],
+    "is_stale": true,
+    "taxonomy_version": "1.0.0",
+    "created_at": "2026-07-27T11:33:01.781431Z"
+  },
+  {
+    "insight_id": "d507c045817ace7d",
+    "statement": "Pet supplies not available on Blinkit: 11 feedback mentions suggest Assortment Gap as a barrier at the Discovery stage, observed across 2 platform(s).",
+    "related_RQs": [
+      "RQ3",
+      "RQ5"
+    ],
+    "theme_tags": [
+      "Pet supplies not available on Blinkit"
+    ],
+    "evidence_count": 11,
+    "source_diversity": 2,
+    "cognitive_barrier_split": {
+      "ASSORTMENT_GAP": 1.0
+    },
+    "dominant_funnel_leak_stage": "DISCOVERY",
+    "competitor_mentions": [
+      {
+        "entity": "Amazon",
+        "advantage": "ASSORTMENT",
+        "count": 1
+      }
+    ],
+    "example_snippets": [
+      "the quick-commerce app pe pet supplies nahi milta, a major online marketplace se order karta hoon. a major online marketplace is my fallback always.",
+      "the quick-commerce app pe pet supplies nahi milta, a major online marketplace se order karta hoon. BigBasket still wins here for me.",
+      "the quick-commerce app pe pet supplies nahi milta, a major online marketplace se order karta hoon. Never saw an promo for this category."
+    ],
+    "confidence_tier": "high",
+    "segment_relevance": [
+      "pet_owners"
+    ],
+    "is_stale": true,
+    "taxonomy_version": "1.0.0",
+    "created_at": "2026-07-27T11:33:01.781431Z"
+  },
+  {
+    "insight_id": "b46d638902a81789",
+    "statement": "Home essentials not available on Blinkit: 11 feedback mentions suggest Assortment Gap as a barrier at the Discovery stage, observed across 2 platform(s).",
+    "related_RQs": [
+      "RQ1",
+      "RQ3",
+      "RQ5"
+    ],
+    "theme_tags": [
+      "Home essentials not available on Blinkit"
+    ],
+    "evidence_count": 11,
+    "source_diversity": 2,
+    "cognitive_barrier_split": {
+      "ASSORTMENT_GAP": 1.0
+    },
+    "dominant_funnel_leak_stage": "DISCOVERY",
+    "competitor_mentions": [
+      {
+        "entity": "Amazon",
+        "advantage": "ASSORTMENT",
+        "count": 1
+      }
+    ],
+    "example_snippets": [
+      "the quick-commerce app pe home essentials nahi milta, a major online marketplace se order karta hoon. Been using the quick-commerce app for two years.",
+      "the quick-commerce app pe home essentials nahi milta, a major online marketplace se order karta hoon. Might switch to a rival delivery service next time.",
+      "the quick-commerce app pe home essentials nahi milta, a major online marketplace se order karta hoon. a competing grocery app has better variety lately."
+    ],
+    "confidence_tier": "high",
+    "segment_relevance": [
+      "frequent_shoppers",
+      "home_essential_buyers"
+    ],
+    "is_stale": true,
+    "taxonomy_version": "1.0.0",
+    "created_at": "2026-07-27T11:33:01.781431Z"
+  },
+  {
+    "insight_id": "696390fcf92624c4",
+    "statement": "Missing products in personal care range: 11 feedback mentions suggest Assortment Gap as a barrier at the Consideration stage, observed across 2 platform(s).",
+    "related_RQs": [
+      "RQ2",
+      "RQ5"
+    ],
+    "theme_tags": [
+      "Missing products in personal care range"
+    ],
+    "evidence_count": 11,
+    "source_diversity": 2,
+    "cognitive_barrier_split": {
+      "ASSORTMENT_GAP": 1.0
+    },
+    "dominant_funnel_leak_stage": "CONSIDERATION",
+    "competitor_mentions": [
+      {
+        "entity": "Nykaa",
+        "advantage": "ASSORTMENT",
+        "count": 1
+      }
+    ],
+    "example_snippets": [
+      "Good app but missing detergent. a specialty retail platform has better personal care range. Happens every reorder cycle.",
+      "Good app but missing detergent. a specialty retail platform has better personal care range. Search never surfaces these products.",
+      "Good app but missing detergent. a specialty retail platform has better personal care range. a competing grocery app has better variety lately."
+    ],
+    "confidence_tier": "high",
+    "segment_relevance": [
+      "frequent_buyers",
+      "personal_care_shoppers"
+    ],
+    "is_stale": true,
+    "taxonomy_version": "1.0.0",
+    "created_at": "2026-07-27T11:33:01.781431Z"
+  },
+  {
+    "insight_id": "f0b50940775966e0",
+    "statement": "Lack of pet supplies on Blinkit: 11 feedback mentions suggest Assortment Gap as a barrier at the Discovery stage, observed across 2 platform(s).",
+    "related_RQs": [
+      "RQ3",
+      "RQ5"
+    ],
+    "theme_tags": [
+      "Lack of pet supplies on Blinkit"
+    ],
+    "evidence_count": 11,
+    "source_diversity": 2,
+    "cognitive_barrier_split": {
+      "ASSORTMENT_GAP": 1.0
+    },
+    "dominant_funnel_leak_stage": "DISCOVERY",
+    "competitor_mentions": [
+      {
+        "entity": "Amazon",
+        "advantage": "ASSORTMENT",
+        "count": 1
+      }
+    ],
+    "example_snippets": [
+      "Why doesn't the quick-commerce app have dog food? I always buy from a major online marketplace instead. Might switch to a rival delivery service next time.",
+      "Why doesn't the quick-commerce app have dog food? I always buy from a major online marketplace instead. a specialty retail platform feels safer for this purchase.",
+      "Why doesn't the quick-commerce app have dog food? I always buy from a major online marketplace instead. Especially in Bangalore."
+    ],
+    "confidence_tier": "high",
+    "segment_relevance": [
+      "pet_owners"
+    ],
+    "is_stale": true,
+    "taxonomy_version": "1.0.0",
+    "created_at": "2026-07-27T11:33:01.781431Z"
+  },
+  {
+    "insight_id": "fbe8753c937d6215",
+    "statement": "Limited health pharmacy selection: 11 feedback mentions suggest Assortment Gap as a barrier at the Discovery stage, observed across 2 platform(s).",
+    "related_RQs": [
+      "RQ3",
+      "RQ5"
+    ],
+    "theme_tags": [
+      "Limited health pharmacy selection"
+    ],
+    "evidence_count": 11,
+    "source_diversity": 2,
+    "cognitive_barrier_split": {
+      "ASSORTMENT_GAP": 1.0
+    },
+    "dominant_funnel_leak_stage": "DISCOVERY",
+    "competitor_mentions": [
+      {
+        "entity": "Amazon",
+        "advantage": "ASSORTMENT",
+        "count": 1
+      }
+    ],
+    "example_snippets": [
+      "Reviewers mention that fast delivery for milk and bread but health pharmacy selection is very limited. Same thought last month.",
+      "Reviewers mention that fast delivery for milk and bread but health pharmacy selection is very limited. Needs better in-app discovery.",
+      "Reviewers mention that fast delivery for milk and bread but health pharmacy selection is very limited. Noticed this after the app update."
+    ],
+    "confidence_tier": "high",
+    "segment_relevance": [],
+    "is_stale": true,
+    "taxonomy_version": "1.0.0",
+    "created_at": "2026-07-27T11:33:01.781431Z"
+  },
+  {
+    "insight_id": "fbef50e2bb5b189e",
+    "statement": "Low awareness of non-grocery categories: 11 feedback mentions suggest Awareness Deficit as a barrier at the Discovery stage, observed across 2 platform(s).",
+    "related_RQs": [
+      "RQ1",
+      "RQ5"
+    ],
+    "theme_tags": [
+      "Low awareness of non-grocery categories"
+    ],
+    "evidence_count": 11,
+    "source_diversity": 2,
+    "cognitive_barrier_split": {
+      "AWARENESS_DEFICIT": 1.0
+    },
+    "dominant_funnel_leak_stage": "DISCOVERY",
+    "competitor_mentions": [],
+    "example_snippets": [
+      "the quick-commerce app is great for groceries but I never think to order baby care here.",
+      "the quick-commerce app is great for groceries but I never think to order baby care here. a major online marketplace is my fallback always.",
+      "the quick-commerce app is great for groceries but I never think to order baby care here. Category tab feels hidden."
+    ],
+    "confidence_tier": "high",
+    "segment_relevance": [
+      "frequent_grocery_buyers"
+    ],
+    "is_stale": true,
+    "taxonomy_version": "1.0.0",
+    "created_at": "2026-07-27T11:33:01.781431Z"
+  },
+  {
+    "insight_id": "d1b4578f54b260f1",
+    "statement": "Search-gap theme 'app / better / nykaa': 11 users report unmet product needs (assortment gap) across 2 platform(s).",
+    "related_RQs": [
+      "RQ8"
+    ],
+    "theme_tags": [
+      "app / better / nykaa",
+      "app",
+      "better"
+    ],
+    "evidence_count": 11,
+    "source_diversity": 2,
+    "cognitive_barrier_split": {
+      "ASSORTMENT_GAP": 1.0
+    },
+    "dominant_funnel_leak_stage": "CONSIDERATION",
+    "competitor_mentions": [],
+    "example_snippets": [
+      "Good app but missing detergent. a specialty retail platform has better personal care range.",
+      "Good app but missing detergent. a specialty retail platform has better personal care range. Needs better in-app discovery.",
+      "Good app but missing detergent. a specialty retail platform has better personal care range. Happens every reorder cycle."
+    ],
+    "confidence_tier": "high",
+    "segment_relevance": [],
+    "is_stale": true,
+    "taxonomy_version": "1.0.0",
+    "created_at": "2026-07-27T11:33:01.781431Z"
+  },
+  {
+    "insight_id": "10f9c0fd696e0ea5",
+    "statement": "Limited pet supplies options on Blinkit: 9 feedback mentions suggest Assortment Gap as a barrier at the Discovery stage, observed across 3 platform(s).",
+    "related_RQs": [
+      "RQ1",
+      "RQ3",
+      "RQ5"
+    ],
+    "theme_tags": [
+      "Limited pet supplies options on Blinkit"
+    ],
+    "evidence_count": 9,
+    "source_diversity": 3,
+    "cognitive_barrier_split": {
+      "ASSORTMENT_GAP": 1.0
+    },
+    "dominant_funnel_leak_stage": "DISCOVERY",
+    "competitor_mentions": [
+      {
+        "entity": "Zepto",
+        "advantage": "ASSORTMENT",
+        "count": 1
+      }
+    ],
+    "example_snippets": [
+      "Does anyone order pet supplies on the quick-commerce app? Can't find dog food there. Might switch to a rival delivery service next time.",
+      "I wish the quick-commerce app had more brands in pet supplies. a rival delivery service seems better for that. Price seems higher than competitors.",
+      "I wish the quick-commerce app had more brands in pet supplies. a rival delivery service seems better for that. Category tab feels hidden."
+    ],
+    "confidence_tier": "high",
+    "segment_relevance": [
+      "pet_owners"
+    ],
+    "is_stale": true,
+    "taxonomy_version": "1.0.0",
+    "created_at": "2026-07-27T11:33:01.781431Z"
+  },
+  {
+    "insight_id": "115575ee733ff3ae",
+    "statement": "Electronics not available on Blinkit: 10 feedback mentions suggest Assortment Gap as a barrier at the Discovery stage, observed across 2 platform(s).",
+    "related_RQs": [
+      "RQ3",
+      "RQ5"
+    ],
+    "theme_tags": [
+      "Electronics not available on Blinkit"
+    ],
+    "evidence_count": 10,
+    "source_diversity": 2,
+    "cognitive_barrier_split": {
+      "ASSORTMENT_GAP": 1.0
+    },
+    "dominant_funnel_leak_stage": "DISCOVERY",
+    "competitor_mentions": [
+      {
+        "entity": "Amazon",
+        "advantage": "ASSORTMENT",
+        "count": 1
+      }
+    ],
+    "example_snippets": [
+      "the quick-commerce app pe electronics nahi milta, a major online marketplace se order karta hoon. Might switch to a rival delivery service next time.",
+      "the quick-commerce app pe electronics nahi milta, a major online marketplace se order karta hoon. My friends feel the same.",
+      "the quick-commerce app pe electronics nahi milta, a major online marketplace se order karta hoon. Happens every reorder cycle."
+    ],
+    "confidence_tier": "high",
+    "segment_relevance": [
+      "tech_savvy_users"
+    ],
+    "is_stale": true,
+    "taxonomy_version": "1.0.0",
+    "created_at": "2026-07-27T11:33:01.781431Z"
+  },
+  {
+    "insight_id": "c93b31643ca5e300",
+    "statement": "Discovery of home essentials on Blinkit: 10 feedback mentions suggest Awareness Deficit as a barrier at the Discovery stage, observed across 2 platform(s).",
+    "related_RQs": [
+      "RQ1",
+      "RQ3",
+      "RQ5"
+    ],
+    "theme_tags": [
+      "Discovery of home essentials on Blinkit"
+    ],
+    "evidence_count": 10,
+    "source_diversity": 2,
+    "cognitive_barrier_split": {
+      "AWARENESS_DEFICIT": 1.0
+    },
+    "dominant_funnel_leak_stage": "DISCOVERY",
+    "competitor_mentions": [
+      {
+        "entity": "BigBasket",
+        "advantage": "ASSORTMENT",
+        "count": 1
+      }
+    ],
+    "example_snippets": [
+      "Didn't know the quick-commerce app sells home essentials until my friend mentioned it. Search never surfaces these products.",
+      "Didn't know the quick-commerce app sells home essentials until my friend mentioned it. Same thought last month.",
+      "Didn't know the quick-commerce app sells home essentials until my friend mentioned it. Price seems higher than competitors."
+    ],
+    "confidence_tier": "high",
+    "segment_relevance": [
+      "home_essential_buyers"
+    ],
+    "is_stale": true,
+    "taxonomy_version": "1.0.0",
+    "created_at": "2026-07-27T11:33:01.781431Z"
+  },
+  {
+    "insight_id": "a0f96e2ee0d6e0ff",
+    "statement": "Milk and pet supplies not easily found: 10 feedback mentions suggest Assortment Gap as a barrier at the Discovery stage, observed across 2 platform(s).",
+    "related_RQs": [
+      "RQ1",
+      "RQ3",
+      "RQ5"
+    ],
+    "theme_tags": [
+      "Milk and pet supplies not easily found"
+    ],
+    "evidence_count": 10,
+    "source_diversity": 2,
+    "cognitive_barrier_split": {
+      "ASSORTMENT_GAP": 1.0
+    },
+    "dominant_funnel_leak_stage": "DISCOVERY",
+    "competitor_mentions": [
+      {
+        "entity": "Nykaa",
+        "advantage": "ASSORTMENT",
+        "count": 1
+      }
+    ],
+    "example_snippets": [
+      "Where do you buy milk \u2014 the quick-commerce app or a specialty retail platform? Been using the quick-commerce app for two years.",
+      "Where do you buy milk \u2014 the quick-commerce app or a specialty retail platform?",
+      "Where do you buy milk \u2014 the quick-commerce app or a specialty retail platform? Needs better in-app discovery."
+    ],
+    "confidence_tier": "high",
+    "segment_relevance": [
+      "pet_owners",
+      "frequent_grocery_buyers"
+    ],
+    "is_stale": true,
+    "taxonomy_version": "1.0.0",
+    "created_at": "2026-07-27T11:33:01.781431Z"
+  },
+  {
+    "insight_id": "3d72d3f7d8d421a2",
+    "statement": "Lack of awareness about pet supplies: 10 feedback mentions suggest Awareness Deficit as a barrier at the Discovery stage, observed across 2 platform(s).",
+    "related_RQs": [
+      "RQ1",
+      "RQ3"
+    ],
+    "theme_tags": [
+      "Lack of awareness about pet supplies"
+    ],
+    "evidence_count": 10,
+    "source_diversity": 2,
+    "cognitive_barrier_split": {
+      "AWARENESS_DEFICIT": 1.0
+    },
+    "dominant_funnel_leak_stage": "DISCOVERY",
+    "competitor_mentions": [
+      {
+        "entity": "BigBasket",
+        "advantage": "ASSORTMENT",
+        "count": 1
+      }
+    ],
+    "example_snippets": [
+      "Didn't know the quick-commerce app sells pet supplies until my friend mentioned it. Wish the homepage showed this category.",
+      "Didn't know the quick-commerce app sells pet supplies until my friend mentioned it. Same thought last month.",
+      "Didn't know the quick-commerce app sells pet supplies until my friend mentioned it. Delivery was fine though."
+    ],
+    "confidence_tier": "high",
+    "segment_relevance": [
+      "pet_owners"
+    ],
+    "is_stale": true,
+    "taxonomy_version": "1.0.0",
+    "created_at": "2026-07-27T11:33:01.781431Z"
+  },
+  {
+    "insight_id": "abcd0f7085d13abc",
+    "statement": "Limited stationery selection: 10 feedback mentions suggest Assortment Gap as a barrier at the Consideration stage, observed across 2 platform(s).",
+    "related_RQs": [
+      "RQ2",
+      "RQ5"
+    ],
+    "theme_tags": [
+      "Limited stationery selection"
+    ],
+    "evidence_count": 10,
+    "source_diversity": 2,
+    "cognitive_barrier_split": {
+      "ASSORTMENT_GAP": 1.0
+    },
+    "dominant_funnel_leak_stage": "CONSIDERATION",
+    "competitor_mentions": [
+      {
+        "entity": "Amazon",
+        "advantage": "ASSORTMENT",
+        "count": 1
+      }
+    ],
+    "example_snippets": [
+      "Reviewers mention that fast delivery for milk and bread but stationery selection is very limited. Same thought last month.",
+      "Reviewers mention that fast delivery for milk and bread but stationery selection is very limited. Search never surfaces these products.",
+      "Fast delivery for milk and bread but stationery selection is very limited. a major online marketplace is my fallback always."
+    ],
+    "confidence_tier": "high",
+    "segment_relevance": [
+      "frequent_buyers"
+    ],
+    "is_stale": true,
+    "taxonomy_version": "1.0.0",
+    "created_at": "2026-07-27T11:33:01.781431Z"
+  },
+  {
+    "insight_id": "e99eef2a9dfd462c",
+    "statement": "Limited personal care brands: 10 feedback mentions suggest Assortment Gap as a barrier at the Consideration stage, observed across 2 platform(s).",
+    "related_RQs": [
+      "RQ2",
+      "RQ5"
+    ],
+    "theme_tags": [
+      "Limited personal care brands"
+    ],
+    "evidence_count": 10,
+    "source_diversity": 2,
+    "cognitive_barrier_split": {
+      "ASSORTMENT_GAP": 1.0
+    },
+    "dominant_funnel_leak_stage": "CONSIDERATION",
+    "competitor_mentions": [
+      {
+        "entity": "Zepto",
+        "advantage": "ASSORTMENT",
+        "count": 1
+      }
+    ],
+    "example_snippets": [
+      "I wish the quick-commerce app had more brands in personal care. a rival delivery service seems better for that. Noticed this after the app update.",
+      "I wish the quick-commerce app had more brands in personal care. a rival delivery service seems better for that. a competing grocery app has better variety lately.",
+      "I wish the quick-commerce app had more brands in personal care. a rival delivery service seems better for that. Needs better in-app discovery."
+    ],
+    "confidence_tier": "high",
+    "segment_relevance": [
+      "frequent_shoppers",
+      "health_conscious"
+    ],
+    "is_stale": true,
+    "taxonomy_version": "1.0.0",
+    "created_at": "2026-07-27T11:33:01.781431Z"
+  },
+  {
+    "insight_id": "790de4b0b50a988a",
+    "statement": "Limited health pharmacy options: 10 feedback mentions suggest Assortment Gap as a barrier at the Discovery stage, observed across 2 platform(s).",
+    "related_RQs": [
+      "RQ2",
+      "RQ5"
+    ],
+    "theme_tags": [
+      "Limited health pharmacy options"
+    ],
+    "evidence_count": 10,
+    "source_diversity": 2,
+    "cognitive_barrier_split": {
+      "ASSORTMENT_GAP": 1.0
+    },
+    "dominant_funnel_leak_stage": "DISCOVERY",
+    "competitor_mentions": [
+      {
+        "entity": "Zepto",
+        "advantage": "ASSORTMENT",
+        "count": 1
+      }
+    ],
+    "example_snippets": [
+      "I wish the quick-commerce app had more brands in health pharmacy. a rival delivery service seems better for that. Delivery was fine though.",
+      "I wish the quick-commerce app had more brands in health pharmacy. a rival delivery service seems better for that. Search never surfaces these products.",
+      "I wish the quick-commerce app had more brands in health pharmacy. a rival delivery service seems better for that. Price seems higher than competitors."
+    ],
+    "confidence_tier": "high",
+    "segment_relevance": [
+      "health_conscious"
+    ],
+    "is_stale": true,
+    "taxonomy_version": "1.0.0",
+    "created_at": "2026-07-27T11:33:01.781431Z"
+  },
+  {
+    "insight_id": "884be686f6aa879b",
+    "statement": "Blinkit vs Zepto for pet supplies: 12 feedback mentions suggest Convenience Mismatch as a barrier at the Consideration stage, observed across 1 platform(s).",
+    "related_RQs": [
+      "RQ2",
+      "RQ5"
+    ],
+    "theme_tags": [
+      "Blinkit vs Zepto for pet supplies"
+    ],
+    "evidence_count": 12,
+    "source_diversity": 1,
+    "cognitive_barrier_split": {
+      "CONVENIENCE_MISMATCH": 1.0
+    },
+    "dominant_funnel_leak_stage": "CONSIDERATION",
+    "competitor_mentions": [
+      {
+        "entity": "Zepto",
+        "advantage": "DELIVERY_SPEED",
+        "count": 1
+      }
+    ],
+    "example_snippets": [
+      "a rival delivery service &gt; the quick-commerce app for petsupplies. Change my mind. BigBasket still wins here for me.",
+      "a rival delivery service &gt; the quick-commerce app for petsupplies. Change my mind. Happens every reorder cycle.",
+      "a rival delivery service &gt; the quick-commerce app for petsupplies. Change my mind. Price seems higher than competitors."
+    ],
+    "confidence_tier": "medium",
+    "segment_relevance": [
+      "pet_owners"
+    ],
+    "is_stale": true,
+    "taxonomy_version": "1.0.0",
+    "created_at": "2026-07-27T11:33:01.781431Z"
+  },
+  {
+    "insight_id": "07abdae3417bb01c",
+    "statement": "Missing products in groceries and personal care: 9 feedback mentions suggest Assortment Gap as a barrier at the Discovery stage, observed across 2 platform(s).",
+    "related_RQs": [
+      "RQ1",
+      "RQ3",
+      "RQ5"
+    ],
+    "theme_tags": [
+      "Missing products in groceries and personal care"
+    ],
+    "evidence_count": 9,
+    "source_diversity": 2,
+    "cognitive_barrier_split": {
+      "ASSORTMENT_GAP": 1.0
+    },
+    "dominant_funnel_leak_stage": "DISCOVERY",
+    "competitor_mentions": [
+      {
+        "entity": "Nykaa",
+        "advantage": "ASSORTMENT",
+        "count": 1
+      }
+    ],
+    "example_snippets": [
+      "Good app but missing milk. a specialty retail platform has better personal care range. Price seems higher than competitors.",
+      "Good app but missing milk. a specialty retail platform has better personal care range.",
+      "Good app but missing milk. a specialty retail platform has better personal care range. Category tab feels hidden."
+    ],
+    "confidence_tier": "high",
+    "segment_relevance": [
+      "frequent_shoppers",
+      "health_conscious"
+    ],
+    "is_stale": true,
+    "taxonomy_version": "1.0.0",
+    "created_at": "2026-07-27T11:33:01.781431Z"
+  },
+  {
+    "insight_id": "d9ca5f33fe70f6d9",
+    "statement": "Difficulty finding pet supplies on Blinkit: 9 feedback mentions suggest Assortment Gap as a barrier at the Discovery stage, observed across 2 platform(s).",
+    "related_RQs": [
+      "RQ1",
+      "RQ3",
+      "RQ5"
+    ],
+    "theme_tags": [
+      "Difficulty finding pet supplies on Blinkit"
+    ],
+    "evidence_count": 9,
+    "source_diversity": 2,
+    "cognitive_barrier_split": {
+      "ASSORTMENT_GAP": 1.0
+    },
+    "dominant_funnel_leak_stage": "DISCOVERY",
+    "competitor_mentions": [
+      {
+        "entity": "Nykaa",
+        "advantage": "ASSORTMENT",
+        "count": 1
+      }
+    ],
+    "example_snippets": [
+      "Does anyone order pet supplies on the quick-commerce app? Can't find dog food there. Been using the quick-commerce app for two years.",
+      "the quick-commerce app missing dog food again. Why no petsupplies section? @the quick-commerce app Same thought last month.",
+      "the quick-commerce app missing dog food again. Why no petsupplies section? @the quick-commerce app Needs better in-app discovery."
+    ],
+    "confidence_tier": "high",
+    "segment_relevance": [
+      "pet_owners"
+    ],
+    "is_stale": true,
+    "taxonomy_version": "1.0.0",
+    "created_at": "2026-07-27T11:33:01.781431Z"
+  },
+  {
+    "insight_id": "a9c981641fa3c006",
+    "statement": "Lack of Diapers in Blinkit: 9 feedback mentions suggest Assortment Gap as a barrier at the Discovery stage, observed across 2 platform(s).",
+    "related_RQs": [
+      "RQ1",
+      "RQ3",
+      "RQ5"
+    ],
+    "theme_tags": [
+      "Lack of Diapers in Blinkit"
+    ],
+    "evidence_count": 9,
+    "source_diversity": 2,
+    "cognitive_barrier_split": {
+      "ASSORTMENT_GAP": 1.0
+    },
+    "dominant_funnel_leak_stage": "DISCOVERY",
+    "competitor_mentions": [
+      {
+        "entity": "Amazon",
+        "advantage": "ASSORTMENT",
+        "count": 1
+      }
+    ],
+    "example_snippets": [
+      "Why doesn't the quick-commerce app have diapers? I always buy from a major online marketplace instead. Might switch to a rival delivery service next time.",
+      "Why doesn't the quick-commerce app have diapers? I always buy from a major online marketplace instead. a competing grocery app has better variety lately.",
+      "Why doesn't the quick-commerce app have diapers? I always buy from a major online marketplace instead. Would buy if assortment improved."
+    ],
+    "confidence_tier": "high",
+    "segment_relevance": [
+      "new_parents",
+      "families_with_babies"
+    ],
+    "is_stale": true,
+    "taxonomy_version": "1.0.0",
+    "created_at": "2026-07-27T11:33:01.781431Z"
+  },
+  {
+    "insight_id": "4ce387eaebf2290b",
+    "statement": "Low awareness of pet supplies on Blinkit: 9 feedback mentions suggest Awareness Deficit as a barrier at the Discovery stage, observed across 2 platform(s).",
+    "related_RQs": [
+      "RQ2",
+      "RQ5"
+    ],
+    "theme_tags": [
+      "Low awareness of pet supplies on Blinkit"
+    ],
+    "evidence_count": 9,
+    "source_diversity": 2,
+    "cognitive_barrier_split": {
+      "AWARENESS_DEFICIT": 1.0
+    },
+    "dominant_funnel_leak_stage": "DISCOVERY",
+    "competitor_mentions": [
+      {
+        "entity": "BigBasket",
+        "advantage": "ASSORTMENT",
+        "count": 1
+      }
+    ],
+    "example_snippets": [
+      "the quick-commerce app is great for groceries but I never think to order pet supplies here. Noticed this after the app update.",
+      "the quick-commerce app is great for groceries but I never think to order pet supplies here. BigBasket still wins here for me.",
+      "the quick-commerce app is great for groceries but I never think to order pet supplies here. Search never surfaces these products."
+    ],
+    "confidence_tier": "high",
+    "segment_relevance": [
+      "pet_owners"
+    ],
+    "is_stale": true,
+    "taxonomy_version": "1.0.0",
+    "created_at": "2026-07-27T11:33:01.781431Z"
+  },
+  {
+    "insight_id": "4b51ca151119f492",
+    "statement": "Search-gap theme 'nykaa better / personal / personal care': 9 users report unmet product needs (assortment gap) across 2 platform(s).",
+    "related_RQs": [
+      "RQ8"
+    ],
+    "theme_tags": [
+      "nykaa better / personal / personal care",
+      "nykaa better",
+      "personal"
+    ],
+    "evidence_count": 9,
+    "source_diversity": 2,
+    "cognitive_barrier_split": {
+      "ASSORTMENT_GAP": 1.0
+    },
+    "dominant_funnel_leak_stage": "CONSIDERATION",
+    "competitor_mentions": [],
+    "example_snippets": [
+      "Good app but missing milk. a specialty retail platform has better personal care range. Been using the quick-commerce app for two years.",
+      "Good app but missing milk. a specialty retail platform has better personal care range. Happens every reorder cycle.",
+      "Good app but missing milk. a specialty retail platform has better personal care range. Category tab feels hidden."
+    ],
+    "confidence_tier": "high",
+    "segment_relevance": [],
+    "is_stale": true,
+    "taxonomy_version": "1.0.0",
+    "created_at": "2026-07-27T11:33:01.781431Z"
+  },
+  {
+    "insight_id": "ca837e3d01afcb5e",
+    "statement": "Electronics shopping comparison: 11 feedback mentions suggest Assortment Gap as a barrier at the Discovery stage, observed across 1 platform(s).",
+    "related_RQs": [
+      "RQ2",
+      "RQ5"
+    ],
+    "theme_tags": [
+      "Electronics shopping comparison"
+    ],
+    "evidence_count": 11,
+    "source_diversity": 1,
+    "cognitive_barrier_split": {
+      "ASSORTMENT_GAP": 1.0
+    },
+    "dominant_funnel_leak_stage": "DISCOVERY",
+    "competitor_mentions": [
+      {
+        "entity": "Zepto",
+        "advantage": "ASSORTMENT",
+        "count": 1
+      }
+    ],
+    "example_snippets": [
+      "the quick-commerce app vs a rival delivery service \u2014 which has better electronics? a competing grocery app has better variety lately.",
+      "the quick-commerce app vs a rival delivery service \u2014 which has better electronics? Same thought last month.",
+      "the quick-commerce app vs a rival delivery service \u2014 which has better electronics? My friends feel the same."
+    ],
+    "confidence_tier": "medium",
+    "segment_relevance": [
+      "tech_savvy_shoppers"
+    ],
+    "is_stale": true,
+    "taxonomy_version": "1.0.0",
+    "created_at": "2026-07-27T11:33:01.781431Z"
+  },
+  {
+    "insight_id": "3218c8655c4f4813",
+    "statement": "Detergent availability on Blinkit: 7 feedback mentions suggest Assortment Gap as a barrier at the Discovery stage, observed across 3 platform(s).",
+    "related_RQs": [
+      "RQ1",
+      "RQ3"
+    ],
+    "theme_tags": [
+      "Detergent availability on Blinkit"
+    ],
+    "evidence_count": 7,
+    "source_diversity": 3,
+    "cognitive_barrier_split": {
+      "ASSORTMENT_GAP": 1.0
+    },
+    "dominant_funnel_leak_stage": "DISCOVERY",
+    "competitor_mentions": [
+      {
+        "entity": "Nykaa",
+        "advantage": "ASSORTMENT",
+        "count": 1
+      }
+    ],
+    "example_snippets": [
+      "Why doesn't the quick-commerce app have detergent? I always buy from a major online marketplace instead. a specialty retail platform feels safer for this purchase.",
+      "Does anyone order home essentials on the quick-commerce app? Can't find detergent there. a specialty retail platform feels safer for this purchase.",
+      "Where do you buy detergent \u2014 the quick-commerce app or a specialty retail platform? Search never surfaces these products."
+    ],
+    "confidence_tier": "high",
+    "segment_relevance": [
+      "home_essentials_buyers"
+    ],
+    "is_stale": true,
+    "taxonomy_version": "1.0.0",
+    "created_at": "2026-07-27T11:33:01.781431Z"
+  },
+  {
+    "insight_id": "800480d38781c4d0",
+    "statement": "Health pharmacy products not available: 8 feedback mentions suggest Assortment Gap as a barrier at the Discovery stage, observed across 2 platform(s).",
+    "related_RQs": [
+      "RQ1",
+      "RQ3",
+      "RQ5"
+    ],
+    "theme_tags": [
+      "Health pharmacy products not available"
+    ],
+    "evidence_count": 8,
+    "source_diversity": 2,
+    "cognitive_barrier_split": {
+      "ASSORTMENT_GAP": 1.0
+    },
+    "dominant_funnel_leak_stage": "DISCOVERY",
+    "competitor_mentions": [
+      {
+        "entity": "Amazon",
+        "advantage": "ASSORTMENT",
+        "count": 1
+      }
+    ],
+    "example_snippets": [
+      "the quick-commerce app pe health pharmacy nahi milta, a major online marketplace se order karta hoon. Needs better in-app discovery.",
+      "the quick-commerce app pe health pharmacy nahi milta, a major online marketplace se order karta hoon. Noticed this after the app update.",
+      "the quick-commerce app pe health pharmacy nahi milta, a major online marketplace se order karta hoon. a competing grocery app has better variety lately."
+    ],
+    "confidence_tier": "high",
+    "segment_relevance": [
+      "health_conscious"
+    ],
+    "is_stale": true,
+    "taxonomy_version": "1.0.0",
+    "created_at": "2026-07-27T11:33:01.781431Z"
+  },
+  {
+    "insight_id": "bb49924cab8d7a73",
+    "statement": "Limited pet supplies on Blinkit: 10 feedback mentions suggest Assortment Gap as a barrier at the Consideration stage, observed across 1 platform(s).",
+    "related_RQs": [
+      "RQ2",
+      "RQ5"
+    ],
+    "theme_tags": [
+      "Limited pet supplies on Blinkit"
+    ],
+    "evidence_count": 10,
+    "source_diversity": 1,
+    "cognitive_barrier_split": {
+      "ASSORTMENT_GAP": 1.0
+    },
+    "dominant_funnel_leak_stage": "CONSIDERATION",
+    "competitor_mentions": [
+      {
+        "entity": "Amazon",
+        "advantage": "ASSORTMENT",
+        "count": 1
+      }
+    ],
+    "example_snippets": [
+      "I use the quick-commerce app only for emergency groceries. For pet supplies I go to a major online marketplace. Same thought last month.",
+      "I use the quick-commerce app only for emergency groceries. For pet supplies I go to a major online marketplace. Delivery was fine though.",
+      "I use the quick-commerce app only for emergency groceries. For pet supplies I go to a major online marketplace. a major online marketplace is my fallback always."
+    ],
+    "confidence_tier": "medium",
+    "segment_relevance": [
+      "pet_owners"
+    ],
+    "is_stale": true,
+    "taxonomy_version": "1.0.0",
+    "created_at": "2026-07-27T11:33:01.781431Z"
+  },
+  {
+    "insight_id": "01e19760d9400e32",
+    "statement": "Low awareness of personal care products: 8 feedback mentions suggest Awareness Deficit as a barrier at the Discovery stage, observed across 2 platform(s).",
+    "related_RQs": [
+      "RQ2",
+      "RQ5"
+    ],
+    "theme_tags": [
+      "Low awareness of personal care products"
+    ],
+    "evidence_count": 8,
+    "source_diversity": 2,
+    "cognitive_barrier_split": {
+      "AWARENESS_DEFICIT": 1.0
+    },
+    "dominant_funnel_leak_stage": "DISCOVERY",
+    "competitor_mentions": [],
+    "example_snippets": [
+      "the quick-commerce app is great for groceries but I never think to order personal care here. Search never surfaces these products.",
+      "the quick-commerce app is great for groceries but I never think to order personal care here. Wish the homepage showed this category.",
+      "the quick-commerce app is great for groceries but I never think to order personal care here. Been using the quick-commerce app for two years."
+    ],
+    "confidence_tier": "high",
+    "segment_relevance": [
+      "frequent_grocery_buyers"
+    ],
+    "is_stale": true,
+    "taxonomy_version": "1.0.0",
+    "created_at": "2026-07-27T11:33:01.781431Z"
+  },
+  {
+    "insight_id": "c41c01f44ff813f8",
+    "statement": "Limited home essentials selection: 8 feedback mentions suggest Assortment Gap as a barrier at the Discovery stage, observed across 2 platform(s).",
+    "related_RQs": [
+      "RQ2",
+      "RQ5"
+    ],
+    "theme_tags": [
+      "Limited home essentials selection"
+    ],
+    "evidence_count": 8,
+    "source_diversity": 2,
+    "cognitive_barrier_split": {
+      "ASSORTMENT_GAP": 1.0
+    },
+    "dominant_funnel_leak_stage": "DISCOVERY",
+    "competitor_mentions": [],
+    "example_snippets": [
+      "Reviewers mention that fast delivery for milk and bread but home essentials selection is very limited. Happens every reorder cycle.",
+      "Reviewers mention that fast delivery for milk and bread but home essentials selection is very limited. Never saw an promo for this category.",
+      "Reviewers mention that fast delivery for milk and bread but home essentials selection is very limited. My friends feel the same."
+    ],
+    "confidence_tier": "high",
+    "segment_relevance": [],
+    "is_stale": true,
+    "taxonomy_version": "1.0.0",
+    "created_at": "2026-07-27T11:33:01.781431Z"
+  },
+  {
+    "insight_id": "737fa2358cd5b5ff",
+    "statement": "Electronics shopping on Blinkit: 8 feedback mentions suggest Awareness Deficit as a barrier at the Discovery stage, observed across 2 platform(s).",
+    "related_RQs": [
+      "RQ1",
+      "RQ5"
+    ],
+    "theme_tags": [
+      "Electronics shopping on Blinkit"
+    ],
+    "evidence_count": 8,
+    "source_diversity": 2,
+    "cognitive_barrier_split": {
+      "AWARENESS_DEFICIT": 1.0
+    },
+    "dominant_funnel_leak_stage": "DISCOVERY",
+    "competitor_mentions": [
+      {
+        "entity": "Zepto",
+        "advantage": "ASSORTMENT",
+        "count": 1
+      }
+    ],
+    "example_snippets": [
+      "Didn't know the quick-commerce app sells electronics until my friend mentioned it. Might switch to a rival delivery service next time.",
+      "a rival delivery service &gt; the quick-commerce app for electronics. Change my mind. Never saw an promo for this category.",
+      "a rival delivery service &gt; the quick-commerce app for electronics. Change my mind. Happens every reorder cycle."
+    ],
+    "confidence_tier": "high",
+    "segment_relevance": [
+      "tech_savvy_users"
+    ],
+    "is_stale": true,
+    "taxonomy_version": "1.0.0",
+    "created_at": "2026-07-27T11:33:01.781431Z"
+  },
+  {
+    "insight_id": "c7a749a507843d5e",
+    "statement": "Limited health pharmacy options on Blinkit: 10 feedback mentions suggest Assortment Gap as a barrier at the Discovery stage, observed across 1 platform(s).",
+    "related_RQs": [
+      "RQ2",
+      "RQ5"
+    ],
+    "theme_tags": [
+      "Limited health pharmacy options on Blinkit"
+    ],
+    "evidence_count": 10,
+    "source_diversity": 1,
+    "cognitive_barrier_split": {
+      "ASSORTMENT_GAP": 1.0
+    },
+    "dominant_funnel_leak_stage": "DISCOVERY",
+    "competitor_mentions": [
+      {
+        "entity": "Amazon",
+        "advantage": "ASSORTMENT",
+        "count": 1
+      }
+    ],
+    "example_snippets": [
+      "I use the quick-commerce app only for emergency groceries. For health pharmacy I go to a major online marketplace. Especially in Bangalore.",
+      "I use the quick-commerce app only for emergency groceries. For health pharmacy I go to a major online marketplace. Would buy if assortment improved.",
+      "I use the quick-commerce app only for emergency groceries. For health pharmacy I go to a major online marketplace."
+    ],
+    "confidence_tier": "medium",
+    "segment_relevance": [
+      "health_pharmacy_buyers"
+    ],
+    "is_stale": true,
+    "taxonomy_version": "1.0.0",
+    "created_at": "2026-07-27T11:33:01.781431Z"
+  },
+  {
+    "insight_id": "b68dde7039337a39",
+    "statement": "Health pharmacy discovery issues: 10 feedback mentions suggest Awareness Deficit as a barrier at the Discovery stage, observed across 1 platform(s).",
+    "related_RQs": [
+      "RQ1",
+      "RQ3",
+      "RQ5"
+    ],
+    "theme_tags": [
+      "Health pharmacy discovery issues"
+    ],
+    "evidence_count": 10,
+    "source_diversity": 1,
+    "cognitive_barrier_split": {
+      "AWARENESS_DEFICIT": 1.0
+    },
+    "dominant_funnel_leak_stage": "DISCOVERY",
+    "competitor_mentions": [
+      {
+        "entity": "Zepto",
+        "advantage": "ASSORTMENT",
+        "count": 1
+      }
+    ],
+    "example_snippets": [
+      "the quick-commerce app vs a rival delivery service \u2014 which has better health pharmacy? Would buy if assortment improved.",
+      "the quick-commerce app vs a rival delivery service \u2014 which has better health pharmacy? Category tab feels hidden.",
+      "the quick-commerce app vs a rival delivery service \u2014 which has better health pharmacy? Needs better in-app discovery."
+    ],
+    "confidence_tier": "medium",
+    "segment_relevance": [
+      "health_conscious"
+    ],
+    "is_stale": true,
+    "taxonomy_version": "1.0.0",
+    "created_at": "2026-07-27T11:33:01.781431Z"
+  },
+  {
+    "insight_id": "0cdda853c07820e1",
+    "statement": "Stationery discovery issues on Blinkit: 9 feedback mentions suggest Awareness Deficit as a barrier at the Discovery stage, observed across 1 platform(s).",
+    "related_RQs": [
+      "RQ1",
+      "RQ3",
+      "RQ6"
+    ],
+    "theme_tags": [
+      "Stationery discovery issues on Blinkit"
+    ],
+    "evidence_count": 9,
+    "source_diversity": 1,
+    "cognitive_barrier_split": {
+      "AWARENESS_DEFICIT": 1.0
+    },
+    "dominant_funnel_leak_stage": "DISCOVERY",
+    "competitor_mentions": [
+      {
+        "entity": "Zepto",
+        "advantage": "ASSORTMENT",
+        "count": 1
+      }
+    ],
+    "example_snippets": [
+      "the quick-commerce app vs a rival delivery service \u2014 which has better stationery? Search never surfaces these products.",
+      "the quick-commerce app vs a rival delivery service \u2014 which has better stationery? Noticed this after the app update.",
+      "the quick-commerce app vs a rival delivery service \u2014 which has better stationery? Never saw an promo for this category."
+    ],
+    "confidence_tier": "medium",
+    "segment_relevance": [
+      "frequent_buyers",
+      "office_supplies_shoppers"
+    ],
+    "is_stale": true,
+    "taxonomy_version": "1.0.0",
+    "created_at": "2026-07-27T11:33:01.781431Z"
+  },
+  {
+    "insight_id": "6f225e97703f5088",
+    "statement": "Limited product categories on Blinkit: 9 feedback mentions suggest Assortment Gap as a barrier at the Discovery stage, observed across 1 platform(s).",
+    "related_RQs": [
+      "RQ1",
+      "RQ3",
+      "RQ5"
+    ],
+    "theme_tags": [
+      "Limited product categories on Blinkit"
+    ],
+    "evidence_count": 9,
+    "source_diversity": 1,
+    "cognitive_barrier_split": {
+      "ASSORTMENT_GAP": 1.0
+    },
+    "dominant_funnel_leak_stage": "DISCOVERY",
+    "competitor_mentions": [
+      {
+        "entity": "Amazon",
+        "advantage": "ASSORTMENT",
+        "count": 1
+      }
+    ],
+    "example_snippets": [
+      "I use the quick-commerce app only for emergency groceries. For groceries I go to a major online marketplace. Happens every reorder cycle.",
+      "I use the quick-commerce app only for emergency groceries. For stationery I go to a major online marketplace. Search never surfaces these products.",
+      "I use the quick-commerce app only for emergency groceries. For stationery I go to a major online marketplace. Delivery was fine though."
+    ],
+    "confidence_tier": "medium",
+    "segment_relevance": [
+      "emergency_grocery_buyers",
+      "stationery_shoppers"
+    ],
+    "is_stale": true,
+    "taxonomy_version": "1.0.0",
+    "created_at": "2026-07-27T11:33:01.781431Z"
+  },
+  {
+    "insight_id": "77ada5b3b73eef7e",
+    "statement": "Lack of awareness about Blinkit categories: 7 feedback mentions suggest Awareness Deficit as a barrier at the Discovery stage, observed across 2 platform(s).",
+    "related_RQs": [
+      "RQ1",
+      "RQ4"
+    ],
+    "theme_tags": [
+      "Lack of awareness about Blinkit categories"
+    ],
+    "evidence_count": 7,
+    "source_diversity": 2,
+    "cognitive_barrier_split": {
+      "AWARENESS_DEFICIT": 1.0
+    },
+    "dominant_funnel_leak_stage": "DISCOVERY",
+    "competitor_mentions": [
+      {
+        "entity": "Nykaa",
+        "advantage": "TRUST",
+        "count": 1
+      }
+    ],
+    "example_snippets": [
+      "Didn't know the quick-commerce app sells home essentials until my friend mentioned it. a specialty retail platform feels safer for this purchase.",
+      "Didn't know the quick-commerce app sells groceries until my friend mentioned it. a specialty retail platform feels safer for this purchase.",
+      "Didn't know the quick-commerce app sells personal care until my friend mentioned it. a specialty retail platform feels safer for this purchase."
+    ],
+    "confidence_tier": "high",
+    "segment_relevance": [
+      "first_time_buyers"
+    ],
+    "is_stale": true,
+    "taxonomy_version": "1.0.0",
+    "created_at": "2026-07-27T11:33:01.781431Z"
+  },
+  {
+    "insight_id": "d62dccdda2a524ec",
+    "statement": "Limited Electronics Awareness on Blinkit: 7 feedback mentions suggest Awareness Deficit as a barrier at the Discovery stage, observed across 2 platform(s).",
+    "related_RQs": [
+      "RQ2",
+      "RQ5"
+    ],
+    "theme_tags": [
+      "Limited Electronics Awareness on Blinkit"
+    ],
+    "evidence_count": 7,
+    "source_diversity": 2,
+    "cognitive_barrier_split": {
+      "AWARENESS_DEFICIT": 1.0
+    },
+    "dominant_funnel_leak_stage": "DISCOVERY",
+    "competitor_mentions": [
+      {
+        "entity": "Amazon",
+        "advantage": "ASSORTMENT",
+        "count": 1
+      }
+    ],
+    "example_snippets": [
+      "the quick-commerce app is great for groceries but I never think to order electronics here. Would buy if assortment improved.",
+      "the quick-commerce app is great for groceries but I never think to order electronics here. Same thought last month.",
+      "the quick-commerce app is great for groceries but I never think to order electronics here. Been using the quick-commerce app for two years."
+    ],
+    "confidence_tier": "high",
+    "segment_relevance": [
+      "tech_savvy_shoppers"
+    ],
+    "is_stale": true,
+    "taxonomy_version": "1.0.0",
+    "created_at": "2026-07-27T11:33:01.781431Z"
+  },
+  {
+    "insight_id": "2a0347ccf6ad6659",
+    "statement": "Weak personal care assortment: 8 feedback mentions suggest Assortment Gap as a barrier at the Consideration stage, observed across 1 platform(s).",
+    "related_RQs": [
+      "RQ2",
+      "RQ5"
+    ],
+    "theme_tags": [
+      "Weak personal care assortment"
+    ],
+    "evidence_count": 8,
+    "source_diversity": 1,
+    "cognitive_barrier_split": {
+      "ASSORTMENT_GAP": 1.0
+    },
+    "dominant_funnel_leak_stage": "CONSIDERATION",
+    "competitor_mentions": [
+      {
+        "entity": "BigBasket",
+        "advantage": "ASSORTMENT",
+        "count": 1
+      }
+    ],
+    "example_snippets": [
+      "the quick-commerce app assortment for personal care is weak compared to BigBasket. Same thought last month.",
+      "the quick-commerce app assortment for personal care is weak compared to BigBasket. a major online marketplace is my fallback always.",
+      "the quick-commerce app assortment for personal care is weak compared to BigBasket. Search never surfaces these products."
+    ],
+    "confidence_tier": "medium",
+    "segment_relevance": [
+      "frequent_shoppers"
+    ],
+    "is_stale": true,
+    "taxonomy_version": "1.0.0",
+    "created_at": "2026-07-27T11:33:01.781431Z"
+  },
+  {
+    "insight_id": "8938bc5f3fa6d1cd",
+    "statement": "Blinkit baby care assortment is weak: 8 feedback mentions suggest Assortment Gap as a barrier at the Discovery stage, observed across 1 platform(s).",
+    "related_RQs": [
+      "RQ3",
+      "RQ5"
+    ],
+    "theme_tags": [
+      "Blinkit baby care assortment is weak"
+    ],
+    "evidence_count": 8,
+    "source_diversity": 1,
+    "cognitive_barrier_split": {
+      "ASSORTMENT_GAP": 1.0
+    },
+    "dominant_funnel_leak_stage": "DISCOVERY",
+    "competitor_mentions": [
+      {
+        "entity": "BigBasket",
+        "advantage": "ASSORTMENT",
+        "count": 1
+      }
+    ],
+    "example_snippets": [
+      "the quick-commerce app assortment for baby care is weak compared to BigBasket. a specialty retail platform feels safer for this purchase.",
+      "the quick-commerce app assortment for baby care is weak compared to BigBasket. Needs better in-app discovery.",
+      "the quick-commerce app assortment for baby care is weak compared to BigBasket. a major online marketplace is my fallback always."
+    ],
+    "confidence_tier": "medium",
+    "segment_relevance": [
+      "new_parents"
+    ],
+    "is_stale": true,
+    "taxonomy_version": "1.0.0",
+    "created_at": "2026-07-27T11:33:01.781431Z"
+  },
+  {
+    "insight_id": "bdb45028eb59f558",
+    "statement": "Blinkit vs Zepto personal care assortment: 8 feedback mentions suggest Assortment Gap as a barrier at the Discovery stage, observed across 1 platform(s).",
+    "related_RQs": [
+      "RQ1",
+      "RQ3",
+      "RQ5"
+    ],
+    "theme_tags": [
+      "Blinkit vs Zepto personal care assortment"
+    ],
+    "evidence_count": 8,
+    "source_diversity": 1,
+    "cognitive_barrier_split": {
+      "ASSORTMENT_GAP": 1.0
+    },
+    "dominant_funnel_leak_stage": "DISCOVERY",
+    "competitor_mentions": [
+      {
+        "entity": "Zepto",
+        "advantage": "ASSORTMENT",
+        "count": 1
+      }
+    ],
+    "example_snippets": [
+      "the quick-commerce app vs a rival delivery service \u2014 which has better personal care? a competing grocery app has better variety lately.",
+      "the quick-commerce app vs a rival delivery service \u2014 which has better personal care? Delivery was fine though.",
+      "the quick-commerce app vs a rival delivery service \u2014 which has better personal care? Category tab feels hidden."
+    ],
+    "confidence_tier": "medium",
+    "segment_relevance": [
+      "personal_care_buyers"
+    ],
+    "is_stale": true,
+    "taxonomy_version": "1.0.0",
+    "created_at": "2026-07-27T11:33:01.781431Z"
+  },
+  {
+    "insight_id": "2d9027e4f70fd985",
+    "statement": "Limited Assortment for Cross Category: 8 feedback mentions suggest Assortment Gap as a barrier at the Consideration stage, observed across 1 platform(s).",
+    "related_RQs": [
+      "RQ3",
+      "RQ5"
+    ],
+    "theme_tags": [
+      "Limited Assortment for Cross Category"
+    ],
+    "evidence_count": 8,
+    "source_diversity": 1,
+    "cognitive_barrier_split": {
+      "ASSORTMENT_GAP": 1.0
+    },
+    "dominant_funnel_leak_stage": "CONSIDERATION",
+    "competitor_mentions": [
+      {
+        "entity": "Amazon",
+        "advantage": "ASSORTMENT",
+        "count": 1
+      }
+    ],
+    "example_snippets": [
+      "I use the quick-commerce app only for emergency groceries. For baby care I go to a major online marketplace. Would buy if assortment improved.",
+      "I use the quick-commerce app only for emergency groceries. For baby care I go to a major online marketplace. Especially in Bangalore.",
+      "I use the quick-commerce app only for emergency groceries. For baby care I go to a major online marketplace. a major online marketplace is my fallback always."
+    ],
+    "confidence_tier": "medium",
+    "segment_relevance": [
+      "frequent_buyers",
+      "young_parents"
+    ],
+    "is_stale": true,
+    "taxonomy_version": "1.0.0",
+    "created_at": "2026-07-27T11:33:01.781431Z"
+  },
+  {
+    "insight_id": "a0fbb817fb74778a",
+    "statement": "Limited cross-category shopping options: 8 feedback mentions suggest Assortment Gap as a barrier at the Discovery stage, observed across 1 platform(s).",
+    "related_RQs": [
+      "RQ2",
+      "RQ5"
+    ],
+    "theme_tags": [
+      "Limited cross-category shopping options"
+    ],
+    "evidence_count": 8,
+    "source_diversity": 1,
+    "cognitive_barrier_split": {
+      "ASSORTMENT_GAP": 1.0
+    },
+    "dominant_funnel_leak_stage": "DISCOVERY",
+    "competitor_mentions": [
+      {
+        "entity": "Amazon",
+        "advantage": "ASSORTMENT",
+        "count": 1
+      }
+    ],
+    "example_snippets": [
+      "I use the quick-commerce app only for emergency groceries. For personal care I go to a major online marketplace. Price seems higher than competitors.",
+      "I use the quick-commerce app only for emergency groceries. For personal care I go to a major online marketplace. Happens every reorder cycle.",
+      "I use the quick-commerce app only for emergency groceries. For personal care I go to a major online marketplace. Been using the quick-commerce app for two years."
+    ],
+    "confidence_tier": "medium",
+    "segment_relevance": [
+      "emergency_buyers",
+      "grocery_shoppers"
+    ],
+    "is_stale": true,
+    "taxonomy_version": "1.0.0",
+    "created_at": "2026-07-27T11:33:01.781431Z"
+  },
+  {
+    "insight_id": "e21152438fafa834",
+    "statement": "Limited baby care brands and products: 6 feedback mentions suggest Assortment Gap as a barrier at the Discovery stage, observed across 2 platform(s).",
+    "related_RQs": [
+      "RQ3",
+      "RQ5"
+    ],
+    "theme_tags": [
+      "Limited baby care brands and products"
+    ],
+    "evidence_count": 6,
+    "source_diversity": 2,
+    "cognitive_barrier_split": {
+      "ASSORTMENT_GAP": 1.0
+    },
+    "dominant_funnel_leak_stage": "DISCOVERY",
+    "competitor_mentions": [
+      {
+        "entity": "Zepto",
+        "advantage": "ASSORTMENT",
+        "count": 1
+      }
+    ],
+    "example_snippets": [
+      "I wish the quick-commerce app had more brands in baby care. a rival delivery service seems better for that. Ref 627.",
+      "I wish the quick-commerce app had more brands in baby care. a rival delivery service seems better for that. Ref 672.",
+      "I wish the quick-commerce app had more brands in baby care. a rival delivery service seems better for that. Ref 719."
+    ],
+    "confidence_tier": "high",
+    "segment_relevance": [
+      "new_parents",
+      "baby_product_buyers"
+    ],
+    "is_stale": true,
+    "taxonomy_version": "1.0.0",
+    "created_at": "2026-07-27T11:33:01.781431Z"
+  },
+  {
+    "insight_id": "a02bcc73e33e1ff1",
+    "statement": "Vitamin shopping trust issues: 7 feedback mentions suggest Authenticity Distrust as a barrier at the Consideration stage, observed across 1 platform(s).",
+    "related_RQs": [
+      "RQ2",
+      "RQ5"
+    ],
+    "theme_tags": [
+      "Vitamin shopping trust issues"
+    ],
+    "evidence_count": 7,
+    "source_diversity": 1,
+    "cognitive_barrier_split": {
+      "AUTHENTICITY_DISTRUST": 1.0
+    },
+    "dominant_funnel_leak_stage": "CONSIDERATION",
+    "competitor_mentions": [
+      {
+        "entity": "Nykaa",
+        "advantage": "TRUST",
+        "count": 1
+      }
+    ],
+    "example_snippets": [
+      "Where do you buy vitamins \u2014 the quick-commerce app or a specialty retail platform? a competing grocery app has better variety lately.",
+      "Where do you buy vitamins \u2014 the quick-commerce app or a specialty retail platform? a specialty retail platform feels safer for this purchase.",
+      "Where do you buy vitamins \u2014 the quick-commerce app or a specialty retail platform? Same thought last month."
+    ],
+    "confidence_tier": "medium",
+    "segment_relevance": [
+      "health_conscious"
+    ],
+    "is_stale": true,
+    "taxonomy_version": "1.0.0",
+    "created_at": "2026-07-27T11:33:01.781431Z"
+  },
+  {
+    "insight_id": "f1e2ca6bb45c7c21",
+    "statement": "Limited pet supplies assortment on Blinkit: 7 feedback mentions suggest Assortment Gap as a barrier at the Discovery stage, observed across 1 platform(s).",
+    "related_RQs": [
+      "RQ1",
+      "RQ3",
+      "RQ5"
+    ],
+    "theme_tags": [
+      "Limited pet supplies assortment on Blinkit"
+    ],
+    "evidence_count": 7,
+    "source_diversity": 1,
+    "cognitive_barrier_split": {
+      "ASSORTMENT_GAP": 1.0
+    },
+    "dominant_funnel_leak_stage": "DISCOVERY",
+    "competitor_mentions": [
+      {
+        "entity": "BigBasket",
+        "advantage": "ASSORTMENT",
+        "count": 1
+      }
+    ],
+    "example_snippets": [
+      "the quick-commerce app assortment for pet supplies is weak compared to BigBasket.",
+      "the quick-commerce app assortment for pet supplies is weak compared to BigBasket. Would buy if assortment improved.",
+      "the quick-commerce app assortment for pet supplies is weak compared to BigBasket. Delivery was fine though."
+    ],
+    "confidence_tier": "medium",
+    "segment_relevance": [
+      "pet_owners"
+    ],
+    "is_stale": true,
+    "taxonomy_version": "1.0.0",
+    "created_at": "2026-07-27T11:33:01.781431Z"
+  },
+  {
+    "insight_id": "a78571a0ecc6673c",
+    "statement": "Weak grocery assortment on Blinkit: 7 feedback mentions suggest Assortment Gap as a barrier at the Consideration stage, observed across 1 platform(s).",
+    "related_RQs": [
+      "RQ2",
+      "RQ5"
+    ],
+    "theme_tags": [
+      "Weak grocery assortment on Blinkit"
+    ],
+    "evidence_count": 7,
+    "source_diversity": 1,
+    "cognitive_barrier_split": {
+      "ASSORTMENT_GAP": 1.0
+    },
+    "dominant_funnel_leak_stage": "CONSIDERATION",
+    "competitor_mentions": [
+      {
+        "entity": "BigBasket",
+        "advantage": "ASSORTMENT",
+        "count": 1
+      }
+    ],
+    "example_snippets": [
+      "the quick-commerce app assortment for groceries is weak compared to BigBasket. a specialty retail platform feels safer for this purchase.",
+      "the quick-commerce app assortment for groceries is weak compared to BigBasket.",
+      "the quick-commerce app assortment for groceries is weak compared to BigBasket. a competing grocery app has better variety lately."
+    ],
+    "confidence_tier": "medium",
+    "segment_relevance": [],
+    "is_stale": true,
+    "taxonomy_version": "1.0.0",
+    "created_at": "2026-07-27T11:33:01.781431Z"
+  },
+  {
+    "insight_id": "98c87a69bb017ec9",
+    "statement": "Pet supplies assortment comparison: 7 feedback mentions suggest Assortment Gap as a barrier at the Consideration stage, observed across 1 platform(s).",
+    "related_RQs": [
+      "RQ2",
+      "RQ5"
+    ],
+    "theme_tags": [
+      "Pet supplies assortment comparison"
+    ],
+    "evidence_count": 7,
+    "source_diversity": 1,
+    "cognitive_barrier_split": {
+      "ASSORTMENT_GAP": 1.0
+    },
+    "dominant_funnel_leak_stage": "CONSIDERATION",
+    "competitor_mentions": [
+      {
+        "entity": "Zepto",
+        "advantage": "ASSORTMENT",
+        "count": 1
+      }
+    ],
+    "example_snippets": [
+      "the quick-commerce app vs a rival delivery service \u2014 which has better pet supplies? Might switch to a rival delivery service next time.",
+      "the quick-commerce app vs a rival delivery service \u2014 which has better pet supplies? Same thought last month.",
+      "the quick-commerce app vs a rival delivery service \u2014 which has better pet supplies? Been using the quick-commerce app for two years."
+    ],
+    "confidence_tier": "medium",
+    "segment_relevance": [
+      "pet_owners"
+    ],
+    "is_stale": true,
+    "taxonomy_version": "1.0.0",
+    "created_at": "2026-07-27T11:33:01.781431Z"
+  },
+  {
+    "insight_id": "257c287525258e47",
+    "statement": "Home essentials discovery issues: 7 feedback mentions suggest Assortment Gap as a barrier at the Discovery stage, observed across 1 platform(s).",
+    "related_RQs": [
+      "RQ1",
+      "RQ3",
+      "RQ5"
+    ],
+    "theme_tags": [
+      "Home essentials discovery issues"
+    ],
+    "evidence_count": 7,
+    "source_diversity": 1,
+    "cognitive_barrier_split": {
+      "ASSORTMENT_GAP": 1.0
+    },
+    "dominant_funnel_leak_stage": "DISCOVERY",
+    "competitor_mentions": [
+      {
+        "entity": "Zepto",
+        "advantage": "ASSORTMENT",
+        "count": 1
+      }
+    ],
+    "example_snippets": [
+      "the quick-commerce app vs a rival delivery service \u2014 which has better home essentials? Wish the homepage showed this category.",
+      "the quick-commerce app vs a rival delivery service \u2014 which has better home essentials? BigBasket still wins here for me.",
+      "the quick-commerce app vs a rival delivery service \u2014 which has better home essentials? Search never surfaces these products."
+    ],
+    "confidence_tier": "medium",
+    "segment_relevance": [
+      "home_essentials_buyers"
+    ],
+    "is_stale": true,
+    "taxonomy_version": "1.0.0",
+    "created_at": "2026-07-27T11:33:01.781431Z"
+  },
+  {
+    "insight_id": "85ce72f260123bdf",
+    "statement": "Limited category visibility and higher prices: 7 feedback mentions suggest Convenience Mismatch as a barrier at the Consideration stage, observed across 1 platform(s).",
+    "related_RQs": [
+      "RQ2",
+      "RQ5"
+    ],
+    "theme_tags": [
+      "Limited category visibility and higher prices"
+    ],
+    "evidence_count": 7,
+    "source_diversity": 1,
+    "cognitive_barrier_split": {
+      "CONVENIENCE_MISMATCH": 1.0
+    },
+    "dominant_funnel_leak_stage": "CONSIDERATION",
+    "competitor_mentions": [
+      {
+        "entity": "Amazon",
+        "advantage": "ASSORTMENT",
+        "count": 1
+      }
+    ],
+    "example_snippets": [
+      "Only use the quick-commerce app for milk. Everything else from a major online marketplace. #babycare Especially in Bangalore.",
+      "Only use the quick-commerce app for milk. Everything else from a major online marketplace. #babycare Might switch to a rival delivery service next time.",
+      "Only use the quick-commerce app for milk. Everything else from a major online marketplace. #babycare Price seems higher than competitors."
+    ],
+    "confidence_tier": "medium",
+    "segment_relevance": [
+      "frequent_buyers"
+    ],
+    "is_stale": true,
+    "taxonomy_version": "1.0.0",
+    "created_at": "2026-07-27T11:33:01.781431Z"
+  },
+  {
+    "insight_id": "912502c0385e0eb0",
+    "statement": "Blinkit vs Zepto baby care comparison: 7 feedback mentions suggest Awareness Deficit as a barrier at the Discovery stage, observed across 1 platform(s).",
+    "related_RQs": [
+      "RQ1",
+      "RQ5"
+    ],
+    "theme_tags": [
+      "Blinkit vs Zepto baby care comparison"
+    ],
+    "evidence_count": 7,
+    "source_diversity": 1,
+    "cognitive_barrier_split": {
+      "AWARENESS_DEFICIT": 1.0
+    },
+    "dominant_funnel_leak_stage": "DISCOVERY",
+    "competitor_mentions": [
+      {
+        "entity": "Zepto",
+        "advantage": "ASSORTMENT",
+        "count": 1
+      }
+    ],
+    "example_snippets": [
+      "the quick-commerce app vs a rival delivery service \u2014 which has better baby care? Noticed this after the app update.",
+      "the quick-commerce app vs a rival delivery service \u2014 which has better baby care? Wish the homepage showed this category.",
+      "the quick-commerce app vs a rival delivery service \u2014 which has better baby care? Happens every reorder cycle."
+    ],
+    "confidence_tier": "medium",
+    "segment_relevance": [
+      "new_parents"
+    ],
+    "is_stale": true,
+    "taxonomy_version": "1.0.0",
+    "created_at": "2026-07-27T11:33:01.781431Z"
+  },
+  {
+    "insight_id": "1f0cbcaab4069581",
+    "statement": "Health pharmacy options on Blinkit: 7 feedback mentions suggest Awareness Deficit as a barrier at the Discovery stage, observed across 1 platform(s).",
+    "related_RQs": [
+      "RQ2",
+      "RQ5"
+    ],
+    "theme_tags": [
+      "Health pharmacy options on Blinkit"
+    ],
+    "evidence_count": 7,
+    "source_diversity": 1,
+    "cognitive_barrier_split": {
+      "AWARENESS_DEFICIT": 1.0
+    },
+    "dominant_funnel_leak_stage": "DISCOVERY",
+    "competitor_mentions": [
+      {
+        "entity": "Zepto",
+        "advantage": "ASSORTMENT",
+        "count": 1
+      }
+    ],
+    "example_snippets": [
+      "a rival delivery service &gt; the quick-commerce app for healthpharmacy. Change my mind. Search never surfaces these products.",
+      "a rival delivery service &gt; the quick-commerce app for healthpharmacy. Change my mind. Same thought last month.",
+      "a rival delivery service &gt; the quick-commerce app for healthpharmacy. Change my mind. a major online marketplace is my fallback always."
+    ],
+    "confidence_tier": "medium",
+    "segment_relevance": [
+      "health_conscious"
+    ],
+    "is_stale": true,
+    "taxonomy_version": "1.0.0",
+    "created_at": "2026-07-27T11:33:01.781431Z"
+  },
+  {
+    "insight_id": "f0475f6f61113649",
+    "statement": "Search-gap theme 'blinkit / section blinkit / missing': 7 users report unmet product needs (assortment gap) across 1 platform(s).",
+    "related_RQs": [
+      "RQ8"
+    ],
+    "theme_tags": [
+      "blinkit / section blinkit / missing",
+      "blinkit",
+      "section blinkit"
+    ],
+    "evidence_count": 7,
+    "source_diversity": 1,
+    "cognitive_barrier_split": {
+      "ASSORTMENT_GAP": 1.0
+    },
+    "dominant_funnel_leak_stage": "CONSIDERATION",
+    "competitor_mentions": [],
+    "example_snippets": [
+      "the quick-commerce app missing earphones again. Why no electronics section? @the quick-commerce app Search never surfaces these products.",
+      "the quick-commerce app missing earphones again. Why no electronics section? @the quick-commerce app Would buy if assortment improved.",
+      "the quick-commerce app missing earphones again. Why no electronics section? @the quick-commerce app Happens every reorder cycle."
+    ],
+    "confidence_tier": "medium",
+    "segment_relevance": [],
+    "is_stale": true,
+    "taxonomy_version": "1.0.0",
+    "created_at": "2026-07-27T11:33:01.781431Z"
+  },
+  {
+    "insight_id": "aac705c5593aa8e2",
+    "statement": "Lack of trust in non-grocery categories: 5 feedback mentions suggest Authenticity Distrust as a barrier at the Consideration stage, observed across 2 platform(s).",
+    "related_RQs": [
+      "RQ2",
+      "RQ5"
+    ],
+    "theme_tags": [
+      "Lack of trust in non-grocery categories"
+    ],
+    "evidence_count": 5,
+    "source_diversity": 2,
+    "cognitive_barrier_split": {
+      "AUTHENTICITY_DISTRUST": 1.0
+    },
+    "dominant_funnel_leak_stage": "CONSIDERATION",
+    "competitor_mentions": [
+      {
+        "entity": "Nykaa",
+        "advantage": "TRUST",
+        "count": 1
+      }
+    ],
+    "example_snippets": [
+      "I use the quick-commerce app only for emergency groceries. For groceries I go to a major online marketplace. a specialty retail platform feels safer for this purchase.",
+      "the quick-commerce app is great for groceries but I never think to order electronics here. a specialty retail platform feels safer for this purchase.",
+      "I use the quick-commerce app only for emergency groceries. For health pharmacy I go to a major online marketplace. a specialty retail platform feels safer for this purchase."
+    ],
+    "confidence_tier": "high",
+    "segment_relevance": [
+      "emergency_grocery_buyers"
+    ],
+    "is_stale": true,
+    "taxonomy_version": "1.0.0",
+    "created_at": "2026-07-27T11:33:01.781431Z"
+  },
+  {
+    "insight_id": "ee7c480bc6b516ad",
+    "statement": "Limited product range for cross category shopping: 5 feedback mentions suggest Convenience Mismatch as a barrier at the Consideration stage, observed across 2 platform(s).",
+    "related_RQs": [
+      "RQ2",
+      "RQ5"
+    ],
+    "theme_tags": [
+      "Limited product range for cross category shopping"
+    ],
+    "evidence_count": 5,
+    "source_diversity": 2,
+    "cognitive_barrier_split": {
+      "CONVENIENCE_MISMATCH": 1.0
+    },
+    "dominant_funnel_leak_stage": "CONSIDERATION",
+    "competitor_mentions": [
+      {
+        "entity": "Amazon",
+        "advantage": "ASSORTMENT",
+        "count": 1
+      }
+    ],
+    "example_snippets": [
+      "Is the quick-commerce app good for groceries? Looking for milk but can't find it. Been using the quick-commerce app for two years.",
+      "Only use the quick-commerce app for milk. Everything else from a major online marketplace. #personalcare Been using the quick-commerce app for two years.",
+      "Only use the quick-commerce app for milk. Everything else from a major online marketplace. #electronics Been using the quick-commerce app for two years."
+    ],
+    "confidence_tier": "high",
+    "segment_relevance": [
+      "frequent_buyers"
+    ],
+    "is_stale": true,
+    "taxonomy_version": "1.0.0",
+    "created_at": "2026-07-27T11:33:01.781431Z"
+  },
+  {
+    "insight_id": "f9ab7807d4ff6f63",
+    "statement": "Limited grocery options on Blinkit: 5 feedback mentions suggest Assortment Gap as a barrier at the Consideration stage, observed across 2 platform(s).",
+    "related_RQs": [
+      "RQ2",
+      "RQ5"
+    ],
+    "theme_tags": [
+      "Limited grocery options on Blinkit"
+    ],
+    "evidence_count": 5,
+    "source_diversity": 2,
+    "cognitive_barrier_split": {
+      "ASSORTMENT_GAP": 1.0
+    },
+    "dominant_funnel_leak_stage": "CONSIDERATION",
+    "competitor_mentions": [
+      {
+        "entity": "Instamart",
+        "advantage": "ASSORTMENT",
+        "count": 1
+      }
+    ],
+    "example_snippets": [
+      "I use the quick-commerce app only for emergency groceries. For health pharmacy I go to a major online marketplace. a competing grocery app has better variety lately.",
+      "Is the quick-commerce app good for groceries? Looking for milk but can't find it. a competing grocery app has better variety lately.",
+      "I use the quick-commerce app only for emergency groceries. For personal care I go to a major online marketplace. a competing grocery app has better variety lately."
+    ],
+    "confidence_tier": "high",
+    "segment_relevance": [
+      "emergency_grocery_buyers"
+    ],
+    "is_stale": true,
+    "taxonomy_version": "1.0.0",
+    "created_at": "2026-07-27T11:33:01.781431Z"
+  },
+  {
+    "insight_id": "874fbda0fcfc89ad",
+    "statement": "Missing electronics products: 6 feedback mentions suggest Assortment Gap as a barrier at the Discovery stage, observed across 1 platform(s).",
+    "related_RQs": [
+      "RQ3",
+      "RQ5"
+    ],
+    "theme_tags": [
+      "Missing electronics products"
+    ],
+    "evidence_count": 6,
+    "source_diversity": 1,
+    "cognitive_barrier_split": {
+      "ASSORTMENT_GAP": 1.0
+    },
+    "dominant_funnel_leak_stage": "DISCOVERY",
+    "competitor_mentions": [],
+    "example_snippets": [
+      "the quick-commerce app missing earphones again. Why no electronics section? @the quick-commerce app Would buy if assortment improved.",
+      "the quick-commerce app missing earphones again. Why no electronics section? @the quick-commerce app Needs better in-app discovery.",
+      "the quick-commerce app missing earphones again. Why no electronics section? @the quick-commerce app Happens every reorder cycle."
+    ],
+    "confidence_tier": "medium",
+    "segment_relevance": [],
+    "is_stale": true,
+    "taxonomy_version": "1.0.0",
+    "created_at": "2026-07-27T11:33:01.781431Z"
+  },
+  {
+    "insight_id": "3ccfed626dd14d09",
+    "statement": "Electronics assortment gap on Blinkit: 6 feedback mentions suggest Assortment Gap as a barrier at the Consideration stage, observed across 1 platform(s).",
+    "related_RQs": [
+      "RQ3",
+      "RQ5"
+    ],
+    "theme_tags": [
+      "Electronics assortment gap on Blinkit"
+    ],
+    "evidence_count": 6,
+    "source_diversity": 1,
+    "cognitive_barrier_split": {
+      "ASSORTMENT_GAP": 1.0
+    },
+    "dominant_funnel_leak_stage": "CONSIDERATION",
+    "competitor_mentions": [
+      {
+        "entity": "BigBasket",
+        "advantage": "ASSORTMENT",
+        "count": 1
+      }
+    ],
+    "example_snippets": [
+      "the quick-commerce app assortment for electronics is weak compared to BigBasket. Category tab feels hidden.",
+      "the quick-commerce app assortment for electronics is weak compared to BigBasket. Would buy if assortment improved.",
+      "the quick-commerce app assortment for electronics is weak compared to BigBasket. Wish the homepage showed this category."
+    ],
+    "confidence_tier": "medium",
+    "segment_relevance": [
+      "electronics_shoppers"
+    ],
+    "is_stale": true,
+    "taxonomy_version": "1.0.0",
+    "created_at": "2026-07-27T11:33:01.781431Z"
+  },
+  {
+    "insight_id": "45faf94a8c09a7b8",
+    "statement": "Difficulty finding baby care products: 6 feedback mentions suggest Assortment Gap as a barrier at the Discovery stage, observed across 1 platform(s).",
+    "related_RQs": [
+      "RQ1",
+      "RQ3"
+    ],
+    "theme_tags": [
+      "Difficulty finding baby care products"
+    ],
+    "evidence_count": 6,
+    "source_diversity": 1,
+    "cognitive_barrier_split": {
+      "ASSORTMENT_GAP": 1.0
+    },
+    "dominant_funnel_leak_stage": "DISCOVERY",
+    "competitor_mentions": [
+      {
+        "entity": "Instamart, BigBasket",
+        "advantage": "ASSORTMENT",
+        "count": 1
+      }
+    ],
+    "example_snippets": [
+      "Is the quick-commerce app good for baby care? Looking for diapers but can't find it.",
+      "Is the quick-commerce app good for baby care? Looking for diapers but can't find it. My friends feel the same.",
+      "Is the quick-commerce app good for baby care? Looking for diapers but can't find it. Wish the homepage showed this category."
+    ],
+    "confidence_tier": "medium",
+    "segment_relevance": [
+      "new_parents"
+    ],
+    "is_stale": true,
+    "taxonomy_version": "1.0.0",
+    "created_at": "2026-07-27T11:33:01.781431Z"
+  },
+  {
+    "insight_id": "de44cbd631a3ca8b",
+    "statement": "Search-gap theme 'blinkit / missing shampoo / section': 6 users report unmet product needs (assortment gap) across 1 platform(s).",
+    "related_RQs": [
+      "RQ8"
+    ],
+    "theme_tags": [
+      "blinkit / missing shampoo / section",
+      "blinkit",
+      "missing shampoo"
+    ],
+    "evidence_count": 6,
+    "source_diversity": 1,
+    "cognitive_barrier_split": {
+      "ASSORTMENT_GAP": 1.0
+    },
+    "dominant_funnel_leak_stage": "CONSIDERATION",
+    "competitor_mentions": [],
+    "example_snippets": [
+      "the quick-commerce app missing shampoo again. Why no personalcare section? @the quick-commerce app Might switch to a rival delivery service next time.",
+      "the quick-commerce app missing shampoo again. Why no personalcare section? @the quick-commerce app Noticed this after the app update.",
+      "the quick-commerce app missing shampoo again. Why no personalcare section? @the quick-commerce app BigBasket still wins here for me."
+    ],
+    "confidence_tier": "medium",
+    "segment_relevance": [],
+    "is_stale": true,
+    "taxonomy_version": "1.0.0",
+    "created_at": "2026-07-27T11:33:01.781431Z"
+  },
+  {
+    "insight_id": "a517bca07d64b5c4",
+    "statement": "Weak health pharmacy assortment on Blinkit: 4 feedback mentions suggest Assortment Gap as a barrier at the Discovery stage, observed across 1 platform(s).",
+    "related_RQs": [
+      "RQ1",
+      "RQ3"
+    ],
+    "theme_tags": [
+      "Weak health pharmacy assortment on Blinkit"
+    ],
+    "evidence_count": 4,
+    "source_diversity": 1,
+    "cognitive_barrier_split": {
+      "ASSORTMENT_GAP": 1.0
+    },
+    "dominant_funnel_leak_stage": "DISCOVERY",
+    "competitor_mentions": [
+      {
+        "entity": "BigBasket",
+        "advantage": "ASSORTMENT",
+        "count": 1
+      }
+    ],
+    "example_snippets": [
+      "the quick-commerce app assortment for health pharmacy is weak compared to BigBasket. Needs better in-app discovery.",
+      "the quick-commerce app assortment for health pharmacy is weak compared to BigBasket. Happens every reorder cycle.",
+      "the quick-commerce app assortment for health pharmacy is weak compared to BigBasket. My friends feel the same."
+    ],
+    "confidence_tier": "medium",
+    "segment_relevance": [
+      "health_pharmacy_shoppers"
+    ],
+    "is_stale": true,
+    "taxonomy_version": "1.0.0",
+    "created_at": "2026-07-27T11:33:01.781431Z"
+  },
+  {
+    "insight_id": "39eb750014b823b4",
+    "statement": "Diaper shopping assortment issues: 4 feedback mentions suggest Assortment Gap as a barrier at the Discovery stage, observed across 1 platform(s).",
+    "related_RQs": [
+      "RQ1",
+      "RQ3"
+    ],
+    "theme_tags": [
+      "Diaper shopping assortment issues"
+    ],
+    "evidence_count": 4,
+    "source_diversity": 1,
+    "cognitive_barrier_split": {
+      "ASSORTMENT_GAP": 1.0
+    },
+    "dominant_funnel_leak_stage": "DISCOVERY",
+    "competitor_mentions": [
+      {
+        "entity": "BigBasket",
+        "advantage": "ASSORTMENT",
+        "count": 1
+      }
+    ],
+    "example_snippets": [
+      "Where do you buy diapers \u2014 the quick-commerce app or a specialty retail platform? Search never surfaces these products.",
+      "Where do you buy diapers \u2014 the quick-commerce app or a specialty retail platform? Would buy if assortment improved.",
+      "Where do you buy diapers \u2014 the quick-commerce app or a specialty retail platform? BigBasket still wins here for me."
+    ],
+    "confidence_tier": "medium",
+    "segment_relevance": [
+      "new_parents"
+    ],
+    "is_stale": true,
+    "taxonomy_version": "1.0.0",
+    "created_at": "2026-07-27T11:33:01.781431Z"
+  },
+  {
+    "insight_id": "470dddc7b8c46361",
+    "statement": "Blinkit pet supplies assortment gap: 4 feedback mentions suggest Assortment Gap as a barrier at the Consideration stage, observed across 1 platform(s).",
+    "related_RQs": [
+      "RQ1",
+      "RQ3"
+    ],
+    "theme_tags": [
+      "Blinkit pet supplies assortment gap"
+    ],
+    "evidence_count": 4,
+    "source_diversity": 1,
+    "cognitive_barrier_split": {
+      "ASSORTMENT_GAP": 1.0
+    },
+    "dominant_funnel_leak_stage": "CONSIDERATION",
+    "competitor_mentions": [
+      {
+        "entity": "Amazon",
+        "advantage": "ASSORTMENT",
+        "count": 1
+      }
+    ],
+    "example_snippets": [
+      "Is the quick-commerce app good for pet supplies? Looking for dog food but can't find it. Noticed this after the app update.",
+      "Is the quick-commerce app good for pet supplies? Looking for dog food but can't find it. Would buy if assortment improved.",
+      "Is the quick-commerce app good for pet supplies? Looking for dog food but can't find it. a major online marketplace is my fallback always."
+    ],
+    "confidence_tier": "medium",
+    "segment_relevance": [
+      "pet_owners"
+    ],
+    "is_stale": true,
+    "taxonomy_version": "1.0.0",
+    "created_at": "2026-07-27T11:33:01.781431Z"
+  },
+  {
+    "insight_id": "967534b2b7cb3977",
+    "statement": "Lack of awareness about electronics on Blinkit: 4 feedback mentions suggest Awareness Deficit as a barrier at the Discovery stage, observed across 1 platform(s).",
+    "related_RQs": [
+      "RQ1",
+      "RQ4"
+    ],
+    "theme_tags": [
+      "Lack of awareness about electronics on Blinkit"
+    ],
+    "evidence_count": 4,
+    "source_diversity": 1,
+    "cognitive_barrier_split": {
+      "AWARENESS_DEFICIT": 1.0
+    },
+    "dominant_funnel_leak_stage": "DISCOVERY",
+    "competitor_mentions": [],
+    "example_snippets": [
+      "Didn't know the quick-commerce app sells electronics until my friend mentioned it. Ref 684.",
+      "Didn't know the quick-commerce app sells electronics until my friend mentioned it. Ref 666.",
+      "Didn't know the quick-commerce app sells electronics until my friend mentioned it. Ref 748."
+    ],
+    "confidence_tier": "medium",
+    "segment_relevance": [
+      "general_shoppers"
+    ],
+    "is_stale": true,
+    "taxonomy_version": "1.0.0",
+    "created_at": "2026-07-27T11:33:01.781431Z"
+  },
+  {
+    "insight_id": "7d99f2ed4e6b69c8",
+    "statement": "Blinkit vs Zepto for home essentials: 4 feedback mentions suggest Convenience Mismatch as a barrier at the Discovery stage, observed across 1 platform(s).",
+    "related_RQs": [
+      "RQ2",
+      "RQ5"
+    ],
+    "theme_tags": [
+      "Blinkit vs Zepto for home essentials"
+    ],
+    "evidence_count": 4,
+    "source_diversity": 1,
+    "cognitive_barrier_split": {
+      "CONVENIENCE_MISMATCH": 1.0
+    },
+    "dominant_funnel_leak_stage": "DISCOVERY",
+    "competitor_mentions": [
+      {
+        "entity": "Zepto",
+        "advantage": "DELIVERY_SPEED",
+        "count": 1
+      }
+    ],
+    "example_snippets": [
+      "a rival delivery service &gt; the quick-commerce app for homeessentials. Change my mind. My friends feel the same.",
+      "a rival delivery service &gt; the quick-commerce app for homeessentials. Change my mind. Been using the quick-commerce app for two years.",
+      "a rival delivery service &gt; the quick-commerce app for homeessentials. Change my mind. Needs better in-app discovery."
+    ],
+    "confidence_tier": "medium",
+    "segment_relevance": [
+      "home_essentials_buyers"
+    ],
+    "is_stale": true,
+    "taxonomy_version": "1.0.0",
+    "created_at": "2026-07-27T11:33:01.781431Z"
+  },
+  {
+    "insight_id": "05bc29a382dc7423",
+    "statement": "Search-gap theme 'blinkit / milk groceries / section': 4 users report unmet product needs (assortment gap) across 1 platform(s).",
+    "related_RQs": [
+      "RQ8"
+    ],
+    "theme_tags": [
+      "blinkit / milk groceries / section",
+      "blinkit",
+      "milk groceries"
+    ],
+    "evidence_count": 4,
+    "source_diversity": 1,
+    "cognitive_barrier_split": {
+      "ASSORTMENT_GAP": 1.0
+    },
+    "dominant_funnel_leak_stage": "CONSIDERATION",
+    "competitor_mentions": [],
+    "example_snippets": [
+      "the quick-commerce app missing milk again. Why no groceries section? @the quick-commerce app Wish the homepage showed this category.",
+      "the quick-commerce app missing milk again. Why no groceries section? @the quick-commerce app a competing grocery app has better variety lately.",
+      "the quick-commerce app missing milk again. Why no groceries section? @the quick-commerce app Price seems higher than competitors."
+    ],
+    "confidence_tier": "medium",
+    "segment_relevance": [],
+    "is_stale": true,
+    "taxonomy_version": "1.0.0",
+    "created_at": "2026-07-27T11:33:01.781431Z"
+  },
+  {
+    "insight_id": "6412ac516d4b60b8",
+    "statement": "Search-gap theme 'blinkit / section blinkit / babycare': 4 users report unmet product needs (assortment gap) across 1 platform(s).",
+    "related_RQs": [
+      "RQ8"
+    ],
+    "theme_tags": [
+      "blinkit / section blinkit / babycare",
+      "blinkit",
+      "section blinkit"
+    ],
+    "evidence_count": 4,
+    "source_diversity": 1,
+    "cognitive_barrier_split": {
+      "ASSORTMENT_GAP": 1.0
+    },
+    "dominant_funnel_leak_stage": "CONSIDERATION",
+    "competitor_mentions": [],
+    "example_snippets": [
+      "the quick-commerce app missing diapers again. Why no babycare section? @the quick-commerce app a competing grocery app has better variety lately.",
+      "the quick-commerce app missing diapers again. Why no babycare section? @the quick-commerce app Delivery was fine though.",
+      "the quick-commerce app missing diapers again. Why no babycare section? @the quick-commerce app Search never surfaces these products."
+    ],
+    "confidence_tier": "medium",
+    "segment_relevance": [],
+    "is_stale": true,
+    "taxonomy_version": "1.0.0",
+    "created_at": "2026-07-27T11:33:01.781431Z"
+  }
+]

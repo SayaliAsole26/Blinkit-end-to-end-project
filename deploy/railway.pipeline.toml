@@ -1,0 +1,10 @@
+# Railway config — blinkit-pipeline worker service
+# Attach the same persistent volume mounted at /app/data as the API service.
+
+[build]
+builder = "DOCKERFILE"
+dockerfilePath = "Dockerfile"
+dockerBuildTarget = "pipeline"
+
+[deploy]
+restartPolicyType = "NEVER"

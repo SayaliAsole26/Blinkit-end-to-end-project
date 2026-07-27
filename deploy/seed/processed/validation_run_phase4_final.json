@@ -1,0 +1,102 @@
+{
+  "validation_run": {
+    "run_id": "val_run_phase4_final",
+    "pipeline_run_id": "run_phase4_final",
+    "sample_size": 11,
+    "agreement_rate": 0.8182,
+    "barrier_agreement": 1.0,
+    "funnel_agreement": 0.8182,
+    "competitor_agreement": 1.0,
+    "cohens_kappa_barrier": 1.0,
+    "audit_pass_rate": null,
+    "audit_sample_count": 0,
+    "created_at": "2026-07-27T11:33:01.666115Z",
+    "taxonomy_version": "1.0.0"
+  },
+  "details": [
+    {
+      "cluster_id": "disc_0081",
+      "barrier_match": true,
+      "funnel_match": true,
+      "competitor_match": true,
+      "overall_match": true
+    },
+    {
+      "cluster_id": "disc_0014",
+      "barrier_match": true,
+      "funnel_match": false,
+      "competitor_match": true,
+      "overall_match": false
+    },
+    {
+      "cluster_id": "disc_0003",
+      "barrier_match": true,
+      "funnel_match": true,
+      "competitor_match": true,
+      "overall_match": true
+    },
+    {
+      "cluster_id": "disc_0094",
+      "barrier_match": true,
+      "funnel_match": true,
+      "competitor_match": true,
+      "overall_match": true
+    },
+    {
+      "cluster_id": "disc_0035",
+      "barrier_match": true,
+      "funnel_match": true,
+      "competitor_match": true,
+      "overall_match": true
+    },
+    {
+      "cluster_id": "disc_0031",
+      "barrier_match": true,
+      "funnel_match": true,
+      "competitor_match": true,
+      "overall_match": true
+    },
+    {
+      "cluster_id": "disc_0028",
+      "barrier_match": true,
+      "funnel_match": true,
+      "competitor_match": true,
+      "overall_match": true
+    },
+    {
+      "cluster_id": "disc_0017",
+      "barrier_match": true,
+      "funnel_match": true,
+      "competitor_match": true,
+      "overall_match": true
+    },
+    {
+      "cluster_id": "disc_0013",
+      "barrier_match": true,
+      "funnel_match": true,
+      "competitor_match": true,
+      "overall_match": true
+    },
+    {
+      "cluster_id": "disc_0086",
+      "barrier_match": true,
+      "funnel_match": false,
+      "competitor_match": true,
+      "overall_match": false
+    },
+    {
+      "cluster_id": "disc_0069",
+      "barrier_match": true,
+      "funnel_match": true,
+      "competitor_match": true,
+      "overall_match": true
+    }
+  ],
+  "summary": {
+    "agreement_rate": 0.8182,
+    "barrier_agreement": 1.0,
+    "funnel_agreement": 0.8182,
+    "competitor_agreement": 1.0,
+    "sample_size": 11
+  }
+}

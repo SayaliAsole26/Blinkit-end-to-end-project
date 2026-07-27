@@ -1,0 +1,23 @@
+{
+  "pipeline_run_id": "run_phase4_final",
+  "cluster_label_run_id": "run_phase4_final",
+  "segments_run_id": "run_phase2_003",
+  "generated_at": "2026-07-27T11:33:13.271047+00:00",
+  "synthesis": {
+    "insight_count": 117,
+    "confidence_tiers": {
+      "high": 83,
+      "medium": 34
+    },
+    "stale_count": 117
+  },
+  "validation": {
+    "agreement_rate": 0.8182,
+    "barrier_agreement": 1.0,
+    "funnel_agreement": 0.8182,
+    "competitor_agreement": 1.0,
+    "sample_size": 11
+  },
+  "insights_path": "E:\\Blinkit\\data\\insights\\insights_run_phase4_final.json",
+  "validation_path": "E:\\Blinkit\\data\\processed\\validation_run_phase4_final.json"
+}

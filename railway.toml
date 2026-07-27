@@ -1,0 +1,13 @@
+# Railway config — blinkit-api service (FastAPI)
+# Create a second service for pipeline worker with deploy/railway.pipeline.toml
+
+[build]
+builder = "DOCKERFILE"
+dockerfilePath = "Dockerfile"
+dockerBuildTarget = "api"
+
+[deploy]
+healthcheckPath = "/health"
+healthcheckTimeout = 30
+restartPolicyType = "ON_FAILURE"
+restartPolicyMaxRetries = 3

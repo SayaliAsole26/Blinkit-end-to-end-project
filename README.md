@@ -7,6 +7,9 @@ AI-powered review analyzer dashboard for Blinkit. Ingests public feedback from a
 - [Problem Statement](Docs/Problemstatement.md)
 - [Architecture](Docs/architecture.md)
 - [Implementation Plan](Docs/implementation-plan.md)
+- [Deployment Plan](Docs/deployment-plan.md) — overview
+  - [Backend — Railway](Docs/deployment-plan-backend-railway.md)
+  - [Frontend — Vercel](Docs/deployment-plan-frontend-vercel.md) (Stitch HTML export)
 - [Edge Cases](Docs/edge-case.md)
 
 ## Phase 0 Setup
@@ -111,4 +114,29 @@ Outputs:
 - `data/processed/chroma/` (segment vectors)
 - `data/processed/embedding_cache.db`
 
-Next: **Phase 3** — Cluster & Groq label.
+**Phase 4 complete** — synthesis, validation, and insight cards in `data/insights/`.
+
+**Phase 5 in progress** — FastAPI backend implemented; Stitch frontend with Overview, Insights, and Evidence wired to live API.
+
+## Deployment (Stitch UI + Railway API)
+
+| Layer | Platform | Guide |
+|-------|----------|-------|
+| Overview | — | [deployment-plan.md](Docs/deployment-plan.md) |
+| Backend API | Railway | [deployment-plan-backend-railway.md](Docs/deployment-plan-backend-railway.md) |
+| Frontend (Stitch HTML) | Vercel | [deployment-plan-frontend-vercel.md](Docs/deployment-plan-frontend-vercel.md) |
+
+**Stitch source:** `stitch_blinkit_review_analyzer_dashboard.zip` → `stitch/`  
+**Deployable frontend:** `frontend/public/` · **API wired:** `/`, `/insights`, `/evidence`
+
+**Deploy order:** Railway API → update `frontend/vercel.json` proxy URL → Vercel deploy.
+
+```powershell
+# Local API
+$env:PYTHONPATH="src"; $env:BLINKIT_DATA_DIR="data"; $env:INSIGHTS_RUN_ID="run_phase4_final"
+$env:CORS_ORIGINS="http://localhost:3000"
+uvicorn api.main:app --reload --port 8000
+
+# Local frontend
+cd frontend && npm install && npm run dev
+```

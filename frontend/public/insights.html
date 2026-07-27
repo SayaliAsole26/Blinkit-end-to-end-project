@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Insight Explorer | Blinkit Review Analyzer</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        background: "#f9f9f9",
+                        surface: "#f9f9f9",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-container-low": "#f3f3f3",
+                        "surface-container-high": "#e8e8e8",
+                        "surface-container": "#eeeeee",
+                        "primary-container": "#ffe141",
+                        "on-primary-container": "#736300",
+                        "on-surface": "#1a1c1c",
+                        "on-surface-variant": "#4c4733",
+                        secondary: "#5f5e5e",
+                        primary: "#6d5e00",
+                        outline: "#7d7761",
+                        "outline-variant": "#cec6ad",
+                        tertiary: "#00696c",
+                    },
+                    spacing: { gutter: "1.5rem" },
+                    fontFamily: { "body-md": ["Inter"], "headline-sm": ["Inter"], "headline-md": ["Inter"], "label-md": ["Inter"], "body-lg": ["Inter"] },
+                    fontSize: {
+                        "body-md": ["14px", { lineHeight: "20px" }],
+                        "headline-sm": ["20px", { lineHeight: "28px", fontWeight: "600" }],
+                        "headline-md": ["24px", { lineHeight: "32px", fontWeight: "600" }],
+                        "label-md": ["12px", { lineHeight: "16px", fontWeight: "600" }],
+                        "body-lg": ["16px", { lineHeight: "24px" }],
+                        "label-sm": ["11px", { lineHeight: "14px" }],
+                    },
+                },
+            },
+        };
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; background-color: #f9f9f9; }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .active-filter-chip {
+            background-color: #FFE141 !important;
+            color: #1a1c1c !important;
+            border-color: #FFE141 !important;
+        }
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 4px;
+            height: 4px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #E5E5E5;
+            border-radius: 10px;
+        }
+        .insight-card-hover:hover {
+            transform: translateY(-2px);
+            box-shadow: 0px 8px 30px rgba(0,0,0,0.08);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body-md overflow-hidden">
+<!-- Sidebar Navigation (Shared Component) -->
+<aside class="fixed left-0 top-0 h-screen w-72 bg-surface border-r border-outline-variant flex flex-col py-6 px-4 z-50">
+<div class="flex items-center gap-3 mb-10 px-2">
+<div class="w-10 h-10 bg-primary-container rounded-lg flex items-center justify-center">
+<span class="material-symbols-outlined text-on-primary-container">analytics</span>
+</div>
+<div>
+<h1 class="font-headline-md text-headline-md font-bold text-on-surface leading-tight">Blinkit Review</h1>
+<p class="text-label-md font-label-md text-secondary">Analyzer</p>
+</div>
+</div>
+<nav class="flex-1 space-y-1 overflow-y-auto custom-scrollbar">
+<!-- Navigation Items Mapping from JSON -->
+<a class="flex items-center gap-3 px-3 py-2 text-on-surface-variant hover:bg-surface-container-high transition-colors duration-200 cursor-pointer active:scale-95" href="/">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="font-body-md">Overview</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-on-primary-container bg-primary-container font-bold rounded-lg cursor-pointer active:scale-95" href="/insights.html">
+<span class="material-symbols-outlined">explore</span>
+<span class="font-body-md">Insight Explorer</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-on-surface-variant hover:bg-surface-container-high transition-colors duration-200 cursor-pointer active:scale-95" href="/barriers.html">
+<span class="material-symbols-outlined">bar_chart</span>
+<span class="font-body-md">Barrier Chart</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-on-surface-variant hover:bg-surface-container-high transition-colors duration-200 cursor-pointer active:scale-95" href="#">
+<span class="material-symbols-outlined">filter_alt</span>
+<span class="font-body-md">Funnel Breakdown</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-on-surface-variant hover:bg-surface-container-high transition-colors duration-200 cursor-pointer active:scale-95" href="#">
+<span class="material-symbols-outlined">compare_arrows</span>
+<span class="font-body-md">Competitor Benchmark</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-on-surface-variant hover:bg-surface-container-high transition-colors duration-200 cursor-pointer active:scale-95" href="#">
+<span class="material-symbols-outlined">map</span>
+<span class="font-body-md">RQ Map</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-on-surface-variant hover:bg-surface-container-high transition-colors duration-200 cursor-pointer active:scale-95" href="#">
+<span class="material-symbols-outlined">segment</span>
+<span class="font-body-md">Segments</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-on-surface-variant hover:bg-surface-container-high transition-colors duration-200 cursor-pointer active:scale-95" href="#">
+<span class="material-symbols-outlined">verified_user</span>
+<span class="font-body-md">Validation</span>
+</a>
+</nav>
+<div class="mt-auto pt-6 border-t border-outline-variant space-y-1">
+<div class="px-3 py-2 flex items-center gap-2 mb-4">
+<span class="w-2 h-2 rounded-full bg-tertiary animate-pulse"></span>
+<span class="text-label-md font-label-md text-on-surface-variant">Pipeline Active</span>
+</div>
+<a class="flex items-center gap-3 px-3 py-2 text-on-surface-variant hover:bg-surface-container-high transition-colors duration-200 cursor-pointer" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="font-body-md">Settings</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-on-surface-variant hover:bg-surface-container-high transition-colors duration-200 cursor-pointer" href="#">
+<span class="material-symbols-outlined">help</span>
+<span class="font-body-md">Support</span>
+</a>
+</div>
+</aside>
+<!-- Main Content Wrapper -->
+<main class="ml-72 flex flex-col h-screen">
+<!-- Top Bar (Shared Component Style) -->
+<header class="sticky top-0 z-40 w-full h-16 bg-surface-container-lowest border-b border-outline-variant px-gutter flex justify-between items-center">
+<div class="flex items-center gap-4">
+<h2 class="font-headline-sm text-headline-sm font-bold text-on-surface">Insight Explorer</h2>
+<span class="text-secondary text-label-md font-label-md border-l border-outline-variant pl-4">Read-only dashboard</span>
+</div>
+<div class="flex items-center gap-6">
+<div class="relative w-96 flex items-center bg-surface-container-low rounded-full px-4 py-1.5 focus-within:ring-2 focus-within:ring-primary transition-all">
+<span class="material-symbols-outlined text-on-surface-variant text-[20px]">search</span>
+<input class="bg-transparent border-none focus:ring-0 text-body-md w-full ml-2 placeholder:text-on-surface-variant/50" placeholder="Search insights..." type="text"/>
+</div>
+<div class="flex items-center gap-4">
+<button class="material-symbols-outlined text-secondary hover:text-primary transition-all">notifications</button>
+<div class="flex items-center gap-2 cursor-pointer group">
+<span class="material-symbols-outlined text-secondary group-hover:text-primary transition-all">account_circle</span>
+<span class="text-label-md font-label-md text-on-surface">Analyst 01</span>
+</div>
+</div>
+</div>
+</header>
+<!-- Content Area -->
+<div class="flex-1 overflow-y-auto bg-background p-gutter flex flex-col gap-gutter">
+<!-- Sticky Filter Bar -->
+<section class="sticky top-0 z-30 bg-background/80 backdrop-blur-md pb-4 border-b border-outline-variant/30">
+<div class="flex flex-col gap-4">
+<!-- Global Controls -->
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="text-label-md font-bold text-on-surface-variant">FILTER BY:</span>
+<div class="flex gap-1">
+<button type="button" data-rq-chip="" class="px-3 py-1 rounded-full border border-outline text-label-md hover:bg-surface-container-high transition-colors active-filter-chip">All Research</button>
+<button type="button" data-rq-chip="RQ1" class="px-3 py-1 rounded-full border border-outline text-label-md hover:bg-surface-container-high transition-colors">RQ1</button>
+<button type="button" data-rq-chip="RQ2" class="px-3 py-1 rounded-full border border-outline text-label-md hover:bg-surface-container-high transition-colors">RQ2</button>
+<button type="button" data-rq-chip="RQ3" class="px-3 py-1 rounded-full border border-outline text-label-md hover:bg-surface-container-high transition-colors">RQ3</button>
+<button type="button" data-rq-chip="RQ8" class="px-3 py-1 rounded-full border border-outline text-label-md hover:bg-surface-container-high transition-colors">RQ8</button>
+</div>
+</div>
+<div class="flex items-center bg-surface-container-high p-1 rounded-lg">
+<button class="flex items-center gap-1 px-3 py-1 rounded-md bg-surface-container-lowest shadow-sm text-label-md font-bold">
+<span class="material-symbols-outlined text-[18px]">grid_view</span> Card
+                            </button>
+<button class="flex items-center gap-1 px-3 py-1 rounded-md text-on-surface-variant text-label-md font-bold hover:bg-surface-container-highest transition-colors">
+<span class="material-symbols-outlined text-[18px]">table_rows</span> Table
+                            </button>
+</div>
+</div>
+<!-- Secondary Multi-select Filters -->
+<div class="flex flex-wrap gap-2 items-center">
+<select id="filter-barrier" class="bg-surface-container-lowest border-outline rounded-lg text-label-md py-1 px-3 focus:ring-primary focus:border-primary">
+<option value="">Cognitive Barrier</option>
+<option value="ASSORTMENT_GAP">Assortment Gap</option>
+<option value="AWARENESS_DEFICIT">Awareness Deficit</option>
+<option value="AUTHENTICITY_DISTRUST">Authenticity Distrust</option>
+<option value="RETURN_POLICY_ANXIETY">Return Policy Anxiety</option>
+<option value="CONVENIENCE_MISMATCH">Convenience Mismatch</option>
+<option value="NONE_GROCERY_LOYAL">Grocery Loyal</option>
+</select>
+<select id="filter-funnel" class="bg-surface-container-lowest border-outline rounded-lg text-label-md py-1 px-3 focus:ring-primary focus:border-primary">
+<option value="">Funnel Stage</option>
+<option value="DISCOVERY">Discovery</option>
+<option value="CONSIDERATION">Consideration</option>
+<option value="CONVERSION">Conversion</option>
+<option value="POST_PURCHASE_RETENTION">Post-Purchase Retention</option>
+</select>
+<select id="filter-confidence" class="bg-surface-container-lowest border-outline rounded-lg text-label-md py-1 px-3 focus:ring-primary focus:border-primary">
+<option value="">Confidence</option>
+<option value="high">High</option>
+<option value="medium">Medium</option>
+<option value="low">Low</option>
+</select>
+<select id="filter-segment" class="bg-surface-container-lowest border-outline rounded-lg text-label-md py-1 px-3 focus:ring-primary focus:border-primary">
+<option value="">Segment</option>
+<option value="frequent_grocery_buyers">Frequent Grocery Buyers</option>
+<option value="personal_care_shoppers">Personal Care Shoppers</option>
+<option value="pet_owners">Pet Owners</option>
+<option value="health_conscious_buyers">Health Conscious</option>
+</select>
+<div class="h-6 w-[1px] bg-outline-variant mx-2"></div>
+<div class="flex items-center gap-2 ml-auto">
+<span class="text-label-md text-on-surface-variant">Sort by:</span>
+<select class="bg-transparent border-none font-bold text-label-md py-1 px-0 focus:ring-0 cursor-pointer">
+<option>Evidence Count</option>
+<option>Confidence</option>
+<option>Recency</option>
+</select>
+</div>
+</div>
+</div>
+</section>
+<!-- Insight Catalog Grid -->
+<section id="insights-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+<div class="col-span-full py-16 text-center text-secondary">Loading insights…</div>
+</section>
+<!-- Pagination Footer -->
+<footer id="insights-pagination" class="mt-auto py-8 border-t border-outline-variant flex items-center justify-between">
+<span class="text-label-md text-on-surface-variant" data-page-info>Loading…</span>
+<div class="flex items-center gap-1" data-page-controls></div>
+</footer>
+</div>
+</main>
+<!-- Contextual FAB (Only for main landing, suppressed on deeper explorer if needed, but relevant here for "New Pipeline Run") -->
+<button class="fixed bottom-8 right-8 bg-primary-container text-on-primary-container h-14 px-6 rounded-full shadow-lg flex items-center gap-3 font-bold hover:scale-105 active:scale-95 transition-all z-50">
+<span class="material-symbols-outlined">refresh</span>
+<span>Re-analyze Pipeline</span>
+</button>
+<script src="/js/config.js"></script>
+<script src="/js/api.js"></script>
+<script src="/js/shared.js"></script>
+<script src="/js/pages/insights.js"></script>
+</body></html>

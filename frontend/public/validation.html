@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html class="light" lang="en"><head>
 <meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="/css/responsive.css" rel="stylesheet"/>
+<style>@media(max-width:1023px){aside{transform:translateX(-100%)!important}body.sidebar-open aside{transform:translateX(0)!important}main,header[class*="ml-72"]{margin-left:0!important;width:100%!important;max-width:100vw!important}body{overflow-x:hidden}}</style>
 <title>Validation | Blinkit Review Analyzer</title>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
@@ -24,11 +26,24 @@
 <main class="ml-72 p-8 min-h-screen">
 <h2 class="font-headline-lg mb-2">Validation</h2>
 <p class="text-secondary mb-8">Groq re-label agreement rates on held-out cluster sample</p>
-<div id="validation-metrics" class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-4 mb-8">Loading…</div>
+<div id="validation-metrics" class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-6 gap-4 mb-8">Loading…</div>
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
 <div class="bg-surface-container-lowest rounded-lg border border-outline-variant p-6 max-w-md">
 <h3 class="font-headline-sm mb-4">Confidence Tiers</h3>
 <div id="confidence-tiers"></div>
 </div>
+</div>
+<section id="audit-table-section" class="bg-surface-container-lowest rounded-lg border border-outline-variant overflow-hidden">
+<h3 class="font-headline-sm p-6 border-b border-outline-variant">Human Spot-Audit Results</h3>
+<div class="overflow-x-auto">
+<table class="w-full text-left">
+<thead class="bg-surface-container-low text-label-md uppercase text-secondary">
+<tr><th class="px-4 py-3">Insight ID</th><th class="px-4 py-3">Statement</th><th class="px-4 py-3">Result</th><th class="px-4 py-3">Reviewer Notes</th></tr>
+</thead>
+<tbody id="audit-table-body"></tbody>
+</table>
+</div>
+</section>
 </main>
 <script src="/js/config.js"></script><script src="/js/api.js"></script><script src="/js/shared.js"></script><script src="/js/pages/validation.js"></script>
 </body></html>

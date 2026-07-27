@@ -12,20 +12,17 @@
     max-width: 100vw;
   }
 
-  /* Off-canvas sidebar */
+  /* Off-canvas sidebar — hidden by default on mobile */
   aside {
-    width: min(18rem, 88vw);
+    width: min(18rem, 88vw) !important;
     z-index: 60;
     transition: transform 0.25s ease;
     will-change: transform;
-  }
-
-  body:not(.sidebar-open) aside {
-    transform: translateX(-100%);
+    transform: translateX(-100%) !important;
   }
 
   body.sidebar-open aside {
-    transform: translateX(0);
+    transform: translateX(0) !important;
   }
 
   /* Backdrop */
@@ -169,8 +166,43 @@
     max-width: 100%;
   }
 
-  /* Insight Explorer filters */
-  #insights-grid {
+  /* Insight Explorer filters — horizontal scroll chips */
+  #rq-chips {
+    display: flex;
+    flex-wrap: nowrap !important;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    gap: 0.5rem;
+    padding-bottom: 0.25rem;
+    max-width: 100%;
+    scrollbar-width: none;
+  }
+
+  #rq-chips::-webkit-scrollbar {
+    display: none;
+  }
+
+  #rq-chips button {
+    flex-shrink: 0;
+  }
+
+  section .flex.flex-col.gap-4 > .flex.items-center.gap-2 {
+    flex-direction: column;
+    align-items: stretch !important;
+  }
+
+  section .flex.flex-col.gap-4 > .flex.flex-wrap.gap-2 {
+    flex-direction: column;
+    align-items: stretch !important;
+  }
+
+  section .flex.flex-col.gap-4 select {
+    width: 100%;
+  }
+
+  section .flex.flex-col.gap-4 .h-6.w-\[1px\] {
+    display: none;
+  }
     grid-template-columns: 1fr !important;
   }
 

@@ -157,7 +157,11 @@
       const runLabel = document.getElementById("pipeline-run-id");
       if (runLabel && data.run_id) runLabel.textContent = data.run_id;
     } catch (err) {
-      UI.showError(main, err.message + " — start API with: uvicorn api.main:app --port 8000");
+      const hint =
+        window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1"
+          ? " — start API with: uvicorn api.main:app --port 8000"
+          : "";
+      UI.showError(main, err.message + hint);
     }
   });
 })();

@@ -5,10 +5,14 @@
 const fs = require("fs");
 const path = require("path");
 
-const apiUrl =
-  process.env.RAILWAY_API_URL ||
-  process.env.NEXT_PUBLIC_API_URL ||
-  (process.env.VERCEL ? "" : "http://localhost:8000");
+const isVercel = Boolean(process.env.VERCEL);
+// Browser must use same-origin /api proxy on Vercel (avoids mobile CORS/network issues).
+// RAILWAY_API_URL is for server-side tooling only — never inject into client config on deploy.
+const apiUrl = isVercel
+  ? ""
+  : process.env.RAILWAY_API_URL ||
+    process.env.NEXT_PUBLIC_API_URL ||
+    "http://localhost:8000";
 const runId = process.env.INSIGHTS_RUN_ID || "run_phase4_final";
 
 const configPath = path.join(__dirname, "..", "public", "js", "config.js");

@@ -1,14 +1,14 @@
 (function () {
   function resolveApiBase() {
-    const raw = window.BLINKIT_CONFIG && window.BLINKIT_CONFIG.API_URL;
-    const configured = raw == null ? "" : String(raw).replace(/\/$/, "");
     const isLocal =
       window.location.hostname === "localhost" ||
       window.location.hostname === "127.0.0.1";
-    if (isLocal) return configured || "http://localhost:8000";
-    // Production: never call localhost from a phone — use same-origin /api proxy
-    if (!configured || configured.includes("localhost")) return "";
-    return configured;
+    if (isLocal) {
+      const cfg = (window.BLINKIT_CONFIG && window.BLINKIT_CONFIG.API_URL) || "";
+      return cfg.replace(/\/$/, "") || "http://localhost:8000";
+    }
+    // Deployed sites: always same-origin /api proxy (Vercel → Railway)
+    return "";
   }
 
   const base = resolveApiBase();
